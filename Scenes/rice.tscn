@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://de6qbptjxbgk"]
+
+[ext_resource type="PackedScene" uid="uid://cr3jngv5l3jcm" path="res://Scenes/item.tscn" id="1_txj2w"]
+[ext_resource type="Texture2D" uid="uid://cwloalwvahshb" path="res://Textures/riceTexture.jpg" id="2_aham5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5o3tr"]
+albedo_texture = ExtResource("2_aham5")
+
+[node name="Rice" type="Node3D"]
+
+[node name="RigidBody3D" parent="." instance=ExtResource("1_txj2w")]
+
+[node name="MeshInstance3D" parent="RigidBody3D" index="1"]
+material_override = SubResource("StandardMaterial3D_5o3tr")
+
+[editable path="RigidBody3D"]

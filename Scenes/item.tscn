@@ -24,7 +24,6 @@ physics_material_override = SubResource("PhysicsMaterial_jajs7")
 script = ExtResource("1_ib847")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.52882, 3.81432, 0.0996574)
 shape = SubResource("SphereShape3D_opkdd")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
