@@ -1,10 +1,2 @@
 res://Scenes/MainScene.tscn
-res://Scenes/item.tscn
-res://Scenes/player.tscn
 res://Scripts/itemScript.cs
-res://Scripts/playerScript.cs
-res://Textures/rice.tres
-res://Textures/rice.tscn
-res://Scenes/rice.tscn
-res://Textures/flooring.tres
-res://Textures/pasta.tscn

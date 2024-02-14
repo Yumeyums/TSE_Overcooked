@@ -72,7 +72,7 @@ mesh = SubResource("CylinderMesh_p2eit")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.62521, 1.71049, 2.03619)
 
 [node name="Pasta" parent="." instance=ExtResource("6_m0phi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.14576, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.05026, 2.14576, 0)
 
 [editable path="Player1"]
 [editable path="Player2"]
