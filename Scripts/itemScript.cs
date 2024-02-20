@@ -24,4 +24,8 @@ public partial class itemScript : RigidBody3D
 	public override void _Process(double delta)
 	{
 	}
+	
+	public void Interact(Node3D player){
+		GD.Print("hello");
+	}
 }

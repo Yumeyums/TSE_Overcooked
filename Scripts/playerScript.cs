@@ -7,8 +7,24 @@ public partial class playerScript : CharacterBody3D
 	public int Speed { get; set; } = 14;
 	[Export]
 	public int playerNumber;     // distinguishes between players
-
 	private Vector3 _targetVelocity = Vector3.Zero;
+	[Export]
+	public Node3D targetObject = null;
+	[Export]
+	public Node3D carriedItem = null;
+
+	private void _on_area_3d_body_entered(Node3D body)
+	{
+		GD.Print("entered ",body);
+		targetObject = body;
+	}
+	
+	private void _on_area_3d_body_exited(Node3D body)
+	{
+		GD.Print("exited ", body);
+		targetObject = null;
+	}
+
 
 	public override void _PhysicsProcess(double delta)
 	{
@@ -32,10 +48,7 @@ public partial class playerScript : CharacterBody3D
 			}
 			if (Input.IsActionPressed("interact"))
 			{
-				//if (Area3D.get_overlapping_bodies() != null)
-				//{
-					GD.Print("interact 1");   // start of code to interact with objects using Area3D, not done yet
-				//}
+				InteractWith(targetObject);
 			}
 		}
 		else if (playerNumber==2){
@@ -57,10 +70,7 @@ public partial class playerScript : CharacterBody3D
 			}
 			if (Input.IsActionPressed("interact2"))
 			{
-				//if (Area3D.get_overlapping_bodies() != null)
-				//{
-					GD.Print("interact 2");
-				//}
+				InteractWith(targetObject);
 			}
 		}
 
@@ -76,4 +86,23 @@ public partial class playerScript : CharacterBody3D
 		Velocity = _targetVelocity;
 		MoveAndSlide();
 	}
+	
+	public void InteractWith(Node3D targetObject){
+		if (carriedItem == null){
+			carriedItem = targetObject;
+			GD.Print(carriedItem);
+			carriedItem.Call("Interact",this);
+			//AddChild(carriedItem);
+			//poition
+		}
+		
+	}
 }
+
+
+
+
+
+
+
+
