@@ -1,2 +1,6 @@
 res://Scenes/MainScene.tscn
+res://Scenes/TimerNode.cs
 res://Scripts/itemScript.cs
+res://Scripts/playerScript.cs
+res://Scripts/TimerNode.cs
+res://Scenes/Timer.cs
