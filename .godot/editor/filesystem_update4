@@ -1,7 +1,5 @@
 res://Scenes/MainScene.tscn
 res://Scenes/item.tscn
 res://Scenes/player.tscn
-res://Scripts/playerScript.cs
-res://Scenes/playerScript.cs
-res://Scripts/item.cs
 res://Scripts/itemScript.cs
+res://Scripts/playerScript.cs
