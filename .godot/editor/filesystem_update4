@@ -1,7 +1,8 @@
-res://Scenes/player.tscn
-res://Scripts/itemScript.cs
-res://Scripts/playerScript.cs
 res://Scenes/MainScene.tscn
+res://Scripts/itemScript.cs
 res://Scenes/item.tscn
+res://Scenes/player.tscn
 res://Scenes/rice.tscn
-res://Textures/pasta.tscn
+res://Scenes/pasta.tscn
+res://Scripts/Interactable.cs
+res://Scripts/playerScript.cs

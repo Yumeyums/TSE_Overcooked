@@ -1,19 +1,98 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1708448471
+::res://::1708798529
 icon.svg::CompressedTexture2D::3909682475857966838::1706827404::1706827404::1::::<><>::
 README.md::TextFile::-1::1706827404::0::1::::<><>::
-::res://Scenes/::1707927497
-item.tscn::PackedScene::6024424303561955204::1707927497::0::1::::<><>::res://Scripts/itemScript.cs
-MainScene.tscn::PackedScene::4730503237767084441::1707927496::0::1::::<><>::uid://b4g5xtb37kd0b::::res://Textures/flooring.tres<>uid://c4hh1yw3l66ve::::res://Scenes/player.tscn<>uid://c8toy3fgps4l6::::res://Textures/Red.tres<>uid://cipmj8y6dm2to::::res://Textures/blue.tres<>uid://de6qbptjxbgk::::res://Scenes/rice.tscn<>uid://bhmsti4dolokp::::res://Textures/pasta.tscn
-player.tscn::PackedScene::6823241222592699378::1707927497::0::1::::<><>::res://Scripts/playerScript.cs
-rice.tscn::PackedScene::220734917980196802::1707927497::0::1::::<><>::uid://cr3jngv5l3jcm::::res://Scenes/item.tscn<>uid://cwloalwvahshb::::res://Textures/riceTexture.jpg
-::res://Scripts/::1707926237
-itemScript.cs::CSharpScript::-1::1707926237::0::1::::<>RigidBody3D<>::
-playerScript.cs::CSharpScript::-1::1707141875::0::1::::<>CharacterBody3D<>::
-::res://Textures/::1707927497
+::res://Scenes/::1708798508
+item.tscn::PackedScene::6024424303561955204::1708798508::0::1::::<><>::res://Scripts/itemScript.cs<>res://Scripts/Interactable.cs
+MainScene.tscn::PackedScene::4730503237767084441::1708798508::0::1::::<><>::uid://b4g5xtb37kd0b::::res://Textures/flooring.tres<>uid://c4hh1yw3l66ve::::res://Scenes/player.tscn<>uid://c8toy3fgps4l6::::res://Textures/Red.tres<>uid://cipmj8y6dm2to::::res://Textures/blue.tres<>uid://de6qbptjxbgk::::res://Scenes/rice.tscn<>uid://bhmsti4dolokp::::res://Scenes/pasta.tscn
+pasta.tscn::PackedScene::2903642423303627507::1708798508::0::1::::<><>::uid://cr3jngv5l3jcm::::res://Scenes/item.tscn<>uid://bnaoton3oihbx::::res://Textures/pastaTexture.jpg
+player.tscn::PackedScene::6823241222592699378::1708798508::0::1::::<><>::res://Scripts/playerScript.cs
+rice.tscn::PackedScene::220734917980196802::1708798508::0::1::::<><>::uid://cr3jngv5l3jcm::::res://Scenes/item.tscn<>uid://cwloalwvahshb::::res://Textures/riceTexture.jpg
+::res://Scripts/::1708798529
+Interactable.cs::CSharpScript::-1::1708795562::0::1::::<>Node3D<>::
+itemScript.cs::CSharpScript::-1::1708795499::0::1::::<>RigidBody3D<>::
+playerScript.cs::CSharpScript::-1::1708797670::0::1::::<>CharacterBody3D<>::
+::res://Textures/::1708797670
 blue.tres::StandardMaterial3D::5366064230618570864::1707141875::0::1::::<><>::
-flooring.tres::StandardMaterial3D::4436146999567014511::1707148845::0::1::::<><>::
-pasta.tscn::PackedScene::2903642423303627507::1707927497::0::1::::<><>::uid://cr3jngv5l3jcm::::res://Scenes/item.tscn<>uid://bnaoton3oihbx::::res://Textures/pastaTexture.jpg
-pastaTexture.jpg::CompressedTexture2D::3299760375671028149::1707149001::1707149005::1::::<><>::
+flooring.tres::StandardMaterial3D::4436146999567014511::1708795462::0::1::::<><>::
+pastaTexture.jpg::CompressedTexture2D::3299760375671028149::1708795462::1708795462::1::::<><>::
 Red.tres::StandardMaterial3D::7129190760392079625::1707141875::0::1::::<><>::
-riceTexture.jpg::CompressedTexture2D::6340554733313291407::1707148609::1707148667::1::::<><>::
+riceTexture.jpg::CompressedTexture2D::6340554733313291407::1708795462::1708795462::1::::<><>::
+::res://Undercooked/::1708798498
+::res://Undercooked/Source Meshes/::1708798498
+::res://Undercooked/Source Meshes/Meshes/::1708798508
+Bin_Texture.png::CompressedTexture2D::1880649474073336154::1708798498::1708798529::1::::<><>::
+FireExtinguisher.png::CompressedTexture2D::1300710682522276184::1708798498::1708798529::1::::<><>::
+::res://Undercooked/Source Meshes/Meshes/PC Computer - Overcooked - Cheese/::1708798498
+::res://Undercooked/Source Meshes/Meshes/PC Computer - Overcooked - Cheese/Cheese/::1708798523
+Cheese.png::CompressedTexture2D::4986602724294342224::1708798498::1708798529::1::::<><>::
+Cheese_Raw.obj::Mesh::8273897423651286736::1708798498::1708798530::1::::<><>::uid://cdbsva1l0b2si::::res://Undercooked/Source Meshes/Meshes/PC Computer - Overcooked - Cheese/Cheese/Cheese.png
+::res://Undercooked/Source Meshes/Meshes/PC Computer - Overcooked - Mushroom/::1708798523
+Mushroom.obj::Mesh::1820465533152354617::1708798498::1708798530::1::::<><>::uid://pn1cbkwwbwm2::::res://Undercooked/Source Meshes/Meshes/PC Computer - Overcooked - Mushroom/Mushroom.png
+Mushroom.png::CompressedTexture2D::1081251847773438899::1708798498::1708798529::1::::<><>::
+::res://Undercooked/Source Meshes/Meshes/PC Computer - Overcooked - Onion/::1708798498
+::res://Undercooked/Source Meshes/Meshes/PC Computer - Overcooked - Onion/Onion/::1708798523
+Onion.obj::Mesh::5726919692649411272::1708798498::1708798530::1::::<><>::uid://c7xbsemtv4yq3::::res://Undercooked/Source Meshes/Meshes/PC Computer - Overcooked - Onion/Onion/Onion.png
+Onion.png::CompressedTexture2D::7066458142953225652::1708798498::1708798529::1::::<><>::
+::res://Undercooked/Source Meshes/Meshes/PC Computer - Overcooked - Potato/::1708798498
+::res://Undercooked/Source Meshes/Meshes/PC Computer - Overcooked - Potato/Potato/::1708798524
+Chips_Raw.obj::Mesh::8759092792651063724::1708798498::1708798530::1::::<><>::uid://bi70p61vhf58i::::res://Undercooked/Source Meshes/Meshes/PC Computer - Overcooked - Potato/Potato/Potato.png
+Potato.png::CompressedTexture2D::3015537902007507866::1708798498::1708798529::1::::<><>::
+::res://Undercooked/Source Meshes/Meshes/PC Computer - Overcooked - Tomato/::1708798498
+::res://Undercooked/Source Meshes/Meshes/PC Computer - Overcooked - Tomato/Tomato/::1708798524
+Tomato.obj::Mesh::767399535566303228::1708798498::1708798530::1::::<><>::uid://bbosuoc3wl03u::::res://Undercooked/Source Meshes/Meshes/PC Computer - Overcooked - Tomato/Tomato/Tomato.png
+Tomato.png::CompressedTexture2D::2486640177354428904::1708798498::1708798529::1::::<><>::
+::res://Undercooked/Undercooked/::1708798498
+::res://Undercooked/Undercooked/Undercooked/::1708798498
+::res://Undercooked/Undercooked/Undercooked/Basic_Cabinet/::1708798518
+M_Cabinet_Body.gltf::PackedScene::4952017039724960344::1708798498::1708798533::1::::<><>::
+M_Cabinet_Door.gltf::PackedScene::4841572271620338788::1708798498::1708798533::1::::<><>::
+M_Cabinet_Handle.gltf::PackedScene::4007821743260519117::1708798498::1708798533::1::::<><>::
+M_Worktop.gltf::PackedScene::8780743363132615008::1708798498::1708798533::1::::<><>::
+M_Worktop_Inst.gltf::PackedScene::1625004339042896978::1708798498::1708798534::1::::<><>::
+::res://Undercooked/Undercooked/Undercooked/CompleteStation/::1708798517
+M_Arrows.gltf::PackedScene::6488676444743914318::1708798498::1708798534::1::::<><>::
+M_CabinetBody.gltf::PackedScene::5411619758169244928::1708798498::1708798534::1::::<><>::
+M_Worktop.gltf::PackedScene::6032177519191382762::1708798498::1708798534::1::::<><>::
+::res://Undercooked/Undercooked/Undercooked/Cooker/::1708798516
+M_CookerBody.gltf::PackedScene::2895976197669481120::1708798498::1708798535::1::::<><>::
+M_CookerControls.gltf::PackedScene::4637426416919836778::1708798498::1708798535::1::::<><>::
+M_CookerHob.gltf::PackedScene::4922812453049429257::1708798498::1708798535::1::::<><>::
+M_CookerTop.gltf::PackedScene::4188371646593995668::1708798498::1708798535::1::::<><>::
+::res://Undercooked/Undercooked/Undercooked/CookPot/::1708798515
+M_CookPot.gltf::PackedScene::4192844014793726816::1708798498::1708798535::1::::<><>::
+::res://Undercooked/Undercooked/Undercooked/CuttingBoard/::1708798510
+M_CuttingBoard.gltf::PackedScene::5962679781063263648::1708798498::1708798536::1::::<><>::
+::res://Undercooked/Undercooked/Undercooked/Knife/::1708798510
+M_Knife.gltf::PackedScene::2721765265225103790::1708798498::1708798536::1::::<><>::
+::res://Undercooked/Undercooked/Undercooked/model_resource/::1708798498
+::res://Undercooked/Undercooked/Undercooked/model_resource/Bin/::1708798509
+Bin_Texture.PNG::CompressedTexture2D::5931391555468702720::1708798498::1708798529::1::::<><>::
+Bin_Texture_Mat.gltf::PackedScene::5633594352465341255::1708798498::1708798536::1::::<><>::uid://c3wffbpjnq66d::::res://Undercooked/Undercooked/Undercooked/model_resource/Bin/Bin_Texture_Mat_BaseColor.png
+Bin_Texture_Mat_BaseColor.png::CompressedTexture2D::6783857889896154061::1708798498::1708798537::1::::<><>::
+Black.gltf::PackedScene::162988546333209406::1708798498::1708798536::1::::<><>::uid://cqrhfgdh7tejg::::res://Undercooked/Undercooked/Undercooked/model_resource/Bin/Bin_Texture.png
+::res://Undercooked/Undercooked/Undercooked/model_resource/Extinguisher/::1708798510
+FireExtinguisher1.gltf::PackedScene::2698326158842968731::1708798498::1708798536::1::::<><>::uid://bxtmwelxdgbm5::::res://Undercooked/Undercooked/Undercooked/model_resource/Extinguisher/FireExtinguisher_ncl1_1.png
+FireExtinguisher_ncl1_1.png::CompressedTexture2D::4040755384209597242::1708798498::1708798537::1::::<><>::
+FireExtinguisher_ncl1_1_Mat.gltf::PackedScene::2553438618247317377::1708798498::1708798537::1::::<><>::uid://r54drr0wn0k::::res://Undercooked/Undercooked/Undercooked/model_resource/Extinguisher/FireExtinguisher_ncl1_1_Mat_BaseColor.png
+FireExtinguisher_ncl1_1_Mat_BaseColor.png::CompressedTexture2D::36967904263668784::1708798498::1708798537::1::::<><>::
+::res://Undercooked/Undercooked/Undercooked/model_resource/Potato/::1708798510
+M_Potato.gltf::PackedScene::4266355033704587701::1708798498::1708798531::1::::<><>::uid://bbwhjng5680ci::::res://Undercooked/Undercooked/Undercooked/model_resource/Potato/Potato.png
+Potato.png::CompressedTexture2D::2502467622493151336::1708798498::1708798537::1::::<><>::
+::res://Undercooked/Undercooked/Undercooked/model_resource/Tomato/::1708798511
+M_Tomato.gltf::PackedScene::4295202253829364007::1708798498::1708798531::1::::<><>::uid://cms3x0fgufrbe::::res://Undercooked/Undercooked/Undercooked/model_resource/Tomato/Tomato.png
+TEX_Tomato.PNG::CompressedTexture2D::6208804103982675982::1708798498::1708798529::1::::<><>::
+Tomato.png::CompressedTexture2D::5654008760780271442::1708798498::1708798537::1::::<><>::
+::res://Undercooked/Undercooked/Undercooked/Plate/::1708798511
+M_Plate.gltf::PackedScene::4087779101595368094::1708798498::1708798532::1::::<><>::
+::res://Undercooked/Undercooked/Undercooked/PlateWarmer/::1708798512
+principledshader.gltf::PackedScene::1300849219856598339::1708798498::1708798532::1::::<><>::
+principledshader_ncl1_1.gltf::PackedScene::8799902110302162177::1708798498::1708798533::1::::<><>::
+principledshader_ncl1_2.gltf::PackedScene::5949118098002255649::1708798498::1708798532::1::::<><>::
+::res://Undercooked/Undercooked/Undercooked/Sink/::1708798513
+M_Drainer.gltf::PackedScene::3315444994181630108::1708798498::1708798531::1::::<><>::
+M_SinkCabinet.gltf::PackedScene::6134238735230203491::1708798498::1708798531::1::::<><>::
+M_SinkTap.gltf::PackedScene::8841696985895535844::1708798498::1708798531::1::::<><>::
+M_SinkTop.gltf::PackedScene::1003099664248606462::1708798498::1708798530::1::::<><>::
+::res://Undercooked/Undercooked/Undercooked/WasteBasket/::1708798513
+M_WasteBasket.gltf::PackedScene::5536433766894428573::1708798498::1708798530::1::::<><>::

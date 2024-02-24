@@ -28,3 +28,6 @@ shape = SubResource("SphereShape3D_opkdd")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("SphereMesh_0d7dj")
+surface_material_override/0 = SubResource("StandardMaterial3D_3n3jd")
+
+[node name="Interactable" type="Node3D" parent="."]
