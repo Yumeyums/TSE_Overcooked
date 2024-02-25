@@ -22,19 +22,36 @@ public partial class playerScript : CharacterBody3D
 			GD.Print("entered ", body.GetParent().Name);
 			BodiesInRange.Add(body);
 		}
-		/*
-		double shortestDist = 100.0;
+	
+		/*double shortestDist = 100.0;
 		for (int i = 0; i <BodiesInRange.Count;i++){
-			double dist = Convert.ToDouble(BodiesInRange[i].Call("getDistance",this));
-
+			//double dist = BodiesInRange[i].Call("getDistance",this);
 			if(dist < shortestDist){
 				shortestDist = dist;
 				targetNode = BodiesInRange[i];
 				GD.Print(BodiesInRange.Count);
 			}
-		}
-		*/
+			*/
+		//}
+		
+		//GD.Print(body.Call("getDistance",this));
 		targetNode = BodiesInRange[0];
+	}
+	
+	public bool isTargetNode(Node3D node){
+		if (node == BodiesInRange[0]){
+			return true;
+		}
+		return false;
+		/*
+		bool contained = false;
+		for (int i = 0; i <BodiesInRange.Count;i++){
+			if (BodiesInRange[i] == node){
+				contained = true;
+			}
+		}
+		return contained;
+		*/
 	}
 	
 	private void _on_area_3d_body_exited(Node3D body)

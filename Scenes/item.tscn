@@ -10,7 +10,9 @@ absorbent = true
 [sub_resource type="SphereShape3D" id="SphereShape3D_opkdd"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3n3jd"]
-albedo_color = Color(1, 0.290196, 1, 1)
+resource_local_to_scene = true
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.192157)
 
 [sub_resource type="SphereMesh" id="SphereMesh_0d7dj"]
 material = SubResource("StandardMaterial3D_3n3jd")
