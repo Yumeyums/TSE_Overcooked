@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://q3qnab3kenk4"]
 
-[ext_resource type="Script" path="res://Scenes/CounterItemDetecter.cs" id="1_7re7s"]
+[ext_resource type="Script" path="res://Scripts/CounterItemDetecter.cs" id="1_7re7s"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kc8ty"]
 

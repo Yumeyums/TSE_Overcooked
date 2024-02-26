@@ -1,12 +1,15 @@
-[gd_scene load_steps=12 format=3 uid="uid://b8nqxx7nh64ev"]
+[gd_scene load_steps=17 format=3 uid="uid://b8nqxx7nh64ev"]
 
 [ext_resource type="Material" uid="uid://b4g5xtb37kd0b" path="res://Textures/flooring.tres" id="1_2otum"]
 [ext_resource type="PackedScene" uid="uid://c4hh1yw3l66ve" path="res://Scenes/player.tscn" id="1_ecct4"]
 [ext_resource type="Material" uid="uid://c8toy3fgps4l6" path="res://Textures/Red.tres" id="2_lb21v"]
 [ext_resource type="Material" uid="uid://cipmj8y6dm2to" path="res://Textures/blue.tres" id="3_3gm78"]
 [ext_resource type="PackedScene" uid="uid://de6qbptjxbgk" path="res://Scenes/rice.tscn" id="5_roetk"]
-[ext_resource type="PackedScene" uid="uid://bhmsti4dolokp" path="res://Textures/pasta.tscn" id="6_m0phi"]
+[ext_resource type="Texture2D" uid="uid://cwloalwvahshb" path="res://Textures/riceTexture.jpg" id="6_e8q7p"]
+[ext_resource type="PackedScene" uid="uid://bhmsti4dolokp" path="res://Scenes/pasta.tscn" id="6_m0phi"]
+[ext_resource type="Texture2D" uid="uid://bnaoton3oihbx" path="res://Textures/pastaTexture.jpg" id="7_dffxj"]
 [ext_resource type="PackedScene" uid="uid://q3qnab3kenk4" path="res://Scenes/counter.tscn" id="7_vmktg"]
+[ext_resource type="Script" path="res://Scripts/TimerScript.cs" id="8_cssoe"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dya7d"]
 size = Vector3(60, 2, 60)
@@ -20,6 +23,12 @@ resource_local_to_scene = true
 [sub_resource type="CylinderMesh" id="CylinderMesh_p2eit"]
 resource_local_to_scene = true
 material = ExtResource("3_3gm78")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vde8b"]
+albedo_texture = ExtResource("6_e8q7p")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nd7q1"]
+albedo_texture = ExtResource("7_dffxj")
 
 [node name="MainScene" type="Node3D"]
 
@@ -53,7 +62,6 @@ collision_mask = 3
 playerNumber = 1
 
 [node name="BodyMesh" parent="Player1" index="2"]
-visible = true
 material_override = ExtResource("2_lb21v")
 mesh = SubResource("CylinderMesh_nmmsb")
 
@@ -65,20 +73,45 @@ collision_mask = 3
 playerNumber = 2
 
 [node name="BodyMesh" parent="Player2" index="2"]
-visible = true
 material_override = ExtResource("3_3gm78")
 mesh = SubResource("CylinderMesh_p2eit")
 
 [node name="Rice" parent="." instance=ExtResource("5_roetk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.62521, 1.71049, 2.03619)
 
+[node name="MeshInstance3D" parent="Rice/RigidBody3D" index="1"]
+material_override = null
+surface_material_override/0 = SubResource("StandardMaterial3D_vde8b")
+
 [node name="Pasta" parent="." instance=ExtResource("6_m0phi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.14576, 0)
 
+[node name="MeshInstance3D" parent="Pasta/RigidBody3D" index="1"]
+material_override = null
+surface_material_override/0 = SubResource("StandardMaterial3D_nd7q1")
+
 [node name="StaticBody3D" parent="." instance=ExtResource("7_vmktg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 5)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("8_cssoe")
+
+[node name="Timer" type="Timer" parent="Control"]
+
+[node name="TimeRemaining" type="Label" parent="Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 100
+text = "60"
 
 [editable path="Player1"]
 [editable path="Player2"]
 [editable path="Rice"]
 [editable path="Rice/RigidBody3D"]
+[editable path="Pasta"]
+[editable path="Pasta/RigidBody3D"]

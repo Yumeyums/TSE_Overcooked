@@ -10,6 +10,8 @@ absorbent = true
 [sub_resource type="SphereShape3D" id="SphereShape3D_opkdd"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3n3jd"]
+resource_local_to_scene = true
+transparency = 1
 albedo_color = Color(1, 0.290196, 1, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_0d7dj"]
@@ -28,3 +30,5 @@ shape = SubResource("SphereShape3D_opkdd")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("SphereMesh_0d7dj")
+
+[node name="Interactable" type="Node3D" parent="."]
