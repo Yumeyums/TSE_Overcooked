@@ -90,7 +90,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.14576, 0)
 material_override = null
 surface_material_override/0 = SubResource("StandardMaterial3D_nd7q1")
 
-[node name="StaticBody3D" parent="." instance=ExtResource("7_vmktg")]
+[node name="Counter" parent="." instance=ExtResource("7_vmktg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 5)
 
 [node name="Control" type="Control" parent="."]

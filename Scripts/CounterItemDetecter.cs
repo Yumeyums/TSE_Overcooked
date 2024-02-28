@@ -3,12 +3,18 @@ using System;
 
 public partial class CounterItemDetecter : Area3D
 {
-	private void _on_body_entered(Node3D body)
+	[Export]
+	private bool ItemIn = false;
+	
+	private void _on_body_entered(RigidBody3D body)
 	{
-		if (body.Name == "Player1" || body.Name == "Player2")
+		if (body.GetNode("Interactable") != null && ItemIn == false)
 		{
+			body.Position = this.GlobalPosition;
+			body.Sleeping = true;
+			ItemIn = true;
+			
 			GD.Print("Contact");
-			body.Position = this.Position;
 		}
 	}
 }
