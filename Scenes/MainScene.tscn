@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://b8nqxx7nh64ev"]
+[gd_scene load_steps=18 format=3 uid="uid://b8nqxx7nh64ev"]
 
 [ext_resource type="Material" uid="uid://b4g5xtb37kd0b" path="res://Textures/flooring.tres" id="1_2otum"]
 [ext_resource type="PackedScene" uid="uid://c4hh1yw3l66ve" path="res://Scenes/player.tscn" id="1_ecct4"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bnaoton3oihbx" path="res://Textures/pastaTexture.jpg" id="7_dffxj"]
 [ext_resource type="PackedScene" uid="uid://q3qnab3kenk4" path="res://Scenes/counter.tscn" id="7_vmktg"]
 [ext_resource type="Script" path="res://Scripts/TimerScript.cs" id="8_cssoe"]
+[ext_resource type="Material" uid="uid://cqtgpa6aqanhb" path="res://Textures/counters.tres" id="11_tnqej"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dya7d"]
 size = Vector3(60, 2, 60)
@@ -34,7 +35,7 @@ albedo_texture = ExtResource("7_dffxj")
 
 [node name="Ground" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.08426, 0)
-collision_mask = 6
+collision_mask = 14
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
 shape = SubResource("BoxShape3D_dya7d")
@@ -57,8 +58,7 @@ size = 11.8838
 
 [node name="Player1" parent="." instance=ExtResource("1_ecct4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1, 0)
-collision_layer = 2
-collision_mask = 3
+collision_mask = 11
 playerNumber = 1
 
 [node name="BodyMesh" parent="Player1" index="2"]
@@ -68,8 +68,7 @@ mesh = SubResource("CylinderMesh_nmmsb")
 [node name="Player2" parent="." instance=ExtResource("1_ecct4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1, 0)
 disable_mode = 1
-collision_layer = 2
-collision_mask = 3
+collision_mask = 11
 playerNumber = 2
 
 [node name="BodyMesh" parent="Player2" index="2"]
@@ -84,14 +83,11 @@ material_override = null
 surface_material_override/0 = SubResource("StandardMaterial3D_vde8b")
 
 [node name="Pasta" parent="." instance=ExtResource("6_m0phi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.14576, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.2765, 0)
 
 [node name="MeshInstance3D" parent="Pasta/RigidBody3D" index="1"]
 material_override = null
 surface_material_override/0 = SubResource("StandardMaterial3D_nd7q1")
-
-[node name="StaticBody3D" parent="." instance=ExtResource("7_vmktg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 5)
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -109,9 +105,17 @@ offset_bottom = 23.0
 theme_override_font_sizes/font_size = 100
 text = "60"
 
+[node name="counter" parent="." instance=ExtResource("7_vmktg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.4, 0)
+
+[node name="MeshInstance3D" parent="counter/StaticBody3D" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0144938, 0.0143442, -0.0123012)
+surface_material_override/0 = ExtResource("11_tnqej")
+
 [editable path="Player1"]
 [editable path="Player2"]
 [editable path="Rice"]
 [editable path="Rice/RigidBody3D"]
 [editable path="Pasta"]
 [editable path="Pasta/RigidBody3D"]
+[editable path="counter"]

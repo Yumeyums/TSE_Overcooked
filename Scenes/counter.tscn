@@ -1,34 +1,40 @@
-[gd_scene load_steps=5 format=3 uid="uid://q3qnab3kenk4"]
+[gd_scene load_steps=6 format=3 uid="uid://q3qnab3kenk4"]
 
-[ext_resource type="Script" path="res://Scripts/CounterItemDetecter.cs" id="1_7re7s"]
+[ext_resource type="Script" path="res://Scenes/counterScript.cs" id="1_bnker"]
+[ext_resource type="Material" uid="uid://cqtgpa6aqanhb" path="res://Textures/counters.tres" id="1_l3erg"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kc8ty"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_on8rf"]
+material = ExtResource("1_l3erg")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ccgru"]
 margin = 0.4
-size = Vector3(2, 1, 2)
+size = Vector3(1, 0.2, 1)
 
-[node name="Node3D" type="Node3D"]
+[node name="Counter" type="Node3D"]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
-collision_layer = 2
-collision_mask = 3
+collision_layer = 8
+collision_mask = 14
+script = ExtResource("1_bnker")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 shape = SubResource("BoxShape3D_kc8ty")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00871742, 0.00128174, -0.00500941)
+material_override = ExtResource("1_l3erg")
 mesh = SubResource("BoxMesh_on8rf")
 
-[node name="Area3D" type="Area3D" parent="."]
+[node name="Area3D" type="Area3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
-collision_layer = 2
-collision_mask = 3
-script = ExtResource("1_7re7s")
+collision_layer = 8
+collision_mask = 4
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D/Area3D"]
 shape = SubResource("BoxShape3D_ccgru")
 
-[connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]
+[node name="Interactable" type="Node3D" parent="StaticBody3D"]
+
+[connection signal="body_entered" from="StaticBody3D/Area3D" to="StaticBody3D" method="_on_area_3d_body_entered"]
