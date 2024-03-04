@@ -1,10 +1,5 @@
-res://Scenes/item.tscn
-res://Scripts/itemScript.cs
-res://Scripts/playerScript.cs
-res://Scenes/player.tscn
-res://Scenes/rice.tscn
-res://Scenes/pasta.tscn
-res://Scenes/counter.tscn
 res://Scenes/MainScene.tscn
+res://Scripts/itemScript.cs
 res://Scripts/CounterItemDetecter.cs
+res://Scripts/playerScript.cs
 res://Scripts/TimerScript.cs
