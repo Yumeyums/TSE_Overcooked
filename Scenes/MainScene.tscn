@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b13oxrfjwlg6x"]
+[gd_scene load_steps=17 format=3 uid="uid://b13oxrfjwlg6x"]
 
 [ext_resource type="Material" uid="uid://b4g5xtb37kd0b" path="res://Textures/flooring.tres" id="1_2otum"]
 [ext_resource type="PackedScene" uid="uid://c4hh1yw3l66ve" path="res://Scenes/player.tscn" id="1_ecct4"]
@@ -59,6 +59,7 @@ size = 11.8838
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1, 0)
 collision_layer = 2
 collision_mask = 3
+playerNumber = 1
 
 [node name="BodyMesh" parent="Player1" index="2"]
 material_override = ExtResource("2_lb21v")
@@ -83,7 +84,7 @@ material_override = null
 surface_material_override/0 = SubResource("StandardMaterial3D_vde8b")
 
 [node name="Pasta" parent="." instance=ExtResource("6_m0phi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.2765, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.07582, 0)
 
 [node name="MeshInstance3D" parent="Pasta/RigidBody3D" index="1"]
 material_override = null

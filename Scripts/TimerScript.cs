@@ -1,8 +1,10 @@
 using Godot;
+using System;
 
 public partial class TimerScript : Node
 {
-	private int seconds = 0;
+	private double seconds = 0;
+	private int secondsInt;
 	private int defaultSeconds = 60;
 
 	// Called when the node enters the scene tree for the first time.
@@ -13,12 +15,13 @@ public partial class TimerScript : Node
 	}
 
 	// Called when the timer signals a timeout.
-private void OnTimerTimeout()
+public override void _Process(double delta)
 {
-	GetNode<Label>("TimeRemaining").Text = seconds.ToString();
+	GetNode<Label>("TimeRemaining").Text = secondsInt.ToString();
 	if (seconds > 0)
 	{
-		seconds--;
+		seconds -= delta;
+		secondsInt = (int)seconds;
 	}
 }
 

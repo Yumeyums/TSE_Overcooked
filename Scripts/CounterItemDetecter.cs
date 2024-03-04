@@ -12,7 +12,7 @@ public partial class CounterItemDetecter : Area3D
 		if (body.GetNode("Interactable") != null && ItemIn == false)
 		{
 
-			body.Position = this.GlobalPosition;
+			body.Position = this.GlobalPosition - new Vector3(0f, 2.5f, 0f);
 			body.Sleeping = true;
 			ItemIn = true;
 			
