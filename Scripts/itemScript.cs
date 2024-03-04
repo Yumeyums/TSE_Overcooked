@@ -48,7 +48,7 @@ public partial class itemScript : RigidBody3D
 		}
 	}
 	
-	public void targetted(){
+	public void targeted(){
 		var material = mesh.GetSurfaceOverrideMaterial(0);
 		Color c = new Color(1, 0, 0,0.8f);
 		var overrideMaterial = material.Duplicate() as StandardMaterial3D;
@@ -56,7 +56,7 @@ public partial class itemScript : RigidBody3D
 		mesh.SetSurfaceOverrideMaterial(0, overrideMaterial);
 	}
 	
-	public void untargetted(){
+	public void untargeted(){
 		var material = mesh.GetSurfaceOverrideMaterial(0);
 		Color c = new Color(1, 1, 1,0.8f);
 		var overrideMaterial = material.Duplicate() as StandardMaterial3D;

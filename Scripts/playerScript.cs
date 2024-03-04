@@ -60,9 +60,9 @@ public partial class playerScript : CharacterBody3D
 	}
 
 	public void changeTarget(Node3D newTarget, Node3D oldTarget){
-		if(oldTarget != null) { oldTarget.Call("untargetted");}
+		if(oldTarget != null) { oldTarget.Call("untargeted");}
 		if(newTarget != null) { 
-			newTarget.Call("targetted");
+			newTarget.Call("targeted");
 			targetNode = newTarget;
 			}
 		else{
@@ -107,7 +107,7 @@ public partial class playerScript : CharacterBody3D
 			}
 			if (Input.IsActionJustPressed("interact"))
 			{
-				InteractWith(BodiesInRange[0]);
+				InteractWith(targetNode);
 			}
 						if (!Input.IsActionPressed("move_forward") 	&&
 				!Input.IsActionPressed("move_back")		&&
@@ -145,7 +145,7 @@ public partial class playerScript : CharacterBody3D
 			}
 			if (Input.IsActionJustPressed("interact2"))
 			{
-				InteractWith(BodiesInRange[0]);
+				InteractWith(targetNode);
 			}
 			if (!Input.IsActionPressed("move_forward2") 	&&
 				!Input.IsActionPressed("move_back2")		&&
