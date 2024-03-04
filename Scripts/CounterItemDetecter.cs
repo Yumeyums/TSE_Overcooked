@@ -5,6 +5,7 @@ public partial class CounterItemDetecter : Area3D
 {
 	[Export]
 	private bool ItemIn = false;
+
 	
 	private void _on_body_entered(RigidBody3D body)
 	{

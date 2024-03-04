@@ -19,58 +19,55 @@ public partial class playerScript : CharacterBody3D
 	public Godot.Collections.Array<Node3D> BodiesInRange = new Godot.Collections.Array<Node3D>();
 	public Node3D targetNode;
 	
-public void _on_area_3d_body_entered(Node3D body)
-{
-	if (body.GetNode("Interactable") != null){
-			GD.Print("entered ", body.GetParent().Name);
-			BodiesInRange.Add(body);
-		}
-		/*
-		double shortestDist = 100.0;
-
-		/*double shortestDist = 100.0;
-		for (int i = 0; i <BodiesInRange.Count;i++){
-			double dist = Convert.ToDouble(BodiesInRange[i].Call("getDistance",this));
-			//double dist = BodiesInRange[i].Call("getDistance",this);
-			if(dist < shortestDist){
-				shortestDist = dist;
-				targetNode = BodiesInRange[i];
-				GD.Print(BodiesInRange.Count);
+	public void _on_area_3d_body_entered(Node3D body)
+	{
+		if (body.GetNode("Interactable") != null){
+			//if (carriedItem==null){
+				//if(body.GetParent().Name != "counter"){
+					BodiesInRange.Add(body);
+					if(targetNode != BodiesInRange[0]){
+						changeTarget(BodiesInRange[0], targetNode);
+					}
+				//}
+				/*
+			}
+			else{
+				BodiesInRange.Add(body);
+				if(targetNode != BodiesInRange[0]){
+					changeTarget(BodiesInRange[0], targetNode);
+				}
 			}
 			*/
-		//}
+			GD.Print("entered ", body.GetParent().Name);
+		}
+	}
 
-		//GD.Print(body.Call("getDistance",this));
-		targetNode = BodiesInRange[0];
-}
-
-
-public void _on_area_3d_body_exited(Node3D body)
-{
+	public void _on_area_3d_body_exited(Node3D body)
+	{
 		if(BodiesInRange.IndexOf(body)!= -1){
 			GD.Print("exited ", body.GetParent().Name);
 			BodiesInRange.Remove(body);
-		}
-		targetNode = BodiesInRange[0];
-}
-	
-	public bool isTargetNode(Node3D node){
-		if (node == BodiesInRange[0]){
-			return true;
-		}
-		return false;
-		/*
-		bool contained = false;
-		for (int i = 0; i <BodiesInRange.Count;i++){
-			if (BodiesInRange[i] == node){
-				contained = true;
+			if (BodiesInRange.Count == 0){
+				changeTarget(null, targetNode);
+			}
+			else{
+				if(targetNode != BodiesInRange[0]){
+					changeTarget(BodiesInRange[0], targetNode);
+				}
 			}
 		}
-		return contained;
-		*/
 	}
-	
 
+	public void changeTarget(Node3D newTarget, Node3D oldTarget){
+		if(oldTarget != null) {oldTarget.GetNode("Interactable").Call("untargeted");}
+		if(newTarget != null) { 
+			newTarget.GetNode("Interactable").Call("targeted");
+			targetNode = newTarget;
+			}
+		else{
+			targetNode = null;
+			}
+		}
 
 	public override void _PhysicsProcess(double delta)
 	{
@@ -93,7 +90,7 @@ public void _on_area_3d_body_exited(Node3D body)
 			{
 				direction.Z -= 1.0f;  //Sets the Z axis direction to negative
 			}
-			if (Input.IsActionPressed("interact"))
+			if (Input.IsActionJustPressed("interact"))
 			{
 				InteractWith(BodiesInRange[0]);
 			}
@@ -131,7 +128,7 @@ public void _on_area_3d_body_exited(Node3D body)
 			{
 				direction.Z -= 1.0f;
 			}
-			if (Input.IsActionPressed("interact2"))
+			if (Input.IsActionJustPressed("interact2"))
 			{
 				InteractWith(BodiesInRange[0]);
 			}
@@ -172,21 +169,18 @@ public void _on_area_3d_body_exited(Node3D body)
 		MoveAndSlide();
 	}
 	
-	public Node3D getTargetNode(){
-		return targetNode;
-	}
-	
 	public void InteractWith(Node3D body){
-		if (carriedItem == null){
-			carriedItem = body;
-			GD.Print("pickUp");
-			carriedItem.Call("Interact",this);
+		GD.Print("called");
+		if (body.GetParent().Name != "counter"){
+			if(carriedItem == null){
+				body.Call("Interact",this, true); //emptyHands
+				carriedItem = body;
+			}
+			else{
+				body.Call("Interact",this, false); //not emptyHands
+				carriedItem = null;
+			}
 		}
-		/*else{
-			carriedItem = null;
-			GD.Print("Drop");
-		}
-		*/
 		
 	}
 }

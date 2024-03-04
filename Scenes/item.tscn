@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://cr3jngv5l3jcm"]
+[gd_scene load_steps=7 format=3 uid="uid://cr3jngv5l3jcm"]
 
 [ext_resource type="Script" path="res://Scripts/itemScript.cs" id="1_ib847"]
+[ext_resource type="Script" path="res://Scripts/InteractableScript.cs" id="2_xm3yl"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_jajs7"]
 friction = 5.0
@@ -32,3 +33,4 @@ shape = SubResource("SphereShape3D_opkdd")
 mesh = SubResource("SphereMesh_0d7dj")
 
 [node name="Interactable" type="Node3D" parent="."]
+script = ExtResource("2_xm3yl")

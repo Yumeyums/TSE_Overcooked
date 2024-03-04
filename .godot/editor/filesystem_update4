@@ -3,3 +3,10 @@ res://Scripts/itemScript.cs
 res://Scripts/CounterItemDetecter.cs
 res://Scripts/playerScript.cs
 res://Scripts/TimerScript.cs
+res://Scenes/InteractableScript.cs
+res://Scenes/counter.tscn
+res://Scenes/pasta.tscn
+res://Scenes/player.tscn
+res://Scenes/item.tscn
+res://Textures/counter.tres
+res://Scripts/InteractableScript.cs
