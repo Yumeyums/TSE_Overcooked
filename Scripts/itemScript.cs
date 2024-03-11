@@ -29,12 +29,30 @@ public partial class itemScript : RigidBody3D
 		return dist;
 	}
 	*/
-
-	public void Interact(Node3D player, bool handsEmpty){
-		if (handsEmpty == true){
-			GD.Print("yoink");
-			heldBy = player;
-			GlobalPosition = player.GlobalPosition + new Vector3(0f,1.5f,0f);
+	
+	public override void _PhysicsProcess(double delta)
+	{
+		if (heldBy != null){
+			this.Sleeping = true;
+			GlobalPosition = heldBy.GlobalPosition + heldBy.GlobalTransform.Basis.Z*-1;
 		}
+	}
+
+	public void PickUp(Node3D player){
+		if (heldBy != null){
+			if (heldBy.GetParent().Name == "Counter"){
+				heldBy.Call("RemoveFromCounter");
+			}
+		}
+		heldBy = player;
+		this.Sleeping = true;
+	}
+		
+	public void Drop(){
+		heldBy = null;
+	}
+	
+	public void DropOnCounter(Node3D counter){
+		heldBy = counter;
 	}
 }
