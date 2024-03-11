@@ -17,7 +17,6 @@ public partial class InteractableScript : Node3D
 	}
 	
 	public void targeted(){
-		GD.Print("targeted");
 		var material = mesh.GetSurfaceOverrideMaterial(0);
 		Color c = new Color(1, 0, 0,0.8f);
 		var overrideMaterial = material.Duplicate() as StandardMaterial3D;
@@ -26,7 +25,6 @@ public partial class InteractableScript : Node3D
 	}
 
 	public void untargeted(){
-		GD.Print("untargeted");
 		var material = mesh.GetSurfaceOverrideMaterial(0);
 		Color c = new Color(1, 1, 1,0.8f);
 		var overrideMaterial = material.Duplicate() as StandardMaterial3D;

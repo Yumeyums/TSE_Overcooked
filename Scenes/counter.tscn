@@ -10,7 +10,7 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ccgru"]
 margin = 0.4
-size = Vector3(2, 1, 2)
+size = Vector3(1, 0.2, 1)
 
 [node name="Node3D" type="Node3D"]
 
