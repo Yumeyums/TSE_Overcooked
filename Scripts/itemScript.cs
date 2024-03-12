@@ -3,21 +3,9 @@ using System;
 public partial class itemScript : RigidBody3D
 {
 	[Export]
-	public bool canCook;
-	[Export]
-	public bool canBoil;
-	[Export]
-	public bool canChop;
-	[Export]
-	public bool canClean;
-	[Export]
-	public bool canSubmit;
-	[Export]
-	public bool canPlate;
-
-	[Export]
 	public MeshInstance3D mesh;
 	public Node3D heldBy;
+	
 
 /*
 	public double getDistance(Node3D detector){

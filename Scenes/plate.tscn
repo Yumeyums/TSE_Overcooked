@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://0ptuienyt5x1"]
+
+[ext_resource type="PackedScene" uid="uid://cr3jngv5l3jcm" path="res://Scenes/item.tscn" id="1_k36oe"]
+[ext_resource type="Material" uid="uid://c5dnsmb30x0xe" path="res://Textures/plate.tres" id="2_slky2"]
+[ext_resource type="Script" path="res://Scripts/plateScript.cs" id="3_1xg86"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8aa1n"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_kcr7u"]
+height = 0.2
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_a8v6y"]
+height = 0.5
+
+[node name="plate" type="Node3D"]
+
+[node name="RigidBody3D" parent="." instance=ExtResource("1_k36oe")]
+
+[node name="CollisionShape3D" parent="RigidBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.275, 0)
+shape = SubResource("BoxShape3D_8aa1n")
+
+[node name="MeshInstance3D" parent="RigidBody3D" index="1"]
+material_override = ExtResource("2_slky2")
+mesh = SubResource("CylinderMesh_kcr7u")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 2
+collision_mask = 7
+script = ExtResource("3_1xg86")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0)
+shape = SubResource("CylinderShape3D_a8v6y")
+
+[connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]
+
+[editable path="RigidBody3D"]
