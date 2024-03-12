@@ -12,7 +12,7 @@ resource_local_to_scene = true
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7piq8"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_a2jia"]
-points = PackedVector3Array(3, 0.8, -3, 3, -1, -3, -3, 0.8, -3, -3, -1, -3, 0, -1, 0.5, 0, 0.8, 0.5)
+points = PackedVector3Array(3, 1, -3, 3, -1, -3, -3, 1, -3, -3, -1, -3, 0, -1, 0.5, 0, 1, 0.5)
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_to4c7")

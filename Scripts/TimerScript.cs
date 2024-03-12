@@ -11,7 +11,7 @@ public partial class TimerScript : Node
 	public override void _Ready()
 	{
 		ResetTimer();
-		//GetNode<Timer>("TimerNodeName").Start();
+		GetNode<Timer>("TimerNodeName").Start();
 	}
 
 	// Called when the timer signals a timeout.
@@ -31,12 +31,4 @@ public override void _Process(double delta)
 		seconds = defaultSeconds;
 
 	}
-	
-	private void _on_timer_timeout()
-	{
-		GD.Print("End");
-	}
 }
-
-
-
