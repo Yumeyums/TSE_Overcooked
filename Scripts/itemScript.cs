@@ -6,6 +6,13 @@ public partial class itemScript : RigidBody3D
 	public MeshInstance3D mesh;
 	public Node3D heldBy;
 	
+	public override void _PhysicsProcess(double delta)
+	{
+		if (heldBy != null && heldBy.GetParent().Name != "Counter"){
+			this.Sleeping = true;
+			GlobalPosition = heldBy.GlobalPosition - heldBy.GlobalTransform.Basis.Z;
+		}
+	}
 
 /*
 	public double getDistance(Node3D detector){
@@ -24,5 +31,22 @@ public partial class itemScript : RigidBody3D
 			heldBy = player;
 			GlobalPosition = player.GlobalPosition + new Vector3(0f,1.5f,0f);
 		}
+	}
+	public void PickUp(Node3D player){
+		if (heldBy != null){
+			if (heldBy.GetParent().Name == "Counter"){
+				heldBy.Call("RemoveFromCounter");
+			}
+		}
+		heldBy = player;
+		this.Sleeping = true;
+	}
+
+	public void Drop(){
+		heldBy = null;
+	}
+
+	public void DropOnCounter(Node3D counter){
+		heldBy = counter;
 	}
 }

@@ -12,8 +12,6 @@ public partial class playerScript : CharacterBody3D
 	public float accelleration = 1.25f;	//The amount of speed the player gains every second by moving.
 	public float friction = 0.60f; 		//The amount of speed the player loses every second.
 	[Export]
-	public Node3D targetObject = null;
-	[Export]
 	public Node3D carriedItem = null;
 	[Export]
 	public Godot.Collections.Array<Node3D> BodiesInRange = new Godot.Collections.Array<Node3D>();
@@ -21,31 +19,23 @@ public partial class playerScript : CharacterBody3D
 	
 	public void _on_area_3d_body_entered(Node3D body)
 	{
-		if (body.GetNode("Interactable") != null){
-			//if (carriedItem==null){
-				//if(body.GetParent().Name != "counter"){
-					BodiesInRange.Add(body);
-					if(targetNode != BodiesInRange[0]){
-						changeTarget(BodiesInRange[0], targetNode);
-					}
-				//}
-				/*
+		if ((body.GetNode("Interactable") != null)&&(body != carriedItem)){
+			BodiesInRange.Add(body);
+			if(targetNode != BodiesInRange[0]){
+				changeTarget(BodiesInRange[0], targetNode);
 			}
-			else{
-				BodiesInRange.Add(body);
-				if(targetNode != BodiesInRange[0]){
-					changeTarget(BodiesInRange[0], targetNode);
-				}
-			}
-			*/
-			GD.Print("entered ", body.GetParent().Name);
+			//GD.Print("entered ", body.GetParent().Name);
 		}
 	}
 
 	public void _on_area_3d_body_exited(Node3D body)
 	{
+		removeTargettedItem(body);
+	}
+
+	public void removeTargettedItem(Node3D body){
 		if(BodiesInRange.IndexOf(body)!= -1){
-			GD.Print("exited ", body.GetParent().Name);
+			//GD.Print("exited ", body.GetParent().Name);
 			BodiesInRange.Remove(body);
 			if (BodiesInRange.Count == 0){
 				changeTarget(null, targetNode);
@@ -92,7 +82,7 @@ public partial class playerScript : CharacterBody3D
 			}
 			if (Input.IsActionJustPressed("interact"))
 			{
-				InteractWith(BodiesInRange[0]);
+				InteractWith();
 			}
 						if (!Input.IsActionPressed("move_forward") 	&&
 				!Input.IsActionPressed("move_back")		&&
@@ -130,7 +120,7 @@ public partial class playerScript : CharacterBody3D
 			}
 			if (Input.IsActionJustPressed("interact2"))
 			{
-				InteractWith(BodiesInRange[0]);
+				InteractWith();
 			}
 			if (!Input.IsActionPressed("move_forward2") 	&&
 				!Input.IsActionPressed("move_back2")		&&
@@ -169,19 +159,21 @@ public partial class playerScript : CharacterBody3D
 		MoveAndSlide();
 	}
 	
-	public void InteractWith(Node3D body){
-		GD.Print("called");
-		if (body.GetParent().Name != "counter"){
-			if(carriedItem == null){
-				body.Call("Interact",this, true); //emptyHands
-				carriedItem = body;
-			}
-			else{
-				body.Call("Interact",this, false); //not emptyHands
-				carriedItem = null;
-			}
+	public void InteractWith(){
+		if(carriedItem == null){ //pick up
+			carriedItem = targetNode;
+			targetNode.Call("PickUp",this);
+			removeTargettedItem(targetNode);
 		}
-		
+		else { //drop
+			carriedItem.Call("Drop");
+			if (targetNode != null){
+				if (targetNode.GetParent().Name == "Counter"){
+					targetNode.GetParent().GetNode("Area3D").Call("DropItem",carriedItem);
+				}
+			}
+			carriedItem = null;
+		}
 	}
 }
 

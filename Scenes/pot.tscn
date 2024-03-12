@@ -20,8 +20,8 @@ height = 0.5
 shape = SubResource("BoxShape3D_hfifw")
 
 [node name="MeshInstance3D" parent="RigidBody3D" index="1"]
-material_override = ExtResource("2_r0bdl")
 mesh = SubResource("CylinderMesh_aaiuk")
+surface_material_override/0 = ExtResource("2_r0bdl")
 
 [node name="Area3D" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.148227, 0)

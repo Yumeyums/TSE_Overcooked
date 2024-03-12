@@ -4,17 +4,28 @@ using System;
 public partial class CounterScript : Area3D
 {
 	[Export]
-	private bool ItemIn = false;
+	public Node3D itemOnCounter = null;
 	
 	public void _on_body_entered(RigidBody3D body)
 	{
-		if (body.GetNode("Interactable") != null && ItemIn == false)
+		if (body.GetNode("Interactable") != null && itemOnCounter != null)
 		{
 			body.Sleeping = true;
 			body.GlobalPosition = this.GlobalPosition;
-			ItemIn = true;
-			
 			GD.Print("Contact", this.GlobalPosition);
+			itemOnCounter = body;
+		}
+	}
+
+	public void RemoveFromCounter(){
+		itemOnCounter = null;
+	}
+
+	public void DropItem(Node3D carriedItem){
+		if (itemOnCounter == null){
+			carriedItem.Call("DropOnCounter",this);
+			carriedItem.GlobalPosition = this.GlobalPosition + new Vector3(0f, 0.5f, 0f);
+			itemOnCounter = carriedItem;
 		}
 	}
 	
@@ -22,9 +33,9 @@ public partial class CounterScript : Area3D
 	{
 		
 		GD.Print("it's off");
-		if (body.GetNode("Interactable") != null && ItemIn == false)
+		if (body.GetNode("Interactable") != null && itemOnCounter != null)
 		{
-			ItemIn = false;
+			 itemOnCounter = null;
 		}
 	}
 }

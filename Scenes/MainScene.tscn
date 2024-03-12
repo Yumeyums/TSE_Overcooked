@@ -120,8 +120,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5651, 0, 3.83111)
 [node name="Hobs" parent="." instance=ExtResource("12_f28fq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08422, 0.4, 5)
 
+[node name="MeshInstance3D" parent="Hobs/Counter/StaticBody3D" index="1"]
+material_override = null
+
 [node name="Pot" parent="." instance=ExtResource("13_jxth2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.13946, 2.39258, 1.96106)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.20699, 1.10208, 0)
 
 [editable path="Player1"]
 [editable path="Player2"]
@@ -130,3 +133,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.13946, 2.39258, 1.96106)
 [editable path="Pasta"]
 [editable path="Pasta/RigidBody3D"]
 [editable path="Counter"]
+[editable path="Hobs"]
+[editable path="Hobs/Counter"]
+[editable path="Pot"]
+[editable path="Pot/RigidBody3D"]

@@ -3,7 +3,6 @@ res://Textures/counter.tres
 res://Scripts/itemScript.cs
 res://Textures/plate.tres
 res://Textures/hobs.tres
-res://Scripts/CounterScript.cs
 res://Scenes/pasta.tscn
 res://Scenes/player.tscn
 res://Scenes/item.tscn
@@ -12,6 +11,7 @@ res://Scenes/MainScene.tscn
 res://Scenes/hobs.tscn
 res://Scenes/pot.tscn
 res://Scripts/CanBoil.cs
+res://Scripts/CounterScript.cs
 res://Scripts/HobScript.cs
 res://Scripts/InteractableScript.cs
 res://Scripts/plateScript.cs

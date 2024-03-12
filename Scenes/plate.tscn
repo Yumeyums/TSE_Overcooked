@@ -21,8 +21,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.275, 0)
 shape = SubResource("BoxShape3D_8aa1n")
 
 [node name="MeshInstance3D" parent="RigidBody3D" index="1"]
-material_override = ExtResource("2_slky2")
 mesh = SubResource("CylinderMesh_kcr7u")
+surface_material_override/0 = ExtResource("2_slky2")
 
 [node name="Area3D" type="Area3D" parent="."]
 collision_layer = 2
