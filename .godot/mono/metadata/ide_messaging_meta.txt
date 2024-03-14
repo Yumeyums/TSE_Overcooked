@@ -1,2 +1,2 @@
-﻿65231
-C:/Users/NITRO 5 TURBO/Desktop/Godot/Godot_v4.2-stable_mono_win64/Godot_v4.2-stable_mono_win64.exe
+﻿59264
+C:/Users/elrin/OneDrive/Desktop/Godot_v4.2.1-stable_mono_win64/Godot_v4.2.1-stable_mono_win64.exe

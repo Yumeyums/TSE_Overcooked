@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://rbywxs3f4ayy"]
+
+[ext_resource type="PackedScene" uid="uid://cr3jngv5l3jcm" path="res://Scenes/item.tscn" id="1_nldo4"]
+[ext_resource type="Material" uid="uid://c5dnsmb30x0xe" path="res://Textures/plate.tres" id="2_r0bdl"]
+[ext_resource type="Script" path="res://Scripts/PotScript.cs" id="3_v52gb"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hfifw"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_aaiuk"]
+height = 0.7
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_h4oxy"]
+height = 0.5
+
+[node name="Pot" type="Node3D"]
+
+[node name="RigidBody3D" parent="." instance=ExtResource("1_nldo4")]
+
+[node name="CollisionShape3D" parent="RigidBody3D" index="0"]
+shape = SubResource("BoxShape3D_hfifw")
+
+[node name="MeshInstance3D" parent="RigidBody3D" index="1"]
+mesh = SubResource("CylinderMesh_aaiuk")
+surface_material_override/0 = ExtResource("2_r0bdl")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.148227, 0)
+collision_layer = 2
+collision_mask = 7
+script = ExtResource("3_v52gb")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0)
+shape = SubResource("CylinderShape3D_h4oxy")
+
+[connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]
+
+[editable path="RigidBody3D"]
