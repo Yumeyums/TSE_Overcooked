@@ -88,19 +88,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\elrin\\.nuget\\packages\\": {}
+    "C:\\Users\\NITRO 5 TURBO\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\elrin\\OneDrive\\Documents\\GitHub\\TSE_Overcooked\\TSE_Overcooked.csproj",
+      "projectUniqueName": "D:\\godot\\TSE_Overcooked\\TSE_Overcooked.csproj",
       "projectName": "TSE_Overcooked",
-      "projectPath": "C:\\Users\\elrin\\OneDrive\\Documents\\GitHub\\TSE_Overcooked\\TSE_Overcooked.csproj",
-      "packagesPath": "C:\\Users\\elrin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\elrin\\OneDrive\\Documents\\GitHub\\TSE_Overcooked\\.godot\\mono\\temp\\obj\\",
+      "projectPath": "D:\\godot\\TSE_Overcooked\\TSE_Overcooked.csproj",
+      "packagesPath": "C:\\Users\\NITRO 5 TURBO\\.nuget\\packages\\",
+      "outputPath": "D:\\godot\\TSE_Overcooked\\.godot\\mono\\temp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\elrin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\NITRO 5 TURBO\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -155,7 +155,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

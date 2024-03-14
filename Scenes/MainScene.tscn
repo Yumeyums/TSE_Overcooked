@@ -64,7 +64,7 @@ collision_layer = 2
 collision_mask = 3
 playerNumber = 1
 
-[node name="BodyMesh" parent="Player1" index="2"]
+[node name="BodyMesh" parent="Player1" index="3"]
 material_override = ExtResource("2_lb21v")
 mesh = SubResource("CylinderMesh_nmmsb")
 
@@ -75,7 +75,7 @@ collision_layer = 2
 collision_mask = 3
 playerNumber = 2
 
-[node name="BodyMesh" parent="Player2" index="2"]
+[node name="BodyMesh" parent="Player2" index="3"]
 material_override = ExtResource("3_3gm78")
 mesh = SubResource("CylinderMesh_p2eit")
 

@@ -18,3 +18,4 @@ res://Scripts/plateScript.cs
 res://Scripts/playerScript.cs
 res://Scripts/PotScript.cs
 res://Scripts/TimerScript.cs
+res://Scenes/node_3d.tscn
