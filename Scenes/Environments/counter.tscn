@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://q3qnab3kenk4"]
+[gd_scene load_steps=8 format=3 uid="uid://q3qnab3kenk4"]
 
 [ext_resource type="Script" path="res://Scripts/CounterScript.cs" id="1_7re7s"]
 [ext_resource type="Material" uid="uid://drxc48ye0vk1o" path="res://Textures/counter.tres" id="1_vyb7v"]
 [ext_resource type="Script" path="res://Scripts/InteractableScript.cs" id="2_phhdd"]
+[ext_resource type="PackedScene" uid="uid://dac811sj7xqm7" path="res://Models/Environments/counterModel/counter.glb" id="4_gbw48"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kc8ty"]
 
@@ -22,11 +23,15 @@ collision_mask = 3
 shape = SubResource("BoxShape3D_kc8ty")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+visible = false
 mesh = SubResource("BoxMesh_on8rf")
 surface_material_override/0 = ExtResource("1_vyb7v")
 
 [node name="Interactable" type="Node3D" parent="StaticBody3D"]
 script = ExtResource("2_phhdd")
+
+[node name="counter" parent="StaticBody3D" instance=ExtResource("4_gbw48")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 
 [node name="Area3D" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)

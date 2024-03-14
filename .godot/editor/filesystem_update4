@@ -19,3 +19,9 @@ res://Scripts/playerScript.cs
 res://Scripts/PotScript.cs
 res://Scripts/TimerScript.cs
 res://Scenes/node_3d.tscn
+res://Scenes/Environments/counterNoHandle.tscn
+res://Scenes/Environments/counter.tscn
+res://Scenes/Foods/pasta.tscn
+res://Scenes/Environments/hobs.tscn
+res://Scenes/Items/plate.tscn
+res://Scenes/Items/pot.tscn

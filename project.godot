@@ -14,10 +14,12 @@ config/name="TSE_Overcooked"
 run/main_scene="res://Scenes/MainScene.tscn"
 config/features=PackedStringArray("4.2", "C#", "Forward Plus")
 config/icon="res://icon.svg"
+<<<<<<<Updatedupstreamrun/main_scene="res://Scenes/MainScene.tscn"
 
 [dotnet]
 
 project/assembly_name="TSE_Overcooked"
+"<<<<<<<Updatedupstream[filesystem]import/fbx/enabled"=false
 
 [input]
 

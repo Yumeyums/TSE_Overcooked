@@ -1,0 +1,44 @@
+[gd_scene load_steps=8 format=3 uid="uid://ymo1ejvfp6ck"]
+
+[ext_resource type="Material" uid="uid://drxc48ye0vk1o" path="res://Textures/counter.tres" id="1_hv3rs"]
+[ext_resource type="Script" path="res://Scripts/InteractableScript.cs" id="2_kb23i"]
+[ext_resource type="PackedScene" uid="uid://ck05t24lgugs6" path="res://Models/Environments/counterModel/counterNoHandle.glb" id="3_p4bx6"]
+[ext_resource type="Script" path="res://Scripts/CounterScript.cs" id="4_ujioa"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kc8ty"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_on8rf"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ccgru"]
+margin = 0.4
+size = Vector3(2, 1, 2)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 2
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_kc8ty")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+visible = false
+mesh = SubResource("BoxMesh_on8rf")
+surface_material_override/0 = ExtResource("1_hv3rs")
+
+[node name="Interactable" type="Node3D" parent="StaticBody3D"]
+script = ExtResource("2_kb23i")
+
+[node name="counterNoHandle" parent="StaticBody3D" instance=ExtResource("3_p4bx6")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+collision_mask = 7
+script = ExtResource("4_ujioa")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_ccgru")
+
+[connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]
