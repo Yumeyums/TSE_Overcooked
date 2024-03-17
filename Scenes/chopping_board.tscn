@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://cxyq0b0hem80j"]
+
+[ext_resource type="PackedScene" uid="uid://q3qnab3kenk4" path="res://Scenes/counter.tscn" id="1_v0e4m"]
+[ext_resource type="Material" uid="uid://dv4p8ldxpjjwq" path="res://Textures/wood.tres" id="2_eohh4"]
+[ext_resource type="Material" uid="uid://drxc48ye0vk1o" path="res://Textures/counter.tres" id="3_014nt"]
+[ext_resource type="Script" path="res://Scripts/chopping_board.cs" id="4_3kugw"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_on8rf"]
+
+[node name="choppingBoard" type="Node3D"]
+
+[node name="Counter" parent="." instance=ExtResource("1_v0e4m")]
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Counter/StaticBody3D" index="2"]
+transform = Transform3D(0.8, 0, 0, 0, 0.1, 0, 0, 0, 0.8, 0, 0.55, 0)
+material_override = ExtResource("2_eohh4")
+mesh = SubResource("BoxMesh_on8rf")
+surface_material_override/0 = ExtResource("3_014nt")
+
+[node name="Interactable" parent="Counter/StaticBody3D" index="3" node_paths=PackedStringArray("mesh")]
+mesh = NodePath("../MeshInstance3D")
+
+[node name="Area3D" parent="Counter" index="1"]
+script = ExtResource("4_3kugw")
+
+[editable path="Counter"]

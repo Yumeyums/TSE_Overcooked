@@ -18,3 +18,9 @@ res://Scripts/plateScript.cs
 res://Scripts/playerScript.cs
 res://Scripts/PotScript.cs
 res://Scripts/TimerScript.cs
+res://Scenes/chopping_board.tscn
+res://Textures/wood.tres
+res://Scripts/chopping_board.cs
+res://Scripts/item_dispenser.cs
+res://Textures/item_dispenser.tscn
+res://item_dispenser.tscn

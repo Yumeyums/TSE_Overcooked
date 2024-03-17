@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://dkjxf52d7v25j"]
+
+[ext_resource type="Material" uid="uid://drxc48ye0vk1o" path="res://Textures/counter.tres" id="1_h1j55"]
+[ext_resource type="Script" path="res://Scripts/InteractableScript.cs" id="2_85ubo"]
+[ext_resource type="Script" path="res://Scripts/item_dispenser.cs" id="3_t43df"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bqfwx"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_5snfl"]
+
+[node name="itemDispenser" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("3_t43df")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_bqfwx")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("BoxMesh_5snfl")
+surface_material_override/0 = ExtResource("1_h1j55")
+
+[node name="Interactable" type="Node3D" parent="StaticBody3D"]
+script = ExtResource("2_85ubo")
+
+[node name="counter" type="Node3D" parent="StaticBody3D"]
