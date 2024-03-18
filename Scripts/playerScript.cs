@@ -20,10 +20,27 @@ public partial class playerScript : CharacterBody3D
 	public void _on_area_3d_body_entered(Node3D body)
 	{
 		if ((body.GetNode("Interactable") != null)&&(body != carriedItem)){
-			BodiesInRange.Add(body);
-			if(targetNode != BodiesInRange[0]){
-				changeTarget(BodiesInRange[0], targetNode);
-			}
+			
+			//double dist = (double) body.Call("getDistance",body);
+			//if (BodiesInRange.Count > 0){
+				//bool entered = false;
+				//for (int i = 0; i<BodiesInRange.Count;i++){
+					//if ((entered == false)&&(dist < (double) BodiesInRange[0].Call("getDistance",body))){
+					//	GD.Print("ahh");
+					//	GD.Print(body.GetParent().Name);
+					//	GD.Print(dist);
+					//	BodiesInRange.Insert (i, body);
+					//	entered = true;
+					//}
+				//}
+				//if(entered == false){
+					BodiesInRange.Add(body);
+				//}
+			//}
+			
+			//else{
+			//	BodiesInRange.Add(body);
+			//}
 			//GD.Print("entered ", body.GetParent().Name);
 		}
 	}
@@ -157,13 +174,41 @@ public partial class playerScript : CharacterBody3D
 		_targetVelocity.Z = direction.Z * Speed;
 		Velocity = _targetVelocity;
 		MoveAndSlide();
+		
+		double smallestDist = 100;
+		Node3D smallest = targetNode;
+		for (int i = 0; i<BodiesInRange.Count;i++){
+			double dist = (double) BodiesInRange[i].GetNode("Interactable").Call("getDistance",this);
+			if (dist < smallestDist){
+				smallest = BodiesInRange[i];
+				smallestDist = dist;
+				//GD.Print(dist);
+			}
+		}	
+		
+		if(targetNode != smallest){
+			changeTarget(smallest, targetNode);
+		}	
+	}
+	
+	public void setCarryItem (Node3D item){
+		carriedItem = item;
 	}
 	
 	public void InteractWith(){
 		if(carriedItem == null){ //pick up
-			carriedItem = targetNode;
-			targetNode.Call("PickUp",this);
-			removeTargettedItem(targetNode);
+			if (targetNode.GetParent().Name == "Counter"){
+				Node3D item = (Node3D) targetNode.GetParent().GetNode("Area3D").Call("PickUpFromCounter",this);
+				if(item != null){
+					carriedItem = item;
+				}
+			}
+			else{
+				targetNode.Call("PickUp",this);
+				carriedItem = targetNode;
+				removeTargettedItem(targetNode);
+			}
+			
 		}
 		else { //drop
 			carriedItem.Call("Drop");
@@ -172,6 +217,11 @@ public partial class playerScript : CharacterBody3D
 					targetNode.GetParent().GetNode("Area3D").Call("DropItem",carriedItem);
 				}
 			}
+			/*
+			else{
+				BodiesInRange.Add(carriedItem);
+			}
+			*/
 			carriedItem = null;
 		}
 	}

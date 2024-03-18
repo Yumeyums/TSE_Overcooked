@@ -118,7 +118,7 @@ text = "60"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5651, 0, 3.83111)
 
 [node name="Hobs" parent="." instance=ExtResource("12_f28fq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08422, 0.4, 5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.4, 5)
 
 [node name="MeshInstance3D" parent="Hobs/Counter/StaticBody3D" index="1"]
 material_override = null
