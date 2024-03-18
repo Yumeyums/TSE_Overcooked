@@ -3,6 +3,8 @@ using System;
 
 public partial class playerScript : CharacterBody3D
 {
+
+	
 	[Export]
 	public float Speed { get; set; } = 14;
 	[Export]
@@ -12,30 +14,45 @@ public partial class playerScript : CharacterBody3D
 	public float accelleration = 1.25f;	//The amount of speed the player gains every second by moving.
 	public float friction = 0.60f; 		//The amount of speed the player loses every second.
 	[Export]
+	public Node3D targetObject = null;
+	[Export]
 	public Node3D carriedItem = null;
 	[Export]
 	public Godot.Collections.Array<Node3D> BodiesInRange = new Godot.Collections.Array<Node3D>();
 	public Node3D targetNode;
+	[Export]
+  public float DashSpeed { get; set; } = 30f; // dash speed
+	private bool isDashing = false;
+	private double dashTimer = 0;
+	private double dashDuration = 0.1; 
 	
 	public void _on_area_3d_body_entered(Node3D body)
 	{
-		if ((body.GetNode("Interactable") != null)&&(body != carriedItem)){
-			BodiesInRange.Add(body);
-			if(targetNode != BodiesInRange[0]){
-				changeTarget(BodiesInRange[0], targetNode);
+		if (body.GetNode("Interactable") != null){
+			//if (carriedItem==null){
+				//if(body.GetParent().Name != "counter"){
+					BodiesInRange.Add(body);
+					if(targetNode != BodiesInRange[0]){
+						changeTarget(BodiesInRange[0], targetNode);
+					}
+				//}
+				/*
 			}
-			//GD.Print("entered ", body.GetParent().Name);
+			else{
+				BodiesInRange.Add(body);
+				if(targetNode != BodiesInRange[0]){
+					changeTarget(BodiesInRange[0], targetNode);
+				}
+			}
+			*/
+			GD.Print("entered ", body.GetParent().Name);
 		}
 	}
 
 	public void _on_area_3d_body_exited(Node3D body)
 	{
-		removeTargettedItem(body);
-	}
-
-	public void removeTargettedItem(Node3D body){
 		if(BodiesInRange.IndexOf(body)!= -1){
-			//GD.Print("exited ", body.GetParent().Name);
+			GD.Print("exited ", body.GetParent().Name);
 			BodiesInRange.Remove(body);
 			if (BodiesInRange.Count == 0){
 				changeTarget(null, targetNode);
@@ -62,9 +79,45 @@ public partial class playerScript : CharacterBody3D
 	public override void _PhysicsProcess(double delta)
 	{
 		var direction = Vector3.Zero;
-		if (playerNumber==1){
+
+ var characterRotation = Rotation;
+
+
+ var forwardDirection = characterRotation.Rotated(Vector3.Up, 0) * -Vector3.Forward;
+
+
+	if (Input.IsActionJustPressed("dash"))
+	{
+		if (!isDashing)
+		{
+			isDashing = true;
+			dashTimer = dashDuration;
+
+
+
+		_targetVelocity = forwardDirection.Normalized() * DashSpeed;
+		}
+	}
+
+	
+	if (isDashing)
+	{
+		dashTimer -= delta;
+		if (dashTimer <= 0)
+		{
+			isDashing = false;
+	
+			_targetVelocity = Vector3.Zero;
+		}
+	}
+
+		
+		
+		if (playerNumber==1)
+		{
 			if (Input.IsActionPressed("move_right"))
 			{
+
 				direction.X += 1.0f; //Sets the X axis direction to positive
 				//Formula for speed calculation:
 			}
@@ -79,10 +132,12 @@ public partial class playerScript : CharacterBody3D
 			if (Input.IsActionPressed("move_forward"))
 			{
 				direction.Z -= 1.0f;  //Sets the Z axis direction to negative
+				
 			}
+			
 			if (Input.IsActionJustPressed("interact"))
 			{
-				InteractWith();
+				InteractWith(BodiesInRange[0]);
 			}
 						if (!Input.IsActionPressed("move_forward") 	&&
 				!Input.IsActionPressed("move_back")		&&
@@ -120,7 +175,7 @@ public partial class playerScript : CharacterBody3D
 			}
 			if (Input.IsActionJustPressed("interact2"))
 			{
-				InteractWith();
+				InteractWith(BodiesInRange[0]);
 			}
 			if (!Input.IsActionPressed("move_forward2") 	&&
 				!Input.IsActionPressed("move_back2")		&&
@@ -138,6 +193,7 @@ public partial class playerScript : CharacterBody3D
 					// otherwise; we set the speed to the maximum speed.
 					if((Speed+accelleration)<mspeed){ Speed += accelleration; } else { Speed = mspeed; }
 				}
+				
 		}
 
 		if((Speed-friction)<=0){
@@ -145,6 +201,27 @@ public partial class playerScript : CharacterBody3D
 		} else {
 			Speed -= friction;
 		}
+
+  if (!isDashing)
+		{
+			if ((Speed - friction) <= 0)
+			{
+				Speed = 0;
+			}
+			else
+			{
+				Speed -= friction;
+			}
+		}
+		else
+		{
+			dashTimer -= delta;
+			if (dashTimer <= 0)
+			{
+				isDashing = false;
+			}
+		}
+
 
 		if (direction != Vector3.Zero)
 		{
@@ -159,23 +236,29 @@ public partial class playerScript : CharacterBody3D
 		MoveAndSlide();
 	}
 	
-	public void InteractWith(){
-		if(carriedItem == null){ //pick up
-			carriedItem = targetNode;
-			targetNode.Call("PickUp",this);
-			removeTargettedItem(targetNode);
-		}
-		else { //drop
-			carriedItem.Call("Drop");
-			if (targetNode != null){
-				if (targetNode.GetParent().Name == "Counter"){
-					targetNode.GetParent().GetNode("Area3D").Call("DropItem",carriedItem);
-				}
+	public void InteractWith(Node3D body){
+		GD.Print("called");
+		if (body.GetParent().Name != "counter"){
+			if(carriedItem == null){
+				body.Call("Interact",this, true); //emptyHands
+				carriedItem = body;
 			}
-			carriedItem = null;
+			else{
+				body.Call("Interact",this, false); //not emptyHands
+				carriedItem = null;
+			}
 		}
+		
 	}
-}
+	}
+	
+
+
+	
+	
+	
+
+
 
 
 

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TSE_Overcooked")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9c340f8c5561e6723c01df7e6ef5c3723747e458")]
 [assembly: System.Reflection.AssemblyProductAttribute("TSE_Overcooked")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TSE_Overcooked")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
