@@ -12,7 +12,7 @@ resource_local_to_scene = true
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7piq8"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_d0bcp"]
-radius = 2.0
+radius = 2.5
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_to4c7")

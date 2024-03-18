@@ -30,7 +30,9 @@ public partial class CounterScript : Area3D
 	}
 	
 	public Node3D PickUpFromCounter(Node3D player){
+		GD.Print("kujwbrfku");
 		if (itemOnCounter != null){
+			GD.Print("ahh");
 			itemOnCounter.Call("PickUp", player);
 			Node3D temp = itemOnCounter;
 			itemOnCounter = null;

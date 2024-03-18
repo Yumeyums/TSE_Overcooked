@@ -18,10 +18,10 @@ public partial class HobScript : Area3D
 	}
 	
 	public Node3D PickUpFromCounter(Node3D player){
+		GD.Print("kujwbrfku");
 		if (itemOnCounter != null){
-			itemOnCounter.Call("PickUp", player);
 			Node3D temp = itemOnCounter;
-			itemOnCounter = null;
+			itemOnCounter.Call("PickUp", player);
 			return temp;
 		}
 		return null;

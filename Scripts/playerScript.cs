@@ -196,9 +196,12 @@ public partial class playerScript : CharacterBody3D
 	}
 	
 	public void InteractWith(){
+		GD.Print(carriedItem);
 		if(carriedItem == null){ //pick up
 			if (targetNode.GetParent().Name == "Counter"){
+				GD.Print(targetNode.GetParent().Name);
 				Node3D item = (Node3D) targetNode.GetParent().GetNode("Area3D").Call("PickUpFromCounter",this);
+				GD.Print("picke up item from counter: ",item);
 				if(item != null){
 					carriedItem = item;
 				}
@@ -211,6 +214,7 @@ public partial class playerScript : CharacterBody3D
 			
 		}
 		else { //drop
+			GD.Print("drop");
 			carriedItem.Call("Drop");
 			if (targetNode != null){
 				if (targetNode.GetParent().Name == "Counter"){
