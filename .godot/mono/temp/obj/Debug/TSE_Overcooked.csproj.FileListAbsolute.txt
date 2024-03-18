@@ -49,3 +49,20 @@ C:\Users\wobbl\OneDrive\Documents\GitHub\TSE_Overcooked\.godot\mono\temp\obj\Deb
 C:\Users\wobbl\OneDrive\Documents\GitHub\TSE_Overcooked\.godot\mono\temp\obj\Debug\TSE_Overcooked.pdb
 C:\Users\wobbl\OneDrive\Documents\GitHub\TSE_Overcooked\.godot\mono\temp\obj\Debug\TSE_Overcooked.genruntimeconfig.cache
 C:\Users\wobbl\OneDrive\Documents\GitHub\TSE_Overcooked\.godot\mono\temp\obj\Debug\ref\TSE_Overcooked.dll
+D:\Github Desktop\Repos\TSE_Overcooked\.godot\mono\temp\bin\Debug\TSE_Overcooked.deps.json
+D:\Github Desktop\Repos\TSE_Overcooked\.godot\mono\temp\bin\Debug\TSE_Overcooked.runtimeconfig.json
+D:\Github Desktop\Repos\TSE_Overcooked\.godot\mono\temp\bin\Debug\TSE_Overcooked.dll
+D:\Github Desktop\Repos\TSE_Overcooked\.godot\mono\temp\bin\Debug\TSE_Overcooked.pdb
+D:\Github Desktop\Repos\TSE_Overcooked\.godot\mono\temp\bin\Debug\GodotSharp.dll
+D:\Github Desktop\Repos\TSE_Overcooked\.godot\mono\temp\bin\Debug\GodotSharpEditor.dll
+D:\Github Desktop\Repos\TSE_Overcooked\.godot\mono\temp\obj\Debug\TSE_Overcooked.csproj.AssemblyReference.cache
+D:\Github Desktop\Repos\TSE_Overcooked\.godot\mono\temp\obj\Debug\TSE_Overcooked.GeneratedMSBuildEditorConfig.editorconfig
+D:\Github Desktop\Repos\TSE_Overcooked\.godot\mono\temp\obj\Debug\TSE_Overcooked.AssemblyInfoInputs.cache
+D:\Github Desktop\Repos\TSE_Overcooked\.godot\mono\temp\obj\Debug\TSE_Overcooked.AssemblyInfo.cs
+D:\Github Desktop\Repos\TSE_Overcooked\.godot\mono\temp\obj\Debug\TSE_Overcooked.csproj.CoreCompileInputs.cache
+D:\Github Desktop\Repos\TSE_Overcooked\.godot\mono\temp\obj\Debug\TSE_Overcooked.csproj.CopyComplete
+D:\Github Desktop\Repos\TSE_Overcooked\.godot\mono\temp\obj\Debug\TSE_Overcooked.dll
+D:\Github Desktop\Repos\TSE_Overcooked\.godot\mono\temp\obj\Debug\refint\TSE_Overcooked.dll
+D:\Github Desktop\Repos\TSE_Overcooked\.godot\mono\temp\obj\Debug\TSE_Overcooked.pdb
+D:\Github Desktop\Repos\TSE_Overcooked\.godot\mono\temp\obj\Debug\TSE_Overcooked.genruntimeconfig.cache
+D:\Github Desktop\Repos\TSE_Overcooked\.godot\mono\temp\obj\Debug\ref\TSE_Overcooked.dll

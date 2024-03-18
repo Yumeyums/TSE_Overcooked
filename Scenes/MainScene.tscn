@@ -1,7 +1,8 @@
-[gd_scene load_steps=20 format=3 uid="uid://b13oxrfjwlg6x"]
+[gd_scene load_steps=21 format=3 uid="uid://b13oxrfjwlg6x"]
 
 [ext_resource type="Material" uid="uid://b4g5xtb37kd0b" path="res://Textures/flooring.tres" id="1_2otum"]
 [ext_resource type="PackedScene" uid="uid://c4hh1yw3l66ve" path="res://Scenes/player.tscn" id="1_ecct4"]
+[ext_resource type="Script" path="res://Scripts/randomRecipe.cs" id="1_jmsdk"]
 [ext_resource type="Material" uid="uid://c8toy3fgps4l6" path="res://Textures/Red.tres" id="2_lb21v"]
 [ext_resource type="Material" uid="uid://cipmj8y6dm2to" path="res://Textures/blue.tres" id="3_3gm78"]
 [ext_resource type="PackedScene" uid="uid://de6qbptjxbgk" path="res://Scenes/rice.tscn" id="5_roetk"]
@@ -34,6 +35,7 @@ albedo_texture = ExtResource("6_e8q7p")
 albedo_texture = ExtResource("7_dffxj")
 
 [node name="MainScene" type="Node3D"]
+script = ExtResource("1_jmsdk")
 
 [node name="Ground" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.08426, 0)
