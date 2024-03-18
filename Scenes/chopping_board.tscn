@@ -1,7 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://cxyq0b0hem80j"]
+[gd_scene load_steps=6 format=3 uid="uid://dmo3gwbcfhtvb"]
 
 [ext_resource type="PackedScene" uid="uid://q3qnab3kenk4" path="res://Scenes/counter.tscn" id="1_v0e4m"]
-[ext_resource type="Material" uid="uid://dv4p8ldxpjjwq" path="res://Textures/wood.tres" id="2_eohh4"]
+[ext_resource type="Material" path="res://Textures/wood.tres" id="2_eohh4"]
 [ext_resource type="Material" uid="uid://drxc48ye0vk1o" path="res://Textures/counter.tres" id="3_014nt"]
 [ext_resource type="Script" path="res://Scripts/chopping_board.cs" id="4_3kugw"]
 
