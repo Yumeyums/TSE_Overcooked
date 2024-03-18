@@ -19,6 +19,7 @@ public partial class playerScript : CharacterBody3D
 	
 	public override void _Ready()
 	{
+		ResourceLoader.LoadThreadedRequest("res://Scenes/pasta.tscn");
 	}
 	
 	public void _on_area_3d_body_entered(Node3D body)
@@ -202,7 +203,9 @@ public partial class playerScript : CharacterBody3D
 	{
 		PackedScene pastacopies = GD.Load<PackedScene>("res://Scenes/pasta.tscn");
 		Node3D pasta = pastacopies.Instantiate<Node3D>();
+		this.GetParent().GetParent().AddChild(pasta);
 		carriedItem = pasta;
+		carriedItem.Call("PickUp", this);
 	}
 }
 
