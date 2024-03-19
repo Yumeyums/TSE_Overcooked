@@ -12,7 +12,7 @@
 margin = 0.4
 size = Vector3(2, 1, 2)
 
-[node name="Node3D" type="Node3D"]
+[node name="Counter" type="Node3D"]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 collision_layer = 2
@@ -27,6 +27,8 @@ surface_material_override/0 = ExtResource("1_vyb7v")
 
 [node name="Interactable" type="Node3D" parent="StaticBody3D"]
 script = ExtResource("2_phhdd")
+
+[node name="counter" type="Node3D" parent="StaticBody3D"]
 
 [node name="Area3D" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)

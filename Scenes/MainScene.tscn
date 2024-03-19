@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://b13oxrfjwlg6x"]
+[gd_scene load_steps=22 format=3 uid="uid://b13oxrfjwlg6x"]
 
 [ext_resource type="Material" uid="uid://b4g5xtb37kd0b" path="res://Textures/flooring.tres" id="1_2otum"]
 [ext_resource type="PackedScene" uid="uid://c4hh1yw3l66ve" path="res://Scenes/player.tscn" id="1_ecct4"]
@@ -13,6 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://0ptuienyt5x1" path="res://Scenes/plate.tscn" id="11_c0gq8"]
 [ext_resource type="PackedScene" uid="uid://bdxfjulny1qlr" path="res://Scenes/hobs.tscn" id="12_f28fq"]
 [ext_resource type="PackedScene" uid="uid://rbywxs3f4ayy" path="res://Scenes/pot.tscn" id="13_jxth2"]
+[ext_resource type="PackedScene" uid="uid://dmo3gwbcfhtvb" path="res://Scenes/chopping_board.tscn" id="14_dj06i"]
+[ext_resource type="PackedScene" path="res://item_dispenser.tscn" id="15_xv5qq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dya7d"]
 size = Vector3(60, 2, 60)
@@ -51,11 +53,12 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 4.9
 shadow_enabled = true
 
 [node name="CameraPivot" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 10, 8)
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot"]
-transform = Transform3D(1, 0, 0, 0, 0.891568, 0.452886, 0, -0.452886, 0.891568, 0, 10, 19)
-projection = 1
-fov = 101.751
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+current = true
+fov = 70.0
 size = 11.8838
 
 [node name="Player1" parent="." instance=ExtResource("1_ecct4")]
@@ -93,9 +96,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.07582, 0)
 material_override = null
 surface_material_override/0 = SubResource("StandardMaterial3D_nd7q1")
 
-[node name="Counter" parent="." instance=ExtResource("7_vmktg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 5)
-
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
@@ -117,14 +117,23 @@ text = "60"
 [node name="plate" parent="." instance=ExtResource("11_c0gq8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5651, 0, 3.83111)
 
+[node name="Pot" parent="." instance=ExtResource("13_jxth2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.20699, 1.10208, 0)
+
+[node name="Counter" parent="." instance=ExtResource("7_vmktg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 5)
+
 [node name="Hobs" parent="." instance=ExtResource("12_f28fq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08422, 0.4, 5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.4, 5)
 
 [node name="MeshInstance3D" parent="Hobs/Counter/StaticBody3D" index="1"]
 material_override = null
 
-[node name="Pot" parent="." instance=ExtResource("13_jxth2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.20699, 1.10208, 0)
+[node name="choppingBoard" parent="." instance=ExtResource("14_dj06i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.4, 5)
+
+[node name="itemDispenser" parent="." instance=ExtResource("15_xv5qq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0.4, 5)
 
 [editable path="Player1"]
 [editable path="Player2"]
@@ -132,8 +141,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.20699, 1.10208, 0)
 [editable path="Rice/RigidBody3D"]
 [editable path="Pasta"]
 [editable path="Pasta/RigidBody3D"]
+[editable path="Pot"]
+[editable path="Pot/RigidBody3D"]
 [editable path="Counter"]
 [editable path="Hobs"]
 [editable path="Hobs/Counter"]
-[editable path="Pot"]
-[editable path="Pot/RigidBody3D"]
