@@ -14,17 +14,6 @@ public partial class itemScript : RigidBody3D
 		}
 	}
 
-	/*
-	public double getDistance(Node3D detector){
-		double diffX = detector.GlobalPosition[0] - GlobalPosition[0];
-		double diffZ = detector.GlobalPosition[2] - GlobalPosition[2];
-		double dist = Math.Sqrt((diffX*diffX)+(diffZ*diffZ));
-		//GD.Print("distance: ", dist);
-		GD.Print("distance: ", dist);
-		return dist;
-	}
-	*/
-
 	public void Interact(Node3D player, bool handsEmpty){
 		if (handsEmpty == true){
 			GD.Print("yoink");
