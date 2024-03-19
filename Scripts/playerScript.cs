@@ -17,6 +17,11 @@ public partial class playerScript : CharacterBody3D
 	public Godot.Collections.Array<Node3D> BodiesInRange = new Godot.Collections.Array<Node3D>();
 	public Node3D targetNode;
 	
+	public override void _Ready()
+	{
+		ResourceLoader.LoadThreadedRequest("res://Scenes/pasta.tscn");
+	}
+	
 	public void _on_area_3d_body_entered(Node3D body)
 	{
 		if ((body.GetNode("Interactable") != null)&&(body != carriedItem)){
@@ -84,6 +89,10 @@ public partial class playerScript : CharacterBody3D
 			{
 				InteractWith();
 			}
+			if (Input.IsActionJustPressed("alt_interact"))
+			{
+				Chop();
+			}
 						if (!Input.IsActionPressed("move_forward") 	&&
 				!Input.IsActionPressed("move_back")		&&
 				!Input.IsActionPressed("move_left")		&&
@@ -121,6 +130,10 @@ public partial class playerScript : CharacterBody3D
 			if (Input.IsActionJustPressed("interact2"))
 			{
 				InteractWith();
+			}
+			if (Input.IsActionJustPressed("alt_interact"))
+			{
+				Chop();
 			}
 			if (!Input.IsActionPressed("move_forward2") 	&&
 				!Input.IsActionPressed("move_back2")		&&
@@ -163,17 +176,36 @@ public partial class playerScript : CharacterBody3D
 		if(carriedItem == null){ //pick up
 			carriedItem = targetNode;
 			targetNode.Call("PickUp",this);
+			GD.Print(targetNode.Name);
 			removeTargettedItem(targetNode);
 		}
 		else { //drop
 			carriedItem.Call("Drop");
 			if (targetNode != null){
-				if (targetNode.GetParent().Name == "Counter"){
+				GD.Print(carriedItem.Name);
+				if (targetNode.GetNode("counter") != null && carriedItem.GetNode("counter") == null){
 					targetNode.GetParent().GetNode("Area3D").Call("DropItem",carriedItem);
 				}
 			}
 			carriedItem = null;
 		}
+	}
+	
+	public void Chop()
+	{
+		if (targetNode.GetParent().GetParent().Name == "choppingBoard")
+		{
+			targetNode.GetParent().GetNode("Area3D").Call("Chopping");
+		}
+	}
+	
+	public void giveItem()
+	{
+		PackedScene pastacopies = GD.Load<PackedScene>("res://Scenes/pasta.tscn");
+		Node3D pasta = pastacopies.Instantiate<Node3D>();
+		this.GetParent().GetParent().AddChild(pasta);
+		carriedItem = pasta;
+		carriedItem.Call("PickUp", this);
 	}
 }
 

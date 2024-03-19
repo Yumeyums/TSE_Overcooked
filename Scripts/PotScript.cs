@@ -3,39 +3,29 @@ using System;
 
 public partial class PotScript : Node3D
 {
-	public Node3D itemIn;
-	
-	public override void _Ready()
-	{
-		
-	}
-
-	public override void _Process(double delta)
-	{
-		
-	}
+	public Node3D itemOnHob;
 	
 	public void Boil()
 	{
-		if (itemIn != null)
+		if (itemOnHob != null)
 		{
-			itemIn.GetNode("CanBoil").Call("boiling");
+			itemOnHob.GetNode("CanBoil").Call("boiling");
 		}
 	}
 	
-	private void _on_body_entered(RigidBody3D body)
+	private void _on_body_entered(Node3D body)
 	{
 		if(body.GetNode("CanBoil") != null)
 		{
-			itemIn = body;
+			itemOnHob = body;
 		}
 	}
 	
-	private void _on_body_exited(RigidBody3D body)
+	private void _on_body_exited(Node3D body)
 	{
 		if(body.GetNode("CanBoil") != null)
 		{
-			itemIn = null;
+			itemOnHob = null;
 		}
 	}
 }
