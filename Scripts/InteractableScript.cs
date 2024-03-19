@@ -16,6 +16,13 @@ public partial class InteractableScript : Node3D
 	{
 	}
 	
+	public double getDistance(Node3D detector){
+		double diffX = detector.GlobalPosition[0] - GlobalPosition[0];
+		double diffZ = detector.GlobalPosition[2] - GlobalPosition[2];
+		double dist = Math.Sqrt((diffX*diffX)+(diffZ*diffZ));
+		return dist;
+	}
+
 	public void targeted(){
 		//GD.Print("targeted");
 		var material = mesh.GetSurfaceOverrideMaterial(0);

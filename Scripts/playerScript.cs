@@ -28,6 +28,28 @@ public partial class playerScript : CharacterBody3D
 		}
 	}
 
+				
+			//double dist = (double) body.Call("getDistance",body);
+			//if (BodiesInRange.Count > 0){
+				//bool entered = false;
+				//for (int i = 0; i<BodiesInRange.Count;i++){
+					//if ((entered == false)&&(dist < (double) BodiesInRange[0].Call("getDistance",body))){
+					//	GD.Print("ahh");
+					//	GD.Print(body.GetParent().Name);
+					//	GD.Print(dist);
+					//	BodiesInRange.Insert (i, body);
+					//	entered = true;
+					//}
+				//}
+				//if(entered == false){
+				//	BodiesInRange.Add(body);
+				//}
+			//}
+			
+			//else{
+			//	BodiesInRange.Add(body);
+			//}
+
 	public void _on_area_3d_body_exited(Node3D body)
 	{
 		removeTargettedItem(body);
