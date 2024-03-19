@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://b13oxrfjwlg6x"]
+[gd_scene load_steps=23 format=3 uid="uid://b13oxrfjwlg6x"]
 
 [ext_resource type="Material" uid="uid://b4g5xtb37kd0b" path="res://Textures/flooring.tres" id="1_2otum"]
 [ext_resource type="PackedScene" uid="uid://c4hh1yw3l66ve" path="res://Scenes/player.tscn" id="1_ecct4"]
@@ -10,11 +10,12 @@
 [ext_resource type="Texture2D" uid="uid://bnaoton3oihbx" path="res://Textures/pastaTexture.jpg" id="7_dffxj"]
 [ext_resource type="PackedScene" uid="uid://q3qnab3kenk4" path="res://Scenes/counter.tscn" id="7_vmktg"]
 [ext_resource type="Script" path="res://Scripts/TimerScript.cs" id="8_cssoe"]
+[ext_resource type="Script" path="res://Scripts/randomRecipe.cs" id="9_7n7an"]
 [ext_resource type="PackedScene" uid="uid://0ptuienyt5x1" path="res://Scenes/plate.tscn" id="11_c0gq8"]
 [ext_resource type="PackedScene" uid="uid://bdxfjulny1qlr" path="res://Scenes/hobs.tscn" id="12_f28fq"]
 [ext_resource type="PackedScene" uid="uid://rbywxs3f4ayy" path="res://Scenes/pot.tscn" id="13_jxth2"]
 [ext_resource type="PackedScene" uid="uid://dmo3gwbcfhtvb" path="res://Scenes/chopping_board.tscn" id="14_dj06i"]
-[ext_resource type="PackedScene" path="res://item_dispenser.tscn" id="15_xv5qq"]
+[ext_resource type="PackedScene" uid="uid://dkjxf52d7v25j" path="res://item_dispenser.tscn" id="15_xv5qq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dya7d"]
 size = Vector3(60, 2, 60)
@@ -56,7 +57,6 @@ shadow_enabled = true
 transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 10, 8)
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 current = true
 fov = 70.0
 size = 11.8838
@@ -104,6 +104,7 @@ offset_bottom = 40.0
 script = ExtResource("8_cssoe")
 
 [node name="Timer" type="Timer" parent="Control"]
+script = ExtResource("9_7n7an")
 
 [node name="TimeRemaining" type="Label" parent="Control"]
 layout_mode = 0

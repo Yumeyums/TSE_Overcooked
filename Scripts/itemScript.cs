@@ -14,7 +14,7 @@ public partial class itemScript : RigidBody3D
 		}
 	}
 
-    /*
+	/*
 	public double getDistance(Node3D detector){
 		double diffX = detector.GlobalPosition[0] - GlobalPosition[0];
 		double diffZ = detector.GlobalPosition[2] - GlobalPosition[2];

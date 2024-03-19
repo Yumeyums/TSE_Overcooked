@@ -1,16 +1,17 @@
-res://Scenes/counter.tscn
+res://Scenes/MainScene.tscn
 res://Textures/counter.tres
 res://Scripts/itemScript.cs
 res://Textures/plate.tres
 res://Textures/hobs.tres
 res://Textures/wood.tres
+res://Scenes/counter.tscn
 res://Scenes/pasta.tscn
 res://Scenes/player.tscn
 res://Scenes/item.tscn
 res://Scenes/plate.tscn
-res://Scenes/MainScene.tscn
 res://Scenes/hobs.tscn
 res://Scenes/pot.tscn
+res://Scenes/chopping_board.tscn
 res://Scripts/CanBoil.cs
 res://Scripts/chopping_board.cs
 res://Scripts/CounterScript.cs
@@ -21,4 +22,4 @@ res://Scripts/plateScript.cs
 res://Scripts/playerScript.cs
 res://Scripts/PotScript.cs
 res://Scripts/TimerScript.cs
-res://Scenes/chopping_board.tscn
+res://Scripts/randomRecipe.cs
