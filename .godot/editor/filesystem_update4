@@ -23,3 +23,4 @@ res://Scripts/playerScript.cs
 res://Scripts/PotScript.cs
 res://Scripts/randomRecipe.cs
 res://Scripts/TimerScript.cs
+res://Scenes/rice.tscn

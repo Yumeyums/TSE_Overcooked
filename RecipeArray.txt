@@ -1,0 +1,16 @@
+[Tomato_Salad,
+Cucumber_Salad,
+Tomato_Cucumber_Salad,
+Tomato_Pasta,
+Shrimp_Pasta,
+Cucumber_Sushi,
+Sushi,
+Shrimp_Sushi]/
+[[ChoppedLettuce,ChoppedTomato],
+[ChoppedLettuce,ChoppedCucumber],
+[ChoppedLettuce,ChoppedTomato,ChoppedCucumber],
+[BoiledPasta,ChoppedTomato]
+[BoiledPasta,ChoppedShrimp]
+[BoiledRice,Nori,ChoppedCucumber]
+[BoiledRice,Nori,ChoppedCucumber,ChoppedFish]
+[BoiledRice,Nori,ChoppedCucumber,ChoppedShrimp]]

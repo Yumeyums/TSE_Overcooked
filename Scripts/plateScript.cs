@@ -22,4 +22,8 @@ public partial class plateScript : Node3D
 			GD.Print(body.GetParent().Name, " off plate");
 		}
 	}
+	
+	public void AddToPlate(){
+		items.Add(body);
+	}
 }
