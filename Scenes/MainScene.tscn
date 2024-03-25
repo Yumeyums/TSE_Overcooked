@@ -101,19 +101,27 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("8_cssoe")
+script = ExtResource("9_7n7an")
 
 [node name="Timer" type="Timer" parent="Control"]
-script = ExtResource("9_7n7an")
+autostart = true
+script = ExtResource("8_cssoe")
 
 [node name="TimeRemaining" type="Label" parent="Control"]
 layout_mode = 0
-offset_left = 345.0
-offset_top = 37.0
-offset_right = 459.0
-offset_bottom = 174.0
+offset_left = 521.0
+offset_top = -18.0
+offset_right = 635.0
+offset_bottom = 119.0
 theme_override_font_sizes/font_size = 100
 text = "60"
+
+[node name="RecipeList" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 925.0
+offset_right = 988.0
+offset_bottom = 23.0
+text = "Test 60s"
 
 [node name="plate" parent="." instance=ExtResource("11_c0gq8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5651, 0, 3.83111)

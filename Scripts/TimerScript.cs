@@ -18,6 +18,7 @@ public partial class TimerScript : Node
 public override void _Process(double delta)
 {
 	GetNode<Label>("TimeRemaining").Text = secondsInt.ToString();
+	
 	if (seconds > 0)
 	{
 		seconds -= delta;

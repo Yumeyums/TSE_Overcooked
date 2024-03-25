@@ -5,6 +5,10 @@ using System;
 
 public partial class randomRecipe : Node{
 	
+	System.Collections.Generic.List<string[]> RandomRecipes = new System.Collections.Generic.List<string[]>();
+	double seconds = 60;
+	int secondsInt;
+	
 	//Called when the node enters the scene tree for the first time.
 	public override void _Ready(){
 		//Needs a data structure to hold each recipe, I.E. list
@@ -40,7 +44,7 @@ public partial class randomRecipe : Node{
 		
 		int maxRecipes = 8;
 		
-		var RandomRecipes = new System.Collections.Generic.List<string[]>();
+		//RandomRecipes = new System.Collections.Generic.List<string[]>();
 		
 		var randValue = 0;
 		
@@ -51,14 +55,33 @@ public partial class randomRecipe : Node{
 		}
 		
 		
+		
 		foreach (var u in RandomRecipes){
+			
 			GD.Print(u[1]);
+			
+			
 		}
+		
 		
 	}
 
 	//Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
+		//if(readyCheck){
+			string dish_list = "";
+			
+			seconds -= delta;
+			secondsInt = (int)seconds;
+			
+			foreach (var dish in RandomRecipes){
+				dish_list += dish[1] + " - " + secondsInt + "\n"; 
+			}
+			
+			GetNode<Label>("RecipeList").Text = dish_list;
+			
+			
+		//}
 	}
 }

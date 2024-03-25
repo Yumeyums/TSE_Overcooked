@@ -21,5 +21,5 @@ res://Scripts/item_dispenser.cs
 res://Scripts/plateScript.cs
 res://Scripts/playerScript.cs
 res://Scripts/PotScript.cs
-res://Scripts/TimerScript.cs
 res://Scripts/randomRecipe.cs
+res://Scripts/TimerScript.cs
