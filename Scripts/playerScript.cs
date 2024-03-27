@@ -204,13 +204,17 @@ public partial class playerScript : CharacterBody3D
 			removeTargettedItem(carriedItem);
 		}
 		else{
-			GD.Print(carriedItem.GetParent().Name);
+			GD.Print(targetNode.GetParent().Name);
 			GD.Print("drop");
 			carriedItem.Call("Drop");
 			if (targetNode != null){
 				if (targetNode.GetParent().Name == "Counter"){
 					targetNode.GetParent().GetNode("Area3D").Call("DropItem",carriedItem);
 				}
+				else if(targetNode.GetParent().Name == "Plate"){
+					GD.Print("ahh");
+					targetNode.GetParent().GetNode("Area3D").Call("AddToPlate",carriedItem);
+					}
 			}
 			else{
 				BodiesInRange.Add(carriedItem);

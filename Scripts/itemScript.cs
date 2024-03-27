@@ -8,27 +8,25 @@ public partial class itemScript : RigidBody3D
 	
 	public override void _PhysicsProcess(double delta)
 	{
-		if (heldBy != null && heldBy.GetParent().Name != "Counter"){
-			this.Sleeping = true;
-			GlobalPosition = heldBy.GlobalPosition - heldBy.GlobalTransform.Basis.Z;
+		if (heldBy != null){
+			if (heldBy.GetParent().Name == "Plate"){
+				this.Sleeping = true;
+				GlobalPosition = heldBy.GlobalPosition + new Vector3 (0,1,0);
+			}
+			else if (heldBy.GetParent().Name != "Counter")  {
+				this.Sleeping = true;
+				GlobalPosition = heldBy.GlobalPosition - heldBy.GlobalTransform.Basis.Z;
+			}
 		}
 	}
 
-	public void Interact(Node3D player, bool handsEmpty){
-		if (handsEmpty == true){
-			GD.Print("yoink");
-			heldBy = player;
-			GlobalPosition = player.GlobalPosition + new Vector3(0f,1.5f,0f);
-		}
-	}
-
-	public void PickUp(Node3D player){
+	public void PickUp(Node3D carrier){
 		if (heldBy != null){
 			if (heldBy.GetParent().Name == "Counter"){
 				heldBy.Call("RemoveFromCounter");
 			}
 		}
-		heldBy = player;
+		heldBy = carrier;
 		this.Sleeping = true;
 	}
 
@@ -38,9 +36,5 @@ public partial class itemScript : RigidBody3D
 
 	public void Drop(){
 		heldBy = null;
-	}
-
-	public void DropOnCounter(Node3D counter){
-		heldBy = counter;
 	}
 }

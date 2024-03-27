@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://bdxfjulny1qlr" path="res://Scenes/hobs.tscn" id="12_f28fq"]
 [ext_resource type="PackedScene" uid="uid://rbywxs3f4ayy" path="res://Scenes/pot.tscn" id="13_jxth2"]
 [ext_resource type="PackedScene" uid="uid://dmo3gwbcfhtvb" path="res://Scenes/chopping_board.tscn" id="14_dj06i"]
-[ext_resource type="PackedScene" uid="uid://dkjxf52d7v25j" path="res://item_dispenser.tscn" id="15_xv5qq"]
+[ext_resource type="PackedScene" uid="uid://dkjxf52d7v25j" path="res://Scenes/item_dispenser.tscn" id="15_xv5qq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dya7d"]
 size = Vector3(60, 2, 60)
@@ -115,7 +115,7 @@ offset_bottom = 174.0
 theme_override_font_sizes/font_size = 100
 text = "60"
 
-[node name="plate" parent="." instance=ExtResource("11_c0gq8")]
+[node name="Plate" parent="." instance=ExtResource("11_c0gq8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5651, 0, 3.83111)
 
 [node name="Pot" parent="." instance=ExtResource("13_jxth2")]

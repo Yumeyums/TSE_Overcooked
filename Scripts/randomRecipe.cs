@@ -1,8 +1,6 @@
 using Godot;
 using System;
 
-
-
 public partial class randomRecipe : Node{
 	
 	//Called when the node enters the scene tree for the first time.
@@ -49,12 +47,9 @@ public partial class randomRecipe : Node{
 			//GD.Print(randValue);		//used for debugging
 			RandomRecipes.Add(Recipes[randValue]);
 		}
-		
-		
-		foreach (var u in RandomRecipes){
-			GD.Print(u[1]);
-		}
-		
+		//foreach (var u in RandomRecipes){
+			//GD.Print(u[1]);
+		//}
 	}
 
 	//Called every frame. 'delta' is the elapsed time since the previous frame.

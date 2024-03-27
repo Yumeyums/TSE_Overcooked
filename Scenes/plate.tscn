@@ -12,7 +12,7 @@ height = 0.2
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_a8v6y"]
 height = 0.5
 
-[node name="plate" type="Node3D"]
+[node name="Plate" type="Node3D"]
 
 [node name="RigidBody3D" parent="." instance=ExtResource("1_k36oe")]
 
