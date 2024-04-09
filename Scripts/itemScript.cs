@@ -27,7 +27,8 @@ public partial class itemScript : RigidBody3D
 			}
 		}
 		heldBy = carrier;
-		this.Sleeping = true;
+		//this.Sleeping = true;
+		GD.Print(this.GetParent().Name, " is held by ", carrier.Name);
 	}
 
 	public void DropInto(Node3D into){

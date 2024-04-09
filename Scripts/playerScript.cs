@@ -188,7 +188,7 @@ public partial class playerScript : CharacterBody3D
 	}
 	
 	public void InteractWith(){
-		GD.Print(carriedItem);
+		GD.Print("Target node: ", targetNode.GetParent().Name);
 		if(carriedItem == null){ //pick up
 			if (targetNode.GetParent().Name == "Counter"){
 				Node3D item = (Node3D) targetNode.GetParent().GetNode("Area3D").Call("PickUpFromCounter",this);
@@ -197,15 +197,18 @@ public partial class playerScript : CharacterBody3D
 				}
 			}
 			else{
+				if(targetNode.GetNode("counter") == null)
+				{
+					carriedItem = targetNode;
+				}
 				targetNode.Call("PickUp",this);
-				carriedItem = targetNode;
 				removeTargettedItem(targetNode);
 			}
 			removeTargettedItem(carriedItem);
 		}
 		else{
-			GD.Print(targetNode.GetParent().Name);
-			GD.Print("drop");
+			GD.Print("Dropping: ", targetNode.GetParent().Name);
+			//GD.Print("drop");
 			carriedItem.Call("Drop");
 			if (targetNode != null){
 				if (targetNode.GetParent().Name == "Counter"){
@@ -220,7 +223,9 @@ public partial class playerScript : CharacterBody3D
 				BodiesInRange.Add(carriedItem);
 			}
 			carriedItem = null;
+			
 		}
+		GD.Print("Carried item: ", carriedItem.GetParent().Name);
 	}
 	
 	public void Chop()
@@ -231,13 +236,15 @@ public partial class playerScript : CharacterBody3D
 		}
 	}
 	
-	public void giveItem()
+	public void giveItem(string filePath)
 	{
-		PackedScene pastacopies = GD.Load<PackedScene>("res://Scenes/pasta.tscn");
-		Node3D pasta = pastacopies.Instantiate<Node3D>();
-		this.GetParent().GetParent().AddChild(pasta);
-		carriedItem = pasta;
-		carriedItem.Call("PickUp", this);
+		PackedScene itemcopies = GD.Load<PackedScene>(filePath);
+		Node3D item = itemcopies.Instantiate<Node3D>();
+		this.GetParent().GetParent().AddChild(item);
+		carriedItem = item;
+		item.GlobalPosition = this.GlobalPosition - this.GlobalTransform.Basis.Z;
+		item.Call("PickUp", this);
+		GD.Print("this: ", this.Name);
 	}
 }
 

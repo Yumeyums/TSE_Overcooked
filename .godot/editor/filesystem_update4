@@ -4,8 +4,8 @@ res://Scripts/itemScript.cs
 res://Textures/plate.tres
 res://Textures/hobs.tres
 res://Textures/wood.tres
-res://Scripts/plateScript.cs
 res://Scripts/playerScript.cs
+res://Scripts/recipes.txt
 res://Scenes/counter.tscn
 res://Scenes/pasta.tscn
 res://Scenes/player.tscn
@@ -21,7 +21,10 @@ res://Scripts/CounterScript.cs
 res://Scripts/HobScript.cs
 res://Scripts/InteractableScript.cs
 res://Scripts/item_dispenser.cs
+res://Scripts/plateScript.cs
 res://Scripts/PotScript.cs
 res://Scripts/randomRecipe.cs
 res://Scripts/TimerScript.cs
-res://RecipeArray.txt
+res://Scenes/item_dispenser.tscn
+res://Scenes/HobScript.cs
+res://Scripts/ChoppingBoardScript.cs
