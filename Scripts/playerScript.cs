@@ -17,10 +17,6 @@ public partial class playerScript : CharacterBody3D
 	public Godot.Collections.Array<Node3D> BodiesInRange = new Godot.Collections.Array<Node3D>();
 	public Node3D targetNode;
 	
-	public override void _Ready()
-	{
-		ResourceLoader.LoadThreadedRequest("res://Scenes/pasta.tscn");
-	}
 	
 	public void _on_area_3d_body_entered(Node3D body)
 	{
@@ -225,26 +221,20 @@ public partial class playerScript : CharacterBody3D
 			carriedItem = null;
 			
 		}
-		GD.Print("Carried item: ", carriedItem.GetParent().Name);
+		GD.Print("Carried item: ", carriedItem.Name);
 	}
 	
 	public void Chop()
 	{
 		if (targetNode.GetParent().GetParent().Name == "choppingBoard")
 		{
-			targetNode.GetParent().GetNode("Area3D").Call("Chopping");
+			targetNode.GetParent().GetNode("Area3D").Call("CounterChop");
 		}
 	}
 	
-	public void giveItem(string filePath)
+	public void giveItem(Node3D item)
 	{
-		PackedScene itemcopies = GD.Load<PackedScene>(filePath);
-		Node3D item = itemcopies.Instantiate<Node3D>();
-		this.GetParent().GetParent().AddChild(item);
 		carriedItem = item;
-		item.GlobalPosition = this.GlobalPosition - this.GlobalTransform.Basis.Z;
-		item.Call("PickUp", this);
-		GD.Print("this: ", this.Name);
 	}
 }
 

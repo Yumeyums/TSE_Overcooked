@@ -3,17 +3,16 @@ using System;
 
 public partial class CounterScript : Area3D
 {
-	[Export]
 	public Node3D itemOnCounter = null;
 	
 	public void _on_body_entered(RigidBody3D body)
 	{
 		if (body.GetNode("Interactable") != null && itemOnCounter != null)
 		{
+			itemOnCounter = body;
 			body.Sleeping = true;
 			body.GlobalPosition = this.GlobalPosition;
 			//GD.Print("Contact", this.GlobalPosition);
-			itemOnCounter = body;
 		}
 	}
 
@@ -44,6 +43,11 @@ public partial class CounterScript : Area3D
 		{
 			 itemOnCounter = null;
 		}
+	}
+	
+	public void CounterChop()
+	{
+		itemOnCounter.Call("Chopping");
 	}
 }
 

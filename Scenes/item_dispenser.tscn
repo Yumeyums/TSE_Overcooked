@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dkjxf52d7v25j"]
+[gd_scene load_steps=6 format=3 uid="uid://byyvaapsghv53"]
 
 [ext_resource type="Material" uid="uid://drxc48ye0vk1o" path="res://Textures/counter.tres" id="1_h1j55"]
 [ext_resource type="Script" path="res://Scripts/InteractableScript.cs" id="2_85ubo"]
