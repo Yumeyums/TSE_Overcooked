@@ -33,6 +33,8 @@ script = ExtResource("3_v52gb")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0)
 shape = SubResource("CylinderShape3D_h4oxy")
 
+[node name="CanOnHob" type="Node3D" parent="."]
+
 [connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]
 
 [editable path="RigidBody3D"]

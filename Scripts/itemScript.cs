@@ -14,6 +14,7 @@ public partial class itemScript : RigidBody3D
 				GlobalPosition = heldBy.GlobalPosition + new Vector3 (0,1,0);
 			}
 			else if (heldBy.GetParent().Name != "Counter")  {
+				
 				this.Sleeping = true;
 				GlobalPosition = heldBy.GlobalPosition - heldBy.GlobalTransform.Basis.Z;
 			}
@@ -22,7 +23,7 @@ public partial class itemScript : RigidBody3D
 
 	public void PickUp(Node3D carrier){
 		if (heldBy != null){
-			if (heldBy.GetParent().Name == "Counter"){
+			if (heldBy.Name == "Counter"){
 				heldBy.Call("RemoveFromCounter");
 			}
 		}

@@ -15,6 +15,9 @@ height = 0.5
 [node name="Plate" type="Node3D"]
 
 [node name="RigidBody3D" parent="." instance=ExtResource("1_k36oe")]
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
 
 [node name="CollisionShape3D" parent="RigidBody3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.275, 0)

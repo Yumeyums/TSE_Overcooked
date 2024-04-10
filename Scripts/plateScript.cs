@@ -3,6 +3,7 @@ using System;
 
 public partial class plateScript : Node3D
 {
+	[Export]
 	public Godot.Collections.Array<Node3D> items = new Godot.Collections.Array<Node3D>();
 	string[] recipeData;
 	private Godot.Collections.Array<String> recipes = new Godot.Collections.Array<String>();
@@ -37,21 +38,22 @@ public partial class plateScript : Node3D
 			//GD.Print(body.GetParent().Name, " on plate");
 		//}
 	}
+
 	
 	public void AddToPlate(Node3D carriedItem){
 		//GD.Print(ingredients);
 		int recipe = -1;
 		for (int i = 0; i < ingredients.Count; i++){
-			GD.Print(recipes[i]);
+			//GD.Print(recipes[i]);
 			for (int e = 0; e < ingredients[i].Count; e++){
 				if(carriedItem.Name == ingredients[i][e]){
-					GD.Print(recipes[i]);
+					//GD.Print(recipes[i]);
 					recipe = i;
 				}
 			}	
 		}
 		//if (recipe > -1){
-			carriedItem.Call("DropInto",this);
+			carriedItem.Call("DropInto",this.GetParent().GetNode("RigidBody3D"));
 			carriedItem.GlobalPosition = this.GlobalPosition + new Vector3(0f, 0.5f, 0f);
 			items.Add(carriedItem);
 		//}

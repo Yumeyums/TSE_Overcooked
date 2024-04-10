@@ -1,18 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://bdxfjulny1qlr"]
+[gd_scene load_steps=3 format=3 uid="uid://bdxfjulny1qlr"]
 
 [ext_resource type="PackedScene" uid="uid://q3qnab3kenk4" path="res://Scenes/counter.tscn" id="1_s4dte"]
 [ext_resource type="Material" uid="uid://yqiqywg1p76f" path="res://Textures/hobs.tres" id="2_4g72b"]
-[ext_resource type="Script" path="res://Scripts/HobScript.cs" id="3_c2gij"]
 
-[node name="Hobs" type="Node3D"]
+[node name="Hob" type="Node3D"]
 
 [node name="Counter" parent="." instance=ExtResource("1_s4dte")]
 
 [node name="MeshInstance3D" parent="Counter/StaticBody3D" index="1"]
 material_override = ExtResource("2_4g72b")
 surface_material_override/0 = ExtResource("2_4g72b")
-
-[node name="Area3D" parent="Counter" index="1"]
-script = ExtResource("3_c2gij")
 
 [editable path="Counter"]

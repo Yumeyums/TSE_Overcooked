@@ -188,10 +188,10 @@ public partial class playerScript : CharacterBody3D
 	}
 	
 	public void InteractWith(){
-		GD.Print(carriedItem);
+		GD.Print("carried item: ",carriedItem);
 		if(carriedItem == null){ //pick up
 			if (targetNode.GetParent().Name == "Counter"){
-				Node3D item = (Node3D) targetNode.GetParent().GetNode("Area3D").Call("PickUpFromCounter",this);
+				Node3D item = (Node3D) targetNode.GetParent().Call("PickUpFromCounter",this);
 				if(item != null){
 					carriedItem = item;
 				}
@@ -203,22 +203,18 @@ public partial class playerScript : CharacterBody3D
 			}
 			removeTargettedItem(carriedItem);
 		}
-		else{
-			GD.Print(targetNode.GetParent().Name);
-			GD.Print("drop");
+		else{ //put down
+			GD.Print("put down");
 			carriedItem.Call("Drop");
 			if (targetNode != null){
 				if (targetNode.GetParent().Name == "Counter"){
-					targetNode.GetParent().GetNode("Area3D").Call("DropItem",carriedItem);
+					targetNode.GetParent().Call("DropItem",carriedItem);
 				}
 				else if(targetNode.GetParent().Name == "Plate"){
-					GD.Print("ahh");
-					targetNode.GetParent().GetNode("Area3D").Call("AddToPlate",carriedItem);
+					targetNode.GetParent().Call("AddToPlate",carriedItem);
 					}
 			}
-			else{
-				BodiesInRange.Add(carriedItem);
-			}
+			BodiesInRange.Add(carriedItem);
 			carriedItem = null;
 		}
 	}
