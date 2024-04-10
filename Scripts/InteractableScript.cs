@@ -40,6 +40,7 @@ public partial class InteractableScript : Node3D
 	}
 
 	public void ChangeColour(bool target, Node3D player){
+		//GD.Print("change: ", this.GetParent().GetParent().Name, ", ", target);
 		Color c = new Color(1, 1, 1,0.8f);
 		if (target == true) {
 			if ((int) player.Call("GetPlayerNumber") == 1){ c = new Color(1f, 0.2f, 0.2f,0.5f);}

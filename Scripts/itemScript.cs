@@ -30,7 +30,6 @@ public partial class itemScript : RigidBody3D
 	}
 
 	public void PickUp(Node3D carrier){
-		GD.Print(this.Name, ",",heldBy);
 		if (heldBy != null){
 			if (heldBy.Name == "Counter"){
 				heldBy.Call("RemoveFromCounter");

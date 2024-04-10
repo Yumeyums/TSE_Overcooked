@@ -25,7 +25,6 @@ public partial class AllCounterScript : Node3D
 	public void DropItem(Node3D carriedItem, Node3D player){
 		if (itemOnCounter == null){
 			if(GetAllowed(carriedItem) == true){
-				GD.Print("allowed");
 				carriedItem.Call("DropInto",this);
 				carriedItem.GlobalPosition = this.GlobalPosition + new Vector3(0f, 0.5f, 0f);
 				itemOnCounter = carriedItem;

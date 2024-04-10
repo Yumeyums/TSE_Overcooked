@@ -57,11 +57,12 @@ public partial class playerScript : CharacterBody3D
 		if(newTarget != null) { 
 			newTarget.GetNode("Interactable").Call("target",true,this);
 			targetNode = newTarget;
-			}
+		}
 		else{
 			targetNode = null;
-			}
 		}
+	}
+		
 
 	public override void _PhysicsProcess(double delta)
 	{
@@ -70,7 +71,6 @@ public partial class playerScript : CharacterBody3D
 			if (Input.IsActionPressed("move_right"))
 			{
 				direction.X += 1.0f; //Sets the X axis direction to positive
-				//Formula for speed calculation:
 			}
 			if (Input.IsActionPressed("move_left"))
 			{
@@ -102,10 +102,7 @@ public partial class playerScript : CharacterBody3D
 					} else {
 						Speed -= friction;
 					}
-				} else { //Otherwise we accellerate
-					// First we check that the current speed + the acceleration doesn't exceed the max speed.
-					// if it doesn't we increase the speed as normal via acceleration.
-					// otherwise; we set the speed to the maximum speed.
+				} else {
 					if((Speed+accelleration)<mspeed){ Speed += accelleration; } else { Speed = mspeed; }
 				}
 		}
@@ -177,7 +174,10 @@ public partial class playerScript : CharacterBody3D
 			}
 		}	
 		if(targetNode != smallest){
-			changeTarget(smallest, targetNode);
+			if (smallest != carriedItem)
+			{
+				changeTarget(smallest, targetNode);
+			}
 		}	
 	}
 
@@ -191,6 +191,8 @@ public partial class playerScript : CharacterBody3D
 				Node3D item = (Node3D) targetNode.GetParent().Call("PickUpFromCounter",this);
 				if(item != null){
 					carriedItem = item;
+					removeTargettedItem(carriedItem);
+					carriedItem.GetNode("Interactable").Call("ChangeColour",false,this);
 				}
 			}
 			else{

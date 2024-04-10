@@ -47,7 +47,7 @@ public partial class ContainerItemsScripts : Node3D
 			//GD.Print(recipes[i]);
 			for (int e = 0; e < ingredients[i].Count; e++){
 				if(carriedItem.Name == ingredients[i][e]){
-					//GD.Print(recipes[i]);
+					GD.Print(recipes[i]);
 					recipe = i;
 				}
 			}	
