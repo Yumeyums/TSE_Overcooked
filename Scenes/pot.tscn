@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://rbywxs3f4ayy"]
+[gd_scene load_steps=8 format=3 uid="uid://rbywxs3f4ayy"]
 
+[ext_resource type="Script" path="res://ContainerItemsScripts.cs" id="1_icuha"]
 [ext_resource type="PackedScene" uid="uid://cr3jngv5l3jcm" path="res://Scenes/item.tscn" id="1_nldo4"]
 [ext_resource type="Material" uid="uid://c5dnsmb30x0xe" path="res://Textures/plate.tres" id="2_r0bdl"]
 [ext_resource type="Script" path="res://Scripts/PotScript.cs" id="3_v52gb"]
@@ -13,6 +14,7 @@ height = 0.7
 height = 0.5
 
 [node name="Pot" type="Node3D"]
+script = ExtResource("1_icuha")
 
 [node name="RigidBody3D" parent="." instance=ExtResource("1_nldo4")]
 

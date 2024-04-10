@@ -17,6 +17,10 @@ public partial class playerScript : CharacterBody3D
 	public Godot.Collections.Array<Node3D> BodiesInRange = new Godot.Collections.Array<Node3D>();
 	public Node3D targetNode;
 	
+	public int GetPlayerNumber(){
+		return playerNumber;
+	}
+	
 	public override void _Ready()
 	{
 		ResourceLoader.LoadThreadedRequest("res://Scenes/pasta.tscn");
@@ -36,7 +40,6 @@ public partial class playerScript : CharacterBody3D
 
 	public void removeTargettedItem(Node3D body){
 		if(BodiesInRange.IndexOf(body)!= -1){
-			//GD.Print("exited ", body.GetParent().Name);
 			BodiesInRange.Remove(body);
 			if (BodiesInRange.Count == 0){
 				changeTarget(null, targetNode);
@@ -50,9 +53,9 @@ public partial class playerScript : CharacterBody3D
 	}
 
 	public void changeTarget(Node3D newTarget, Node3D oldTarget){
-		if(oldTarget != null) {oldTarget.GetNode("Interactable").Call("target",false);}
+		if(oldTarget != null) {oldTarget.GetNode("Interactable").Call("target",false,this);}
 		if(newTarget != null) { 
-			newTarget.GetNode("Interactable").Call("target",true);
+			newTarget.GetNode("Interactable").Call("target",true,this);
 			targetNode = newTarget;
 			}
 		else{
@@ -141,10 +144,7 @@ public partial class playerScript : CharacterBody3D
 					} else {
 						Speed -= friction;
 					}
-				} else { //Otherwise we accellerate
-					// First we check that the current speed + the acceleration doesn't exceed the max speed.
-					// if it doesn't we increase the speed as normal via acceleration.
-					// otherwise; we set the speed to the maximum speed.
+				} else { 
 					if((Speed+accelleration)<mspeed){ Speed += accelleration; } else { Speed = mspeed; }
 				}
 		}
@@ -174,10 +174,8 @@ public partial class playerScript : CharacterBody3D
 			if (dist < smallestDist){
 				smallest = BodiesInRange[i];
 				smallestDist = dist;
-				//GD.Print(dist);
 			}
 		}	
-
 		if(targetNode != smallest){
 			changeTarget(smallest, targetNode);
 		}	
@@ -188,7 +186,6 @@ public partial class playerScript : CharacterBody3D
 	}
 	
 	public void InteractWith(){
-		GD.Print("carried item: ",carriedItem);
 		if(carriedItem == null){ //pick up
 			if (targetNode.GetParent().Name == "Counter"){
 				Node3D item = (Node3D) targetNode.GetParent().Call("PickUpFromCounter",this);
@@ -208,7 +205,7 @@ public partial class playerScript : CharacterBody3D
 			carriedItem.Call("Drop");
 			if (targetNode != null){
 				if (targetNode.GetParent().Name == "Counter"){
-					targetNode.GetParent().Call("DropItem",carriedItem);
+					targetNode.GetParent().Call("DropItem",carriedItem,this);
 				}
 				else if(targetNode.GetParent().Name == "Plate"){
 					targetNode.GetParent().Call("AddToPlate",carriedItem);

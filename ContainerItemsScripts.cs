@@ -53,7 +53,7 @@ public partial class ContainerItemsScripts : Node3D
 			}	
 		}
 		//if (recipe > -1){
-			carriedItem.Call("DropInto",this.GetNode("RigidBody3D"));
+			carriedItem.Call("DropInto",this);
 			carriedItem.GlobalPosition = this.GlobalPosition + new Vector3(0f, 0.5f, 0f);
 			items.Add(carriedItem);
 		//}
