@@ -29,8 +29,6 @@ surface_material_override/0 = ExtResource("1_vyb7v")
 [node name="Interactable" type="Node3D" parent="StaticBody3D"]
 script = ExtResource("2_phhdd")
 
-[node name="counter" type="Node3D" parent="StaticBody3D"]
-
 [node name="Area3D" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
 collision_mask = 7

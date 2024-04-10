@@ -26,3 +26,4 @@ res://Scripts/randomRecipe.cs
 res://Scripts/TimerScript.cs
 res://AllCounterScript.cs
 res://Scenes/item_dispenser.tscn
+res://ContainerItemsScripts.cs

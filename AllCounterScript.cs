@@ -29,8 +29,13 @@ public partial class AllCounterScript : Node3D
 				carriedItem.Call("DropInto",this);
 				carriedItem.GlobalPosition = this.GlobalPosition + new Vector3(0f, 0.5f, 0f);
 				itemOnCounter = carriedItem;
+				itemOnCounter.GetNode("Interactable").Call("ChangeColour",true);
 			}
 		}
+	}
+	
+	public Node3D GetItemOnCounter(){
+		return itemOnCounter;
 	}
 	
 	public bool GetAllowed(Node3D carriedItem){

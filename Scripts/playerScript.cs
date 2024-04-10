@@ -50,9 +50,9 @@ public partial class playerScript : CharacterBody3D
 	}
 
 	public void changeTarget(Node3D newTarget, Node3D oldTarget){
-		if(oldTarget != null) {oldTarget.GetNode("Interactable").Call("untargeted");}
+		if(oldTarget != null) {oldTarget.GetNode("Interactable").Call("target",false);}
 		if(newTarget != null) { 
-			newTarget.GetNode("Interactable").Call("targeted");
+			newTarget.GetNode("Interactable").Call("target",true);
 			targetNode = newTarget;
 			}
 		else{
