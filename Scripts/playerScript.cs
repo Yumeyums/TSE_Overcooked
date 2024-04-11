@@ -17,6 +17,9 @@ public partial class playerScript : CharacterBody3D
 	public Godot.Collections.Array<Node3D> BodiesInRange = new Godot.Collections.Array<Node3D>();
 	public Node3D targetNode;
 	
+	public int GetPlayerNumber(){
+		return playerNumber;
+	}
 	
 	public void _on_area_3d_body_entered(Node3D body)
 	{
@@ -32,7 +35,6 @@ public partial class playerScript : CharacterBody3D
 
 	public void removeTargettedItem(Node3D body){
 		if(BodiesInRange.IndexOf(body)!= -1){
-			//GD.Print("exited ", body.GetParent().Name);
 			BodiesInRange.Remove(body);
 			if (BodiesInRange.Count == 0){
 				changeTarget(null, targetNode);
@@ -46,9 +48,9 @@ public partial class playerScript : CharacterBody3D
 	}
 
 	public void changeTarget(Node3D newTarget, Node3D oldTarget){
-		if(oldTarget != null) {oldTarget.GetNode("Interactable").Call("untargeted");}
+		if(oldTarget != null) {oldTarget.GetNode("Interactable").Call("target",false,this);}
 		if(newTarget != null) { 
-			newTarget.GetNode("Interactable").Call("targeted");
+			newTarget.GetNode("Interactable").Call("target",true,this);
 			targetNode = newTarget;
 			}
 		else{
@@ -175,7 +177,10 @@ public partial class playerScript : CharacterBody3D
 		}	
 
 		if(targetNode != smallest){
-			changeTarget(smallest, targetNode);
+			if (smallest != carriedItem)
+			{
+				changeTarget(smallest, targetNode);
+			}
 		}	
 	}
 
@@ -186,6 +191,8 @@ public partial class playerScript : CharacterBody3D
 	public void InteractWith(){
 		GD.Print("Target node: ", targetNode.GetParent().Name);
 		if(carriedItem == null){ //pick up
+			removeTargettedItem(carriedItem);
+			carriedItem.GetNode("Interactable").Call("ChangeColour",false,this);
 			if (targetNode.GetParent().Name == "Counter"){
 				Node3D item = (Node3D) targetNode.GetParent().Call("PickUpFromCounter",this);
 				if(item != null){
@@ -206,7 +213,7 @@ public partial class playerScript : CharacterBody3D
 			GD.Print("Put Down");
 			if (targetNode != null){
 				if (targetNode.GetParent().Name == "Counter"){
-					targetNode.GetParent().Call("DropItem",carriedItem);
+					targetNode.GetParent().Call("DropItem",carriedItem,this);
 				}
 				else if(targetNode.GetParent().Name == "Plate"){
 					

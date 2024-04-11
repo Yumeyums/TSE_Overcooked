@@ -1,9 +1,5 @@
-res://Scenes/counter.tscn
-res://Textures/counter.tres
+res://Scripts/ContainerItemsScript.cs
 res://Scripts/itemScript.cs
-res://Textures/plate.tres
-res://Textures/hobs.tres
-res://Textures/wood.tres
 res://Scripts/AllCounterScript.cs
-res://Scripts/plateScript.cs
+res://Scripts/InteractableScript.cs
 res://Scripts/playerScript.cs
