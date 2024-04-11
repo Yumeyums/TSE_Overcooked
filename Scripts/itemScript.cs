@@ -22,7 +22,7 @@ public partial class itemScript : RigidBody3D
 
 	public void PickUp(Node3D carrier){
 		if (heldBy != null){
-			if (heldBy.GetParent().Name == "Counter"){
+			if (heldBy.Name == "Counter"){
 				heldBy.Call("RemoveFromCounter");
 			}
 		}

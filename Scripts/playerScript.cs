@@ -187,7 +187,7 @@ public partial class playerScript : CharacterBody3D
 		GD.Print("Target node: ", targetNode.GetParent().Name);
 		if(carriedItem == null){ //pick up
 			if (targetNode.GetParent().Name == "Counter"){
-				Node3D item = (Node3D) targetNode.GetParent().GetNode("Area3D").Call("PickUpFromCounter",this);
+				Node3D item = (Node3D) targetNode.GetParent().Call("PickUpFromCounter",this);
 				if(item != null){
 					carriedItem = item;
 				}
@@ -203,21 +203,19 @@ public partial class playerScript : CharacterBody3D
 			removeTargettedItem(carriedItem);
 		}
 		else{
-			GD.Print("Dropping: ", targetNode.GetParent().Name);
-			//GD.Print("drop");
-			carriedItem.Call("Drop");
+			GD.Print("Put Down");
 			if (targetNode != null){
 				if (targetNode.GetParent().Name == "Counter"){
-					targetNode.GetParent().GetNode("Area3D").Call("DropItem",carriedItem);
+					targetNode.GetParent().Call("DropItem",carriedItem);
 				}
 				else if(targetNode.GetParent().Name == "Plate"){
-					GD.Print("ahh");
-					targetNode.GetParent().GetNode("Area3D").Call("AddToPlate",carriedItem);
+					
+					targetNode.GetParent().Call("AddToPlate",carriedItem);
 					}
 			}
-			else{
-				BodiesInRange.Add(carriedItem);
-			}
+			
+			BodiesInRange.Add(carriedItem);
+			
 			carriedItem = null;
 			
 		}
