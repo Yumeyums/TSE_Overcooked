@@ -30,17 +30,17 @@ public partial class ContainerItemsScripts : Node3D
 		}
 	}
 	
-	private void _on_body_entered(RigidBody3D body)
+	private void _on_area_3d_body_entered(Node3D body)
 	{
-		//if(body.GetNode("Ingredient") != null)
+	//if(body.GetNode("Ingredient") != null)
 		//{
 			//AddToPlate(body);
 			//GD.Print(body.GetParent().Name, " on plate");
 		//}
 	}
-
 	
-	public void AddToPlate(Node3D carriedItem){
+	public void AddToContainer(RigidBody3D carriedItem){
+		GD.Print("bee");
 		//GD.Print(ingredients);
 		int recipe = -1;
 		for (int i = 0; i < ingredients.Count; i++){
@@ -59,3 +59,6 @@ public partial class ContainerItemsScripts : Node3D
 		//}
 	}
 }
+
+
+

@@ -10,11 +10,6 @@ public partial class InteractableScript : Node3D
 	{
 		mesh = GetParent().GetNode<MeshInstance3D>("MeshInstance3D");
 	}
-
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
-	}
 	
 	public double getDistance(Node3D detector){
 		double diffX = detector.GlobalPosition[0] - GlobalPosition[0];
@@ -34,7 +29,9 @@ public partial class InteractableScript : Node3D
 		else{
 			Node3D container = (Node3D) this.GetParent().Call("getContainer");
 			if (container !=  null){
-				container.GetNode("Interactable").Call("ChangeColour",target,player);
+				//if (!(container.Name == "Player1")||(container.Name == "Player2")){
+					container.GetNode("StaticBody3D").GetNode("Interactable").Call("ChangeColour",target,player);
+				//}
 			}
 		}
 	}
@@ -42,12 +39,12 @@ public partial class InteractableScript : Node3D
 	
 	public void ChangeColour(bool target, Node3D player){
 		//GD.Print("change: ", this.GetParent().GetParent().Name, ", ", target);
+		Color c = new Color(1, 1, 1,0.8f);
 		if (target == true) {
 			if ((int) player.Call("GetPlayerNumber") == 1){ c = new Color(1f, 0.2f, 0.2f,0.5f);}
 			else{c = new Color(0.2f, 0.2f, 1f,0.5f);}
 		}
 		var material = mesh.GetSurfaceOverrideMaterial(0);
-		Color c = new Color(1, 1, 1,0.8f);
 		var overrideMaterial = material.Duplicate() as StandardMaterial3D;
 		overrideMaterial.AlbedoColor = c;
 		mesh.SetSurfaceOverrideMaterial(0, overrideMaterial);

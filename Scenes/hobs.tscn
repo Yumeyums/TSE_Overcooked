@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://q3qnab3kenk4" path="res://Scenes/counter.tscn" id="1_s4dte"]
 [ext_resource type="Material" uid="uid://yqiqywg1p76f" path="res://Textures/hobs.tres" id="2_4g72b"]
 
-[node name="Hobs" type="Node3D"]
+[node name="Hob" type="Node3D"]
 
 [node name="Counter" parent="." instance=ExtResource("1_s4dte")]
 

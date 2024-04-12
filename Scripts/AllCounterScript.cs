@@ -5,6 +5,8 @@ public partial class AllCounterScript : Node3D
 {
 	[Export]
 	public Node3D itemOnCounter = null;
+	[Export]
+	public string itemFilePath = "res://Scenes/pasta.tscn";
 	
 	public void _on_body_entered(RigidBody3D body)
 	{
@@ -39,6 +41,7 @@ public partial class AllCounterScript : Node3D
 
 	public bool GetAllowed(Node3D carriedItem){
 		bool allowed = false;
+		GD.Print(this.GetParent().Name);
 			if(this.GetParent().Name == "MainScene"){ // normal counter
 				allowed = true;
 				GD.Print("on normal counter");
@@ -49,7 +52,8 @@ public partial class AllCounterScript : Node3D
 					GD.Print("on hob");
 				}
 			}
-			else if (this.GetParent().Name == "ChoppingBoard"){ // chopping counter
+			else if (this.GetParent().Name == "choppingBoard"){ // chopping counter
+				GD.Print("ahhg");
 				if (carriedItem.GetNode("CanChop") != null){
 					allowed = true;
 					GD.Print("on chop");
@@ -59,11 +63,21 @@ public partial class AllCounterScript : Node3D
 	}
 	
 	public Node3D PickUpFromCounter(Node3D player){
-		if (itemOnCounter != null){
-			GD.Print(itemOnCounter.Name);
-			Node3D temp = itemOnCounter;
-			itemOnCounter.Call("PickUp", player);
-			return temp;
+		if(this.GetParent().Name == "itemDispenser"){
+			PackedScene itemcopies = GD.Load<PackedScene>(itemFilePath);
+			Node3D item = itemcopies.Instantiate<Node3D>();
+			item.GlobalPosition = player.GlobalPosition - player.GlobalTransform.Basis.Z;;
+			this.GetParent().GetParent().AddChild(item);
+			player.Call("setCarryItem",item.GetNode("RigidBody3D"));
+			item.GetNode("RigidBody3D").Call("PickUp", player);
+		}
+		else{
+			if (itemOnCounter != null){
+				GD.Print(itemOnCounter.Name);
+				Node3D temp = itemOnCounter;
+				itemOnCounter.Call("PickUp", player);
+				return temp;
+			}
 		}
 		return null;
 	}

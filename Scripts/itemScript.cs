@@ -9,7 +9,7 @@ public partial class itemScript : RigidBody3D
 	public override void _PhysicsProcess(double delta)
 	{
 		if (heldBy != null){
-			if (heldBy.Name == "Plate"){
+			if (heldBy.Name == "Container"){
 				this.Sleeping = true;
 				GlobalPosition = heldBy.GlobalPosition + new Vector3 (0,1,0);
 			}
@@ -25,7 +25,7 @@ public partial class itemScript : RigidBody3D
 			return heldBy;
 		}
 		else{
-			return this;
+			return null;
 		}
 	}
 	
@@ -35,15 +35,18 @@ public partial class itemScript : RigidBody3D
 				heldBy.Call("RemoveFromCounter");
 				heldBy = carrier;
 				this.Sleeping = true;
-			} else if(heldBy.Name == "Plate") {
+			} 
+			else if(heldBy.Name == "Container") {
 				heldBy.Call("PickUp", carrier);
-			} else {
-				heldBy = carrier;
-				this.Sleeping = true;
-			}
+			} 
 		}
-		GD.Print(this.GetParent().Name, " is held by ", carrier.Name);
+		else {
+			heldBy = carrier;
+			this.Sleeping = true;
+		}
+		//GD.Print(this.GetParent().Name, " is held by ", carrier.Name);
 	}
+		
 
 	public void DropInto(Node3D into){
 		heldBy = into;

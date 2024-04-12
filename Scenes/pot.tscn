@@ -15,6 +15,9 @@ height = 0.5
 [node name="Pot" type="Node3D"]
 
 [node name="RigidBody3D" parent="." instance=ExtResource("1_nldo4")]
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
 
 [node name="CollisionShape3D" parent="RigidBody3D" index="0"]
 shape = SubResource("BoxShape3D_hfifw")
@@ -32,6 +35,8 @@ script = ExtResource("3_v52gb")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0)
 shape = SubResource("CylinderShape3D_h4oxy")
+
+[node name="CanOnHob" type="Node3D" parent="."]
 
 [connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]
 

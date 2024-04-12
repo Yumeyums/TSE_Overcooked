@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://b13oxrfjwlg6x"]
+[gd_scene load_steps=23 format=3 uid="uid://b13oxrfjwlg6x"]
 
 [ext_resource type="Material" uid="uid://b4g5xtb37kd0b" path="res://Textures/flooring.tres" id="1_2otum"]
 [ext_resource type="PackedScene" uid="uid://c4hh1yw3l66ve" path="res://Scenes/player.tscn" id="1_ecct4"]
@@ -14,6 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://rbywxs3f4ayy" path="res://Scenes/pot.tscn" id="13_jxth2"]
 [ext_resource type="PackedScene" uid="uid://dmo3gwbcfhtvb" path="res://Scenes/chopping_board.tscn" id="14_dj06i"]
 [ext_resource type="PackedScene" uid="uid://byyvaapsghv53" path="res://Scenes/item_dispenser.tscn" id="15_xv5qq"]
+[ext_resource type="PackedScene" uid="uid://8xmeev8hy2a4" path="res://Scenes/tomato.tscn" id="15_ylut5"]
+[ext_resource type="Texture2D" uid="uid://xwc73ad7u8gw" path="res://Textures/tomatoTexture.jpg" id="16_daoiy"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dya7d"]
 size = Vector3(60, 2, 60)
@@ -30,6 +32,9 @@ material = ExtResource("3_3gm78")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vde8b"]
 albedo_texture = ExtResource("6_e8q7p")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oqa0a"]
+albedo_texture = ExtResource("16_daoiy")
 
 [node name="MainScene" type="Node3D"]
 
@@ -103,19 +108,16 @@ offset_bottom = 174.0
 theme_override_font_sizes/font_size = 100
 text = "60"
 
-[node name="Plate" parent="." instance=ExtResource("11_c0gq8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5651, 0, 3.83111)
-
 [node name="Pot" parent="." instance=ExtResource("13_jxth2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.20699, 1.10208, 0)
 
 [node name="Counter" parent="." instance=ExtResource("7_vmktg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.4, 5)
 
-[node name="Hobs" parent="." instance=ExtResource("12_f28fq")]
+[node name="Hob" parent="." instance=ExtResource("12_f28fq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.4, 5)
 
-[node name="MeshInstance3D" parent="Hobs/Counter/StaticBody3D" index="1"]
+[node name="MeshInstance3D" parent="Hob/Counter/StaticBody3D" index="1"]
 material_override = null
 
 [node name="choppingBoard" parent="." instance=ExtResource("14_dj06i")]
@@ -124,6 +126,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.4, 5)
 [node name="itemDispenser" parent="." instance=ExtResource("15_xv5qq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0.4, 5)
 
+[node name="Tomato" parent="." instance=ExtResource("15_ylut5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.51207, 6.99182)
+
+[node name="MeshInstance3D" parent="Tomato/RigidBody3D" index="1"]
+material_override = null
+surface_material_override/0 = SubResource("StandardMaterial3D_oqa0a")
+
+[node name="Plate" parent="." instance=ExtResource("11_c0gq8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.68261, 0, 5.69204)
+
 [editable path="Player1"]
 [editable path="Player2"]
 [editable path="Rice"]
@@ -131,5 +143,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0.4, 5)
 [editable path="Pot"]
 [editable path="Pot/RigidBody3D"]
 [editable path="Counter"]
-[editable path="Hobs"]
-[editable path="Hobs/Counter"]
+[editable path="Hob"]
+[editable path="Hob/Counter"]
+[editable path="Tomato"]
+[editable path="Tomato/RigidBody3D"]
+[editable path="Plate"]
+[editable path="Plate/Container/RigidBody3D"]
