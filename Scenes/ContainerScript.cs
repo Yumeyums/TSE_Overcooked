@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class ContainerItemsScripts : Node3D
+public partial class ContainerScript : Node3D
 {
 	[Export]
 	public Godot.Collections.Array<Node3D> items = new Godot.Collections.Array<Node3D>();
@@ -32,11 +32,6 @@ public partial class ContainerItemsScripts : Node3D
 	
 	private void _on_area_3d_body_entered(Node3D body)
 	{
-	//if(body.GetNode("Ingredient") != null)
-		//{
-			//AddToPlate(body);
-			//GD.Print(body.GetParent().Name, " on plate");
-		//}
 	}
 	
 	public void AddToContainer(RigidBody3D carriedItem){
@@ -55,10 +50,8 @@ public partial class ContainerItemsScripts : Node3D
 		//if (recipe > -1){
 			carriedItem.Call("DropInto",this);
 			carriedItem.GlobalPosition = this.GlobalPosition + new Vector3(0f, 0.5f, 0f);
+			carriedItem.GetNode("Interactable").QueueFree();
 			items.Add(carriedItem);
 		//}
 	}
 }
-
-
-

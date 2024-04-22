@@ -166,12 +166,12 @@ mesh = SubResource("ArrayMesh_07fal")
 skeleton = NodePath("")
 
 [node name="Area3D" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
 collision_mask = 7
 script = ExtResource("4_fvx4w")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000319004, -0.00462353, 0.00237536)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.000319004, -0.00462353, 0.00237536)
 shape = SubResource("BoxShape3D_ccgru")
 
 [connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]

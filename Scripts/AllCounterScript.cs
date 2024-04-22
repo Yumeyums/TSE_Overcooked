@@ -47,7 +47,7 @@ public partial class AllCounterScript : Node3D
 				GD.Print("on normal counter");
 			}
 			else if (this.GetParent().Name == "Hob"){ // hob counter
-				if (carriedItem.GetParent().GetNode("CanOnHob") != null){
+				if (carriedItem.GetNode("CanOnHob") != null){
 					allowed = true;
 					GD.Print("on hob");
 				}

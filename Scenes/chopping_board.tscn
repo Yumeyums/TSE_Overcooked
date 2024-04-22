@@ -12,13 +12,10 @@
 [node name="Counter" parent="." instance=ExtResource("1_v0e4m")]
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="Counter/StaticBody3D" index="2"]
-transform = Transform3D(0.8, 0, 0, 0, 0.1, 0, 0, 0, 0.8, 0, 0.55, 0)
+transform = Transform3D(0.8, 0, 0, 0, 0.1, 0, 0, 0, 0.8, 0, 0.0206627, 0)
 material_override = ExtResource("2_eohh4")
 mesh = SubResource("BoxMesh_on8rf")
 surface_material_override/0 = ExtResource("3_014nt")
-
-[node name="Interactable" parent="Counter/StaticBody3D" index="3" node_paths=PackedStringArray("mesh")]
-mesh = NodePath("../MeshInstance3D")
 
 [node name="Area3D" parent="Counter" index="1"]
 script = ExtResource("4_qw70c")

@@ -1,11 +1,33 @@
-res://Scenes/player.tscn
+res://Scenes/counter.tscn
 res://Scripts/itemScript.cs
 res://Scripts/InteractableScript.cs
-res://Textures/counter.tres
 res://Textures/plate.tres
-res://Textures/hobs.tres
 res://Textures/wood.tres
-res://Scenes/plate.tscn
-res://Scenes/counter.tscn
-res://Scenes/pot.tscn
+res://Textures/counter.tres
+res://Scenes/tomato.tscn
 res://Scenes/MainScene.tscn
+res://Scenes/chopping_board.tscn
+res://Scenes/hobs.tscn
+res://Scenes/item.tscn
+res://Scenes/item_dispenser.tscn
+res://Scenes/plate.tscn
+res://Scenes/player.tscn
+res://Scenes/rice.tscn
+res://Scenes/pot.tscn
+res://Scenes/pasta.tscn
+res://Scripts/AllCounterScript.cs
+res://Scripts/CanBoil.cs
+res://Scripts/CanChop.cs
+res://Scripts/plateScript.cs
+res://Scripts/playerScript.cs
+res://Scripts/PotScript.cs
+res://Scripts/randomRecipe.cs
+res://Scripts/TimerScript.cs
+res://Scripts/Unused Old Scripts/ChoppingBoardScript.cs
+res://Scripts/Unused Old Scripts/CounterScript.cs
+res://Scripts/Unused Old Scripts/HobScript.cs
+res://Scripts/Unused Old Scripts/item_dispenser.cs
+res://Textures/hobs.tres
+res://Scripts/ContainerItemsScript.cs
+res://Scenes/ContainerScript.cs
+res://Scenes/chopped_tomato.tscn

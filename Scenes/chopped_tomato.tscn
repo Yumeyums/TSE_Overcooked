@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bawlukmp0g34h"]
+
+[ext_resource type="PackedScene" uid="uid://cr3jngv5l3jcm" path="res://Scenes/item.tscn" id="1_dm7we"]
+[ext_resource type="Texture2D" uid="uid://xwc73ad7u8gw" path="res://Textures/tomatoTexture.jpg" id="2_74q37"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uiml2"]
+albedo_texture = ExtResource("2_74q37")
+
+[node name="ChoppedTomato" type="Node3D"]
+
+[node name="RigidBody3D" parent="." instance=ExtResource("1_dm7we")]
+
+[node name="MeshInstance3D" parent="RigidBody3D" index="1"]
+material_override = SubResource("StandardMaterial3D_uiml2")
+
+[node name="CanFry" type="Node3D" parent="RigidBody3D"]
+
+[node name="CanBoil" type="Node3D" parent="RigidBody3D"]
+
+[editable path="RigidBody3D"]

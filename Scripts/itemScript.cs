@@ -8,10 +8,11 @@ public partial class itemScript : RigidBody3D
 	
 	public override void _PhysicsProcess(double delta)
 	{
+		
 		if (heldBy != null){
 			if (heldBy.Name == "Container"){
 				this.Sleeping = true;
-				GlobalPosition = heldBy.GlobalPosition + new Vector3 (0,1,0);
+				GlobalPosition = heldBy.GlobalPosition + new Vector3 (0,0.5f,0);
 			}
 			else if (heldBy.Name != "Counter")  {
 				this.Sleeping = true;

@@ -213,10 +213,7 @@ public partial class playerScript : CharacterBody3D
 					carriedItem.GetNode("Interactable").Call("ChangeColour",true,this);
 				}
 				else if(targetNode.GetParent().Name == "Container"){
-					GD.Print("ahh");
-					GD.Print(targetNode.GetParent().Name);
 					targetNode.GetParent().Call("AddToContainer",carriedItem);
-					GD.Print("cee");
 					}
 			}
 			BodiesInRange.Add(carriedItem);
@@ -231,15 +228,6 @@ public partial class playerScript : CharacterBody3D
 			targetNode.GetParent().GetNode("Area3D").Call("CounterChop");
 		}
 	}
-/*
-	public void giveItem()
-	{
-		PackedScene pastacopies = GD.Load<PackedScene>("res://Scenes/pasta.tscn");
-		Node3D pasta = pastacopies.Instantiate<Node3D>();
-		this.GetParent().GetParent().AddChild(pasta);
-		carriedItem = pasta;
-		carriedItem.Call("PickUp", this);
-	}*/
 }
 
 

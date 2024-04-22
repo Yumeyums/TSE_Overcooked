@@ -1,14 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://bdxfjulny1qlr"]
+[gd_scene load_steps=5 format=3 uid="uid://bdxfjulny1qlr"]
 
 [ext_resource type="PackedScene" uid="uid://q3qnab3kenk4" path="res://Scenes/counter.tscn" id="1_s4dte"]
-[ext_resource type="Material" uid="uid://yqiqywg1p76f" path="res://Textures/hobs.tres" id="2_4g72b"]
+[ext_resource type="Material" uid="uid://yqiqywg1p76f" path="res://Textures/hobs.tres" id="2_3qj3o"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ecmi0"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_26ll3"]
+material = SubResource("StandardMaterial3D_ecmi0")
 
 [node name="Hob" type="Node3D"]
 
 [node name="Counter" parent="." instance=ExtResource("1_s4dte")]
 
-[node name="MeshInstance3D" parent="Counter/StaticBody3D" index="1"]
-material_override = ExtResource("2_4g72b")
-surface_material_override/0 = ExtResource("2_4g72b")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Counter/StaticBody3D" index="3"]
+transform = Transform3D(0.8, 0, 0, 0, 0.05, 0, 0, 0, 0.8, 0, 0, 0)
+material_override = ExtResource("2_3qj3o")
+mesh = SubResource("CylinderMesh_26ll3")
 
 [editable path="Counter"]
