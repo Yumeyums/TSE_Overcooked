@@ -16,6 +16,12 @@ public partial class playerScript : CharacterBody3D
 	[Export]
 	public Godot.Collections.Array<Node3D> BodiesInRange = new Godot.Collections.Array<Node3D>();
 	public Node3D targetNode;
+	[Export]
+  public float DashSpeed { get; set; } = 2f; // dash speed
+	private bool isDashing = false;
+	private double dashTimer = 0;
+	private double dashDuration = 0.3; 
+	private float dash = 1;
 	
 	public int GetPlayerNumber(){
 		return playerNumber;
@@ -66,6 +72,8 @@ public partial class playerScript : CharacterBody3D
 	public override void _PhysicsProcess(double delta)
 	{
 		var direction = Vector3.Zero;
+		var characterRotation = Rotation;
+		var forwardDirection = characterRotation.Rotated(Vector3.Up, 0) * -Vector3.Forward;
 		if (playerNumber==1){
 			if (Input.IsActionPressed("move_right"))
 			{
@@ -142,14 +150,42 @@ public partial class playerScript : CharacterBody3D
 						Speed -= friction;
 					}
 				} else { //Otherwise we accellerate
-					if((Speed+accelleration)<mspeed){ Speed += accelleration; } else { Speed = mspeed; }
+					if((Speed+accelleration)<mspeed){ Speed += accelleration; } 
+					else { 
+						if(!isDashing){Speed = mspeed; }
+						}
 				}
 		}
+		if (Input.IsActionJustPressed("dash"))
+				{
+				if (!isDashing)
+				{
+					isDashing = true;
+					dashTimer = dashDuration;
+					dash = DashSpeed;
+				}
+			}
+		
+		if (isDashing)
+		{
+			dashTimer -= delta;
+			if (dashTimer <= 0)
+			{
+				isDashing = false;
+				_targetVelocity = Vector3.Zero;
+				dash = 1;
+			}
+			//else{
+			//	_targetVelocity = forwardDirection.Normalized() * DashSpeed;
+			//}
+		}
+		else{
 
 		if((Speed-friction)<=0){
 			Speed = 0;
 		} else {
 			Speed -= friction;
+		}
 		}
 
 		if (direction != Vector3.Zero)
@@ -159,8 +195,8 @@ public partial class playerScript : CharacterBody3D
 			Basis = Basis.LookingAt(direction);
 		}
 
-		_targetVelocity.X = direction.X * Speed;
-		_targetVelocity.Z = direction.Z * Speed;
+		_targetVelocity.X = direction.X * Speed * dash;
+		_targetVelocity.Z = direction.Z * Speed * dash;
 		Velocity = _targetVelocity;
 		MoveAndSlide();
 		
