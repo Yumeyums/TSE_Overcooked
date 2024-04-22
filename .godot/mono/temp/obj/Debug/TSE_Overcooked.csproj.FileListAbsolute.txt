@@ -66,3 +66,20 @@ D:\Github Desktop\Repos\TSE_Overcooked\.godot\mono\temp\obj\Debug\refint\TSE_Ove
 D:\Github Desktop\Repos\TSE_Overcooked\.godot\mono\temp\obj\Debug\TSE_Overcooked.pdb
 D:\Github Desktop\Repos\TSE_Overcooked\.godot\mono\temp\obj\Debug\TSE_Overcooked.genruntimeconfig.cache
 D:\Github Desktop\Repos\TSE_Overcooked\.godot\mono\temp\obj\Debug\ref\TSE_Overcooked.dll
+C:\Users\Computing\Documents\GitHub\TSE_Overcooked\.godot\mono\temp\bin\Debug\TSE_Overcooked.deps.json
+C:\Users\Computing\Documents\GitHub\TSE_Overcooked\.godot\mono\temp\bin\Debug\TSE_Overcooked.runtimeconfig.json
+C:\Users\Computing\Documents\GitHub\TSE_Overcooked\.godot\mono\temp\bin\Debug\TSE_Overcooked.dll
+C:\Users\Computing\Documents\GitHub\TSE_Overcooked\.godot\mono\temp\bin\Debug\TSE_Overcooked.pdb
+C:\Users\Computing\Documents\GitHub\TSE_Overcooked\.godot\mono\temp\bin\Debug\GodotSharp.dll
+C:\Users\Computing\Documents\GitHub\TSE_Overcooked\.godot\mono\temp\bin\Debug\GodotSharpEditor.dll
+C:\Users\Computing\Documents\GitHub\TSE_Overcooked\.godot\mono\temp\obj\Debug\TSE_Overcooked.csproj.AssemblyReference.cache
+C:\Users\Computing\Documents\GitHub\TSE_Overcooked\.godot\mono\temp\obj\Debug\TSE_Overcooked.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Computing\Documents\GitHub\TSE_Overcooked\.godot\mono\temp\obj\Debug\TSE_Overcooked.AssemblyInfoInputs.cache
+C:\Users\Computing\Documents\GitHub\TSE_Overcooked\.godot\mono\temp\obj\Debug\TSE_Overcooked.AssemblyInfo.cs
+C:\Users\Computing\Documents\GitHub\TSE_Overcooked\.godot\mono\temp\obj\Debug\TSE_Overcooked.csproj.CoreCompileInputs.cache
+C:\Users\Computing\Documents\GitHub\TSE_Overcooked\.godot\mono\temp\obj\Debug\TSE_Overcooked.csproj.CopyComplete
+C:\Users\Computing\Documents\GitHub\TSE_Overcooked\.godot\mono\temp\obj\Debug\TSE_Overcooked.dll
+C:\Users\Computing\Documents\GitHub\TSE_Overcooked\.godot\mono\temp\obj\Debug\refint\TSE_Overcooked.dll
+C:\Users\Computing\Documents\GitHub\TSE_Overcooked\.godot\mono\temp\obj\Debug\TSE_Overcooked.pdb
+C:\Users\Computing\Documents\GitHub\TSE_Overcooked\.godot\mono\temp\obj\Debug\TSE_Overcooked.genruntimeconfig.cache
+C:\Users\Computing\Documents\GitHub\TSE_Overcooked\.godot\mono\temp\obj\Debug\ref\TSE_Overcooked.dll

@@ -1,12 +1,11 @@
-[gd_scene load_steps=19 format=3 uid="uid://b13oxrfjwlg6x"]
+[gd_scene load_steps=18 format=3 uid="uid://b13oxrfjwlg6x"]
 
 [ext_resource type="Material" uid="uid://b4g5xtb37kd0b" path="res://Textures/flooring.tres" id="1_2otum"]
 [ext_resource type="PackedScene" uid="uid://c4hh1yw3l66ve" path="res://Scenes/player.tscn" id="1_ecct4"]
 [ext_resource type="PackedScene" uid="uid://de6qbptjxbgk" path="res://Scenes/rice.tscn" id="5_roetk"]
 [ext_resource type="Texture2D" uid="uid://cwloalwvahshb" path="res://Textures/riceTexture.jpg" id="6_e8q7p"]
 [ext_resource type="PackedScene" uid="uid://q3qnab3kenk4" path="res://Scenes/counter.tscn" id="7_vmktg"]
-[ext_resource type="Script" path="res://Scripts/TimerScript.cs" id="8_cssoe"]
-[ext_resource type="Script" path="res://Scripts/randomRecipe.cs" id="9_7n7an"]
+[ext_resource type="Script" path="res://Scripts/UIScript.cs" id="9_7n7an"]
 [ext_resource type="PackedScene" uid="uid://0ptuienyt5x1" path="res://Scenes/plate.tscn" id="11_c0gq8"]
 [ext_resource type="PackedScene" uid="uid://bdxfjulny1qlr" path="res://Scenes/hobs.tscn" id="12_f28fq"]
 [ext_resource type="PackedScene" uid="uid://rbywxs3f4ayy" path="res://Scenes/pot.tscn" id="13_jxth2"]
@@ -78,21 +77,35 @@ surface_material_override/0 = SubResource("StandardMaterial3D_vde8b")
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
+offset_left = -5.0
+offset_right = 35.0
 offset_bottom = 40.0
-script = ExtResource("8_cssoe")
+script = ExtResource("9_7n7an")
 
 [node name="Timer" type="Timer" parent="Control"]
-script = ExtResource("9_7n7an")
 
 [node name="TimeRemaining" type="Label" parent="Control"]
 layout_mode = 0
-offset_left = 345.0
-offset_top = 37.0
-offset_right = 459.0
-offset_bottom = 174.0
+offset_left = 880.0
+offset_top = 513.0
+offset_right = 1135.0
+offset_bottom = 650.0
 theme_override_font_sizes/font_size = 100
-text = "60"
+text = "00:00"
+horizontal_alignment = 2
+
+[node name="Orders" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 976.0
+offset_top = 7.0
+offset_right = 1155.0
+offset_bottom = 169.0
+text = "Test - 60s
+Test - 60s
+Test - 60s
+Test - 60s
+Test - 60s
+Test - 60s"
 
 [node name="Pot" parent="." instance=ExtResource("13_jxth2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.20699, 1.10208, 0)

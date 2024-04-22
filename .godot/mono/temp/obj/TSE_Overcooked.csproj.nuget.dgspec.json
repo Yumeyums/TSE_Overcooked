@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\elrin\\OneDrive\\Documents\\GitHub\\TSE_Overcooked\\TSE_Overcooked.csproj": {}
+    "C:\\Users\\Computing\\Documents\\GitHub\\TSE_Overcooked\\TSE_Overcooked.csproj": {}
   },
   "projects": {
-    "C:\\Users\\elrin\\OneDrive\\Documents\\GitHub\\TSE_Overcooked\\TSE_Overcooked.csproj": {
+    "C:\\Users\\Computing\\Documents\\GitHub\\TSE_Overcooked\\TSE_Overcooked.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\elrin\\OneDrive\\Documents\\GitHub\\TSE_Overcooked\\TSE_Overcooked.csproj",
+        "projectUniqueName": "C:\\Users\\Computing\\Documents\\GitHub\\TSE_Overcooked\\TSE_Overcooked.csproj",
         "projectName": "TSE_Overcooked",
-        "projectPath": "C:\\Users\\elrin\\OneDrive\\Documents\\GitHub\\TSE_Overcooked\\TSE_Overcooked.csproj",
-        "packagesPath": "C:\\Users\\elrin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\elrin\\OneDrive\\Documents\\GitHub\\TSE_Overcooked\\.godot\\mono\\temp\\obj\\",
+        "projectPath": "C:\\Users\\Computing\\Documents\\GitHub\\TSE_Overcooked\\TSE_Overcooked.csproj",
+        "packagesPath": "C:\\Users\\Computing\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Computing\\Documents\\GitHub\\TSE_Overcooked\\.godot\\mono\\temp\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\elrin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Computing\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -42,15 +47,15 @@
           "dependencies": {
             "Godot.SourceGenerators": {
               "target": "Package",
-              "version": "[4.2.1, )"
+              "version": "[4.2.2, )"
             },
             "GodotSharp": {
               "target": "Package",
-              "version": "[4.2.1, )"
+              "version": "[4.2.2, )"
             },
             "GodotSharpEditor": {
               "target": "Package",
-              "version": "[4.2.1, )"
+              "version": "[4.2.2, )"
             }
           },
           "imports": [
@@ -69,7 +74,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
         }
       }
     }
