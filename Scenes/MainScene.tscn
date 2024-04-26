@@ -94,18 +94,53 @@ theme_override_font_sizes/font_size = 100
 text = "00:00"
 horizontal_alignment = 2
 
-[node name="Orders" type="Label" parent="Control"]
+[node name="Order4" type="Label" parent="Control"]
 layout_mode = 0
-offset_left = 976.0
+offset_left = 772.0
+offset_top = 9.0
+offset_right = 987.0
+offset_bottom = 171.0
+text = "Test - 60s
+- Ingredient 1
+- Ingredient 2
+- Ingredient 3
+- Ingredient 4"
+
+[node name="Order3" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 522.0
 offset_top = 7.0
-offset_right = 1155.0
+offset_right = 748.0
 offset_bottom = 169.0
 text = "Test - 60s
-Test - 60s
-Test - 60s
-Test - 60s
-Test - 60s
-Test - 60s"
+- Ingredient 1
+- Ingredient 2
+- Ingredient 3
+- Ingredient 4"
+
+[node name="Order2" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 260.0
+offset_top = 7.0
+offset_right = 509.0
+offset_bottom = 169.0
+text = "Test - 60s
+- Ingredient 1
+- Ingredient 2
+- Ingredient 3
+- Ingredient 4"
+
+[node name="Order1" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 7.0
+offset_right = 244.0
+offset_bottom = 169.0
+text = "Test - 60s
+- Ingredient 1
+- Ingredient 2
+- Ingredient 3
+- Ingredient 4"
 
 [node name="Pot" parent="." instance=ExtResource("13_jxth2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.20699, 1.10208, 0)

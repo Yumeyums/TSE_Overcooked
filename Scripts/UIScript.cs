@@ -11,6 +11,8 @@ public partial class UIScript : Node{
 	public int[] cTimers;		//Current Timers
 	public int[] pTimers;		//Time Passed Timers
 	public int[] tStart;		//Timer starting point
+	public int[] orderID;		//Order IDs for Slot script.
+	public int[] slotID;		//Label Slots for UI.
 	public bool[] start;		//Start flag for timers
 	public bool OrderReady = false;
 	//*/
@@ -97,10 +99,16 @@ public partial class UIScript : Node{
 		pTimers = new int[OrderList.Count];
 		start = new bool[OrderList.Count];
 		tStart = new int[OrderList.Count];
+		orderID = new int[OrderList.Count];
+		slotID = new int[4];
+		slotID[0] = -1;
+		slotID[1] = -1;
+		slotID[2] = -1;
+		slotID[3] = -1;
 		
 		int i = 0;
 		foreach(var u in OrderList) {
-			
+			orderID[i] = i;
 			checkpoints[i] = i * interval;
 			cTimers[i] = 30;
 			GD.Print(checkpoints[i]);
@@ -108,7 +116,10 @@ public partial class UIScript : Node{
 			i += 1;
 		}
 		
-		
+		GetNode<Label>("Order1").Text = "";
+		GetNode<Label>("Order2").Text = "";
+		GetNode<Label>("Order3").Text = "";
+		GetNode<Label>("Order4").Text = "";
 		
 		OrderReady = true;
 		
@@ -116,46 +127,104 @@ public partial class UIScript : Node{
 	///*
 	public void UpdateOrder(double delta) {
 		int i = 0;
-		string OrderString = "";
+		string CurrentOrder = "";
 		
 		foreach(var u in OrderList) {
 			
-			
 			if((checkpoints[i] > RemainingTime) & (pTimers[i]>=0))	{
-				
+				int j = 0;
 				if(start[i] != true){ 
-					start[i] = true;
-					tStart[i] = (int)RemainingTime;
+						while (j < 4){
+							
+							if (slotID[j] == -1) {
+								slotID[j] = orderID[i]; 
+								start[i] = true;
+								tStart[i] = (int)RemainingTime;
+								j = 4;
+							}
+							
+							j += 1;
+						}
+						
 				} else { if (start[i] == true) { 
 						int timePassed = (int)RemainingTime - tStart[i];
-						GD.Print(pTimers[i]);
 						pTimers[i] = cTimers[i] + timePassed;
-						GD.Print(pTimers[i]);
+						
+						
 						
 					}
 				}
-				
-				string CurrentOrder = u[1] + " - " + pTimers[i] + "s\n";
-				OrderString = OrderString + CurrentOrder;
-				
+				CurrentOrder = 	u[1] + " - " + pTimers[i] + "s\n -" +
+										u[2] + "\n -" +
+										u[3] + "\n -" +
+										u[4] + "\n -" +
+										u[5] + "\n";
 			}
+			
+			// 1st Order Slot
+			if (slotID[0] == orderID[i]) {
+				if (pTimers[i]>=0) {
+					GetNode<Label>("Order1").Text = CurrentOrder;
+				} else {
+					
+					slotID[0] = slotID[1];
+					slotID[1] = slotID[2];
+					slotID[2] = slotID[3];
+					slotID[3] = -1;
+				}
+			}
+			// 2nd Order Slot
+			if (slotID[1] == orderID[i]) {
+				if (pTimers[i]>=0) {
+					GetNode<Label>("Order2").Text = CurrentOrder;
+				} else {
+					
+					slotID[1] = slotID[2];
+					slotID[2] = slotID[3];
+					slotID[3] = -1;
+				}
+			}
+			// 3rd Order Slot
+			if (slotID[2] == orderID[i]) {
+				if (pTimers[i]>=0) {
+					GetNode<Label>("Order3").Text = CurrentOrder;
+				} else {
+					
+					slotID[2] = slotID[3];
+					slotID[3] = -1;
+				}
+			}
+			// 4th Order Slot
+			if (slotID[3] == orderID[i]) {
+				if (pTimers[i]>=0) {
+					GetNode<Label>("Order4").Text = CurrentOrder;
+				} else {
+					
+					slotID[3] = -1;
+				}
+			}
+			
+			if (slotID[0] == -1) {GetNode<Label>("Order1").Text = "";}
+			if (slotID[1] == -1) {GetNode<Label>("Order2").Text = "";}
+			if (slotID[2] == -1) {GetNode<Label>("Order3").Text = "";}
+			if (slotID[3] == -1) {GetNode<Label>("Order4").Text = "";}
 			
 			i += 1;
 		}
-		//GD.Print(OrderString);
-		GetNode<Label>("Orders").Text = OrderString;
+		
+		
+		
 		
 	}
 	//*/
 	//Called when the node enters the scene tree for the first time.
 	public override void _Ready(){
-		GD.Print("Test0");
+		
 		StartingTime = 90;
 		RemainingTime = StartingTime;
 		
-		GD.Print("Test1");
 		OrderList = randomRecipe();
-		GD.Print("Test2");
+		
 		
 		
 		SetupOrder();
