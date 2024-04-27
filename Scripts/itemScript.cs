@@ -11,7 +11,9 @@ public partial class itemScript : RigidBody3D
 		if (heldBy != null){
 			if (heldBy.Name == "Container"){
 				this.Sleeping = true;
-				GlobalPosition = heldBy.GlobalPosition + new Vector3 (0,1,0);
+				Node3D body = (Node3D) heldBy.GetNode("RigidBody3D");
+				int position = (int) heldBy.Call("GetPositionInItems",this) + 1;
+				GlobalPosition = body.GlobalPosition + new Vector3 (0,1*position,0);
 			}
 			else if (heldBy.Name != "Counter")  {
 				this.Sleeping = true;
@@ -37,7 +39,7 @@ public partial class itemScript : RigidBody3D
 				this.Sleeping = true;
 			} 
 			else if(heldBy.Name == "Container") {
-				heldBy.Call("PickUp", carrier);
+				heldBy.GetNode("RigidBody3D").Call("PickUp", carrier);
 			} 
 		}
 		else {

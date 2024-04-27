@@ -4,6 +4,7 @@ res://Scripts/InteractableScript.cs
 res://Textures/plate.tres
 res://Textures/wood.tres
 res://Textures/counter.tres
+res://Scripts/ContainerItemsScript.cs
 res://Scenes/MainScene.tscn
 res://Scenes/counter.tscn
 res://Scenes/chopping_board.tscn
@@ -27,3 +28,7 @@ res://Scripts/Unused Old Scripts/CounterScript.cs
 res://Scripts/Unused Old Scripts/HobScript.cs
 res://Scripts/Unused Old Scripts/item_dispenser.cs
 res://Scripts/Unused Old Scripts/TimerScript.cs
+res://Scenes/ContainerScript.cs
+res://Scripts/ContainerScript.cs
+res://Scripts/Unused Old Scripts/plateScript.cs
+res://Scripts/Unused Old Scripts/PotScript.cs

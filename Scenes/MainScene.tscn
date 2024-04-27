@@ -107,9 +107,6 @@ Test - 60s
 Test - 60s
 Test - 60s"
 
-[node name="Pot" parent="." instance=ExtResource("13_jxth2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.20699, 1.10208, 0)
-
 [node name="Counter" parent="." instance=ExtResource("7_vmktg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.4, 5)
 
@@ -132,12 +129,15 @@ surface_material_override/0 = SubResource("StandardMaterial3D_oqa0a")
 [node name="Plate" parent="." instance=ExtResource("11_c0gq8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.68261, 0, 5.69204)
 
+[node name="Pot" parent="." instance=ExtResource("13_jxth2")]
+
+[node name="Model" parent="Pot/Container/RigidBody3D" index="3"]
+material_override = null
+
 [editable path="Player1"]
 [editable path="Player2"]
 [editable path="Rice"]
 [editable path="Rice/RigidBody3D"]
-[editable path="Pot"]
-[editable path="Pot/RigidBody3D"]
 [editable path="Counter"]
 [editable path="Hob"]
 [editable path="Hob/Counter"]
@@ -145,3 +145,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.68261, 0, 5.69204)
 [editable path="Tomato/RigidBody3D"]
 [editable path="Plate"]
 [editable path="Plate/Container/RigidBody3D"]
+[editable path="Pot"]
+[editable path="Pot/Container/RigidBody3D"]

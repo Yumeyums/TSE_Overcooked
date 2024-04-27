@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://c644k01lotsv6"]
+
+[resource]
+resource_name = "M_CookPot"
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.388573, 0.388573, 0.388573, 1)
+metallic = 1.0
+roughness = 0.552786

@@ -128,9 +128,9 @@ public partial class UIScript : Node{
 					tStart[i] = (int)RemainingTime;
 				} else { if (start[i] == true) { 
 						int timePassed = (int)RemainingTime - tStart[i];
-						GD.Print(pTimers[i]);
+						//GD.Print(pTimers[i]);
 						pTimers[i] = cTimers[i] + timePassed;
-						GD.Print(pTimers[i]);
+						//GD.Print(pTimers[i]);
 						
 					}
 				}

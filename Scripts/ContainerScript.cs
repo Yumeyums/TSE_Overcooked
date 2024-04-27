@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class ContainerItemsScripts : Node3D
+public partial class ContainerScript : Node3D
 {
 	[Export]
 	public Godot.Collections.Array<Node3D> items = new Godot.Collections.Array<Node3D>();
@@ -30,18 +30,23 @@ public partial class ContainerItemsScripts : Node3D
 		}
 	}
 	
+	public int GetPositionInItems(Node node){
+		int position = -1;
+		for (int i = 0; i < items.Count; i++){
+			if (items[i] == node){ position = i;}
+		}
+		return position;
+	}
+	
+	public Godot.Collections.Array<Node3D> GetItems(){
+		return items;
+	}
+	
 	private void _on_area_3d_body_entered(Node3D body)
 	{
-	//if(body.GetNode("Ingredient") != null)
-		//{
-			//AddToPlate(body);
-			//GD.Print(body.GetParent().Name, " on plate");
-		//}
 	}
 	
 	public void AddToContainer(RigidBody3D carriedItem){
-		GD.Print("bee");
-		//GD.Print(ingredients);
 		int recipe = -1;
 		for (int i = 0; i < ingredients.Count; i++){
 			//GD.Print(recipes[i]);
@@ -55,10 +60,8 @@ public partial class ContainerItemsScripts : Node3D
 		//if (recipe > -1){
 			carriedItem.Call("DropInto",this);
 			carriedItem.GlobalPosition = this.GlobalPosition + new Vector3(0f, 0.5f, 0f);
+			carriedItem.GetNode("Interactable").QueueFree();
 			items.Add(carriedItem);
 		//}
 	}
 }
-
-
-
