@@ -26,7 +26,6 @@ C:\Users\robhi\Documents\GitHub\TSE_Overcooked\.godot\mono\temp\obj\Debug\TSE_Ov
 C:\Users\robhi\Documents\GitHub\TSE_Overcooked\.godot\mono\temp\obj\Debug\TSE_Overcooked.AssemblyInfoInputs.cache
 C:\Users\robhi\Documents\GitHub\TSE_Overcooked\.godot\mono\temp\obj\Debug\TSE_Overcooked.AssemblyInfo.cs
 C:\Users\robhi\Documents\GitHub\TSE_Overcooked\.godot\mono\temp\obj\Debug\TSE_Overcooked.csproj.CoreCompileInputs.cache
-C:\Users\robhi\Documents\GitHub\TSE_Overcooked\.godot\mono\temp\obj\Debug\TSE_Overcooked.csproj.CopyComplete
 C:\Users\robhi\Documents\GitHub\TSE_Overcooked\.godot\mono\temp\obj\Debug\TSE_Overcooked.dll
 C:\Users\robhi\Documents\GitHub\TSE_Overcooked\.godot\mono\temp\obj\Debug\refint\TSE_Overcooked.dll
 C:\Users\robhi\Documents\GitHub\TSE_Overcooked\.godot\mono\temp\obj\Debug\TSE_Overcooked.pdb
@@ -83,3 +82,5 @@ C:\Users\Computing\Documents\GitHub\TSE_Overcooked\.godot\mono\temp\obj\Debug\re
 C:\Users\Computing\Documents\GitHub\TSE_Overcooked\.godot\mono\temp\obj\Debug\TSE_Overcooked.pdb
 C:\Users\Computing\Documents\GitHub\TSE_Overcooked\.godot\mono\temp\obj\Debug\TSE_Overcooked.genruntimeconfig.cache
 C:\Users\Computing\Documents\GitHub\TSE_Overcooked\.godot\mono\temp\obj\Debug\ref\TSE_Overcooked.dll
+C:\Users\robhi\Documents\GitHub\TSE_Overcooked\.godot\mono\temp\obj\Debug\TSE_Overcooked.sourcelink.json
+C:\Users\robhi\Documents\GitHub\TSE_Overcooked\.godot\mono\temp\obj\Debug\TSE_Over.B19D1AA2.Up2Date

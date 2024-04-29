@@ -3,7 +3,7 @@ using System;
 
 public partial class UIScript : Node{
 	
-	System.Collections.Generic.List<string[]> OrderList;
+	public System.Collections.Generic.List<string[]> OrderList;
 	int StartingTime;
 	double RemainingTime;
 	///*
@@ -59,7 +59,7 @@ public partial class UIScript : Node{
 		}
 		
 		foreach (var u in RandomRecipes){
-			GD.Print(u[1]);
+			GD.Print("random recipe: ", u[1]);
 		}
 		
 		return RandomRecipes;
@@ -103,7 +103,7 @@ public partial class UIScript : Node{
 			
 			checkpoints[i] = i * interval;
 			cTimers[i] = 30;
-			GD.Print(checkpoints[i]);
+			//GD.Print("checkpoints", checkpoints[i]);
 			
 			i += 1;
 		}
@@ -128,15 +128,16 @@ public partial class UIScript : Node{
 					tStart[i] = (int)RemainingTime;
 				} else { if (start[i] == true) { 
 						int timePassed = (int)RemainingTime - tStart[i];
-						GD.Print(pTimers[i]);
+						//GD.Print(pTimers[i]);
 						pTimers[i] = cTimers[i] + timePassed;
-						GD.Print(pTimers[i]);
+						//GD.Print(pTimers[i]);
 						
 					}
 				}
 				
 				string CurrentOrder = u[1] + " - " + pTimers[i] + "s\n";
 				OrderString = OrderString + CurrentOrder;
+				
 				
 			}
 			
@@ -149,13 +150,13 @@ public partial class UIScript : Node{
 	//*/
 	//Called when the node enters the scene tree for the first time.
 	public override void _Ready(){
-		GD.Print("Test0");
+		//GD.Print("Test0");
 		StartingTime = 90;
 		RemainingTime = StartingTime;
 		
-		GD.Print("Test1");
+		//GD.Print("Test1");
 		OrderList = randomRecipe();
-		GD.Print("Test2");
+		//GD.Print("Test2");
 		
 		
 		SetupOrder();
@@ -173,5 +174,17 @@ public partial class UIScript : Node{
 		UpdateOrder(delta);
 		
 		
+	}
+	public Variant getOrders(string itemOnCounter)
+	{
+		GD.Print("Item on finished counter: ", itemOnCounter);
+		foreach (var v in OrderList)
+		{
+			if (itemOnCounter == v[1])
+			{
+				return v[1];
+			}
+		}
+		return "null";
 	}
 }

@@ -4,13 +4,13 @@ using System;
 public partial class playerScript : CharacterBody3D
 {
 	[Export]
-	public float Speed { get; set; } = 14;
+	public float Speed { get; set; } = 5;
 	[Export]
 	public int playerNumber;     // distinguishes between players
 	private Vector3 _targetVelocity = Vector3.Zero;
 	public float mspeed = 20.0f;			//Maximum speed the player can reach.
-	public float accelleration = 1.25f;	//The amount of speed the player gains every second by moving.
-	public float friction = 0.60f; 		//The amount of speed the player loses every second.
+	public float accelleration = 1f;	//The amount of speed the player gains every second by moving.
+	public float friction = 0.6f; 		//The amount of speed the player loses every second.
 	[Export]
 	public Node3D carriedItem = null;
 	[Export]

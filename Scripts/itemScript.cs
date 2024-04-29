@@ -55,4 +55,5 @@ public partial class itemScript : RigidBody3D
 	public void Drop(){
 		heldBy = null;
 	}
+	
 }

@@ -1,5 +1,6 @@
-Label
 Node3D
+Node
+Label
 CollisionShape3D
 Area3D
 Control

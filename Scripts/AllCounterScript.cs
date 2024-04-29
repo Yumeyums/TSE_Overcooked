@@ -8,6 +8,7 @@ public partial class AllCounterScript : Node3D
 	[Export]
 	public string itemFilePath = "res://Scenes/pasta.tscn";
 	
+	
 	public void _on_body_entered(RigidBody3D body)
 	{
 		if (body.GetNode("Interactable") != null && itemOnCounter != null)
@@ -42,28 +43,33 @@ public partial class AllCounterScript : Node3D
 	public bool GetAllowed(Node3D carriedItem){
 		bool allowed = false;
 		GD.Print(this.GetParent().Name);
-			if(this.GetParent().Name == "MainScene"){ // normal counter
+			if(this.GetParent().GetNode("counter") != null){ // normal counter
 				allowed = true;
 				GD.Print("on normal counter");
 			}
-			else if (this.GetParent().Name == "Hob"){ // hob counter
+			else if (this.GetParent().GetNode("hob") != null){ // hob counter
 				if (carriedItem.GetParent().GetNode("CanOnHob") != null){
 					allowed = true;
 					GD.Print("on hob");
 				}
 			}
-			else if (this.GetParent().Name == "choppingBoard"){ // chopping counter
+			else if (this.GetParent().GetNode("chop") != null){ // chopping counter
 				GD.Print("ahhg");
 				if (carriedItem.GetNode("CanChop") != null){
 					allowed = true;
 					GD.Print("on chop");
 				}
 			}
+			if(this.GetParent().GetNode("finish") != null){ // normal counter
+				allowed = true;
+				getOrder(carriedItem);
+				GD.Print("on finishedCounter counter");
+				}
 		return allowed;
 	}
 	
 	public Node3D PickUpFromCounter(Node3D player){
-		if(this.GetParent().Name == "itemDispenser"){
+		if(this.GetParent().GetNode("itemDispenser") != null){
 			PackedScene itemcopies = GD.Load<PackedScene>(itemFilePath);
 			Node3D item = itemcopies.Instantiate<Node3D>();
 			item.GlobalPosition = player.GlobalPosition - player.GlobalTransform.Basis.Z;;
@@ -87,6 +93,17 @@ public partial class AllCounterScript : Node3D
 		if (body.GetNode("Interactable") != null && itemOnCounter != null)
 		{
 			 itemOnCounter = null;
+		}
+	}
+	
+	private void getOrder(Node3D iOC)
+	{
+		Variant order;
+		order = GetParent().GetParent().GetParent().GetNode("Control").GetNode("Orders").Call("getOrders", iOC.Name);
+		GD.Print("iOC: ", iOC.GetParent().Name, "\n order: ", order);
+		if (iOC.GetParent().GetNode("pasta") != null)
+		{
+			iOC.QueueFree();
 		}
 	}
 }

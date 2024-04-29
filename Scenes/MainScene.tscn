@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b13oxrfjwlg6x"]
+[gd_scene load_steps=19 format=3 uid="uid://b13oxrfjwlg6x"]
 
 [ext_resource type="Material" uid="uid://b4g5xtb37kd0b" path="res://Textures/flooring.tres" id="1_2otum"]
 [ext_resource type="PackedScene" uid="uid://c4hh1yw3l66ve" path="res://Scenes/player.tscn" id="1_ecct4"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://0ptuienyt5x1" path="res://Scenes/plate.tscn" id="11_c0gq8"]
 [ext_resource type="PackedScene" uid="uid://bdxfjulny1qlr" path="res://Scenes/hobs.tscn" id="12_f28fq"]
 [ext_resource type="PackedScene" uid="uid://rbywxs3f4ayy" path="res://Scenes/pot.tscn" id="13_jxth2"]
+[ext_resource type="PackedScene" uid="uid://blasal4pyirge" path="res://Scenes/finished_counter.tscn" id="14_15w7n"]
 [ext_resource type="PackedScene" uid="uid://dmo3gwbcfhtvb" path="res://Scenes/chopping_board.tscn" id="14_dj06i"]
 [ext_resource type="PackedScene" uid="uid://byyvaapsghv53" path="res://Scenes/item_dispenser.tscn" id="15_xv5qq"]
 [ext_resource type="PackedScene" uid="uid://8xmeev8hy2a4" path="res://Scenes/tomato.tscn" id="15_ylut5"]
@@ -44,9 +45,10 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 4.9
 shadow_enabled = true
 
 [node name="CameraPivot" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 10, 8)
+transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 8, 7)
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, -2.98023e-08, 0, 2.98023e-08, 1, 0, 0, 0)
 current = true
 fov = 70.0
 size = 11.8838
@@ -68,7 +70,7 @@ playerNumber = 2
 transform = Transform3D(1, 0, 7.81597e-14, 0, 1, 0, -7.81597e-14, 0, 1, 0, 0, 0)
 
 [node name="Rice" parent="." instance=ExtResource("5_roetk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.62521, 1.71049, 2.03619)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.4877, 1.71049, 1.54082)
 
 [node name="MeshInstance3D" parent="Rice/RigidBody3D" index="1"]
 material_override = null
@@ -108,29 +110,188 @@ Test - 60s
 Test - 60s"
 
 [node name="Pot" parent="." instance=ExtResource("13_jxth2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.20699, 1.10208, 0)
-
-[node name="Counter" parent="." instance=ExtResource("7_vmktg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.4, 5)
-
-[node name="Hob" parent="." instance=ExtResource("12_f28fq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.4, 5)
-
-[node name="choppingBoard" parent="." instance=ExtResource("14_dj06i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.4, 5)
-
-[node name="itemDispenser" parent="." instance=ExtResource("15_xv5qq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0.4, 5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5817, 1.10208, -2.49382)
 
 [node name="Tomato" parent="." instance=ExtResource("15_ylut5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.51207, 6.99182)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.9458, 2.51207, 4.04239)
 
 [node name="MeshInstance3D" parent="Tomato/RigidBody3D" index="1"]
 material_override = null
 surface_material_override/0 = SubResource("StandardMaterial3D_oqa0a")
 
 [node name="Plate" parent="." instance=ExtResource("11_c0gq8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.68261, 0, 5.69204)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.4996, 0, -6.01417)
+
+[node name="LevelCounters" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 5)
+
+[node name="Counter" parent="LevelCounters" instance=ExtResource("7_vmktg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0.4, -7)
+
+[node name="Counter2" parent="LevelCounters" instance=ExtResource("7_vmktg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0.4, -7)
+
+[node name="Counter3" parent="LevelCounters" instance=ExtResource("7_vmktg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.4, -7)
+
+[node name="Counter4" parent="LevelCounters" instance=ExtResource("7_vmktg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0.4, -7)
+
+[node name="Counter5" parent="LevelCounters" instance=ExtResource("7_vmktg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.4, -7)
+
+[node name="Counter6" parent="LevelCounters" instance=ExtResource("7_vmktg")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3, 0.4, -8)
+
+[node name="Counter7" parent="LevelCounters" instance=ExtResource("7_vmktg")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3, 0.4, -9)
+
+[node name="Counter8" parent="LevelCounters" instance=ExtResource("7_vmktg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.4, -9)
+
+[node name="Counter9" parent="LevelCounters" instance=ExtResource("7_vmktg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.4, -9)
+
+[node name="Counter10" parent="LevelCounters" instance=ExtResource("7_vmktg")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2, 0.4, -9)
+
+[node name="Counter11" parent="LevelCounters" instance=ExtResource("7_vmktg")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2, 0.4, -8)
+
+[node name="Counter12" parent="LevelCounters" instance=ExtResource("7_vmktg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.4, -7)
+
+[node name="Counter13" parent="LevelCounters" instance=ExtResource("7_vmktg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.4, -7)
+
+[node name="Counter14" parent="LevelCounters" instance=ExtResource("7_vmktg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.4, -7)
+
+[node name="Counter15" parent="LevelCounters" instance=ExtResource("7_vmktg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.4, -7)
+
+[node name="Counter16" parent="LevelCounters" instance=ExtResource("7_vmktg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0.4, -7)
+
+[node name="Counter17" parent="LevelCounters" instance=ExtResource("7_vmktg")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7, 0.4, -6)
+
+[node name="Counter18" parent="LevelCounters" instance=ExtResource("7_vmktg")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7, 0.4, -5)
+
+[node name="Counter19" parent="LevelCounters" instance=ExtResource("7_vmktg")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7, 0.4, -3)
+
+[node name="Counter20" parent="LevelCounters" instance=ExtResource("7_vmktg")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7, 0.4, -2)
+
+[node name="Counter21" parent="LevelCounters" instance=ExtResource("7_vmktg")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7, 0.4, 0)
+
+[node name="Counter22" parent="LevelCounters" instance=ExtResource("7_vmktg")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -7, 0.4, 1)
+
+[node name="Counter23" parent="LevelCounters" instance=ExtResource("7_vmktg")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -3, 0.4, 1)
+
+[node name="Counter24" parent="LevelCounters" instance=ExtResource("7_vmktg")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3, 0.4, 0)
+
+[node name="Counter25" parent="LevelCounters" instance=ExtResource("7_vmktg")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3, 0.4, -1)
+
+[node name="Counter26" parent="LevelCounters" instance=ExtResource("7_vmktg")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3, 0.4, -2)
+
+[node name="Counter27" parent="LevelCounters" instance=ExtResource("7_vmktg")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3, 0.4, -3)
+
+[node name="Counter28" parent="LevelCounters" instance=ExtResource("7_vmktg")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 0.4, 1)
+
+[node name="Counter29" parent="LevelCounters" instance=ExtResource("7_vmktg")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.4, 1)
+
+[node name="Counter30" parent="LevelCounters" instance=ExtResource("7_vmktg")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2, 0.4, 1)
+
+[node name="Counter31" parent="LevelCounters" instance=ExtResource("7_vmktg")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2, 0.4, 0)
+
+[node name="Counter32" parent="LevelCounters" instance=ExtResource("7_vmktg")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2, 0.4, -1)
+
+[node name="Counter33" parent="LevelCounters" instance=ExtResource("7_vmktg")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2, 0.4, -2)
+
+[node name="Counter34" parent="LevelCounters" instance=ExtResource("7_vmktg")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2, 0.4, -3)
+
+[node name="Counter35" parent="LevelCounters" instance=ExtResource("7_vmktg")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 3, 0.4, 1)
+
+[node name="Counter36" parent="LevelCounters" instance=ExtResource("7_vmktg")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -4, 0.4, 1)
+
+[node name="Counter37" parent="LevelCounters" instance=ExtResource("7_vmktg")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 6, 0.4, 1)
+
+[node name="Counter38" parent="LevelCounters" instance=ExtResource("7_vmktg")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6, 0.4, 0)
+
+[node name="Counter39" parent="LevelCounters" instance=ExtResource("7_vmktg")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6, 0.4, -2)
+
+[node name="Counter40" parent="LevelCounters" instance=ExtResource("7_vmktg")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6, 0.4, -3)
+
+[node name="Counter41" parent="LevelCounters" instance=ExtResource("7_vmktg")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6, 0.4, -5)
+
+[node name="Counter42" parent="LevelCounters" instance=ExtResource("7_vmktg")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6, 0.4, -6)
+
+[node name="Hob" parent="LevelCounters" instance=ExtResource("12_f28fq")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -7, 0.4, -1)
+
+[node name="Hob2" parent="LevelCounters" instance=ExtResource("12_f28fq")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -7, 0.4, -4)
+
+[node name="Hob3" parent="LevelCounters" instance=ExtResource("12_f28fq")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6, 0.4, -4)
+
+[node name="Hob4" parent="LevelCounters" instance=ExtResource("12_f28fq")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6, 0.4, -1)
+
+[node name="choppingBoard" parent="LevelCounters" instance=ExtResource("14_dj06i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.4, 1.029)
+
+[node name="choppingBoard2" parent="LevelCounters" instance=ExtResource("14_dj06i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.4, 1)
+
+[node name="itemDispenser" parent="LevelCounters" instance=ExtResource("15_xv5qq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0.4, 1)
+
+[node name="itemDispenser2" parent="LevelCounters" instance=ExtResource("15_xv5qq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.4, 1)
+
+[node name="Counter" parent="LevelCounters/itemDispenser2" index="0"]
+itemFilePath = "res://Scenes/rice.tscn"
+
+[node name="itemDispenser3" parent="LevelCounters" instance=ExtResource("15_xv5qq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.4, 1)
+
+[node name="Counter" parent="LevelCounters/itemDispenser3" index="0"]
+itemFilePath = "res://Scenes/tomato.tscn"
+
+[node name="itemDispenser4" parent="LevelCounters" instance=ExtResource("15_xv5qq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.4, 1)
+
+[node name="finishedCounter" parent="LevelCounters" instance=ExtResource("14_15w7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, -9)
+
+[node name="finishedCounter2" parent="LevelCounters" instance=ExtResource("14_15w7n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.4, -9)
 
 [editable path="Player1"]
 [editable path="Player2"]
@@ -138,10 +299,61 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.68261, 0, 5.69204)
 [editable path="Rice/RigidBody3D"]
 [editable path="Pot"]
 [editable path="Pot/RigidBody3D"]
-[editable path="Counter"]
-[editable path="Hob"]
-[editable path="Hob/Counter"]
 [editable path="Tomato"]
 [editable path="Tomato/RigidBody3D"]
 [editable path="Plate"]
 [editable path="Plate/Container/RigidBody3D"]
+[editable path="LevelCounters/Counter"]
+[editable path="LevelCounters/Counter2"]
+[editable path="LevelCounters/Counter3"]
+[editable path="LevelCounters/Counter4"]
+[editable path="LevelCounters/Counter5"]
+[editable path="LevelCounters/Counter6"]
+[editable path="LevelCounters/Counter7"]
+[editable path="LevelCounters/Counter8"]
+[editable path="LevelCounters/Counter9"]
+[editable path="LevelCounters/Counter10"]
+[editable path="LevelCounters/Counter11"]
+[editable path="LevelCounters/Counter12"]
+[editable path="LevelCounters/Counter13"]
+[editable path="LevelCounters/Counter14"]
+[editable path="LevelCounters/Counter15"]
+[editable path="LevelCounters/Counter16"]
+[editable path="LevelCounters/Counter17"]
+[editable path="LevelCounters/Counter18"]
+[editable path="LevelCounters/Counter19"]
+[editable path="LevelCounters/Counter20"]
+[editable path="LevelCounters/Counter21"]
+[editable path="LevelCounters/Counter22"]
+[editable path="LevelCounters/Counter23"]
+[editable path="LevelCounters/Counter24"]
+[editable path="LevelCounters/Counter25"]
+[editable path="LevelCounters/Counter26"]
+[editable path="LevelCounters/Counter27"]
+[editable path="LevelCounters/Counter28"]
+[editable path="LevelCounters/Counter29"]
+[editable path="LevelCounters/Counter30"]
+[editable path="LevelCounters/Counter31"]
+[editable path="LevelCounters/Counter32"]
+[editable path="LevelCounters/Counter33"]
+[editable path="LevelCounters/Counter34"]
+[editable path="LevelCounters/Counter35"]
+[editable path="LevelCounters/Counter36"]
+[editable path="LevelCounters/Counter37"]
+[editable path="LevelCounters/Counter38"]
+[editable path="LevelCounters/Counter39"]
+[editable path="LevelCounters/Counter40"]
+[editable path="LevelCounters/Counter41"]
+[editable path="LevelCounters/Counter42"]
+[editable path="LevelCounters/Hob"]
+[editable path="LevelCounters/Hob/Counter"]
+[editable path="LevelCounters/Hob2"]
+[editable path="LevelCounters/Hob2/Counter"]
+[editable path="LevelCounters/Hob3"]
+[editable path="LevelCounters/Hob3/Counter"]
+[editable path="LevelCounters/Hob4"]
+[editable path="LevelCounters/Hob4/Counter"]
+[editable path="LevelCounters/itemDispenser"]
+[editable path="LevelCounters/itemDispenser2"]
+[editable path="LevelCounters/itemDispenser3"]
+[editable path="LevelCounters/itemDispenser4"]

@@ -49,6 +49,11 @@ public partial class CounterScript : Area3D
 	{
 		itemOnCounter.Call("Chopping");
 	}
+	
+	public void SubmitFood()
+	{
+		
+	}
 }
 
 
