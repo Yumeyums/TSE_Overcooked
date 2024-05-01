@@ -1,12 +1,12 @@
 res://Scenes/MainScene.tscn
 res://Scripts/itemScript.cs
 res://Scripts/InteractableScript.cs
+res://Scripts/AllCounterScript.cs
 res://Textures/plate.tres
 res://Textures/wood.tres
 res://Textures/counter.tres
 res://Scripts/UIScript.cs
 res://Scenes/tomato.tscn
-res://Scripts/AllCounterScript.cs
 res://Scenes/counter.tscn
 res://Scenes/chopping_board.tscn
 res://Scenes/hobs.tscn
