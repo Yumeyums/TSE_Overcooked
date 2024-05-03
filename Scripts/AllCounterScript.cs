@@ -42,34 +42,36 @@ public partial class AllCounterScript : Node3D
 
 	public bool GetAllowed(Node3D carriedItem){
 		bool allowed = false;
-		GD.Print(this.GetParent().Name);
-			if(this.GetParent().GetNode("counter") != null){ // normal counter
-				allowed = true;
-				GD.Print("on normal counter");
-			}
-			else if (this.GetParent().GetNode("hob") != null){ // hob counter
-				if (carriedItem.GetParent().GetNode("CanOnHob") != null){
+			if (this.GetNode("hob") != null){ // hob counter
+				if (carriedItem.GetNode("CanOnHob") != null){
 					allowed = true;
 					GD.Print("on hob");
 				}
 			}
-			else if (this.GetParent().GetNode("chop") != null){ // chopping counter
+			else if (this.GetNode("chop") != null){ // chopping counter
 				GD.Print("ahhg");
 				if (carriedItem.GetNode("CanChop") != null){
 					allowed = true;
 					GD.Print("on chop");
 				}
 			}
-			if(this.GetParent().GetNode("finish") != null){ // normal counter
+			else if(this.GetNode("finish") != null){ // normal counter
 				allowed = true;
 				getOrder(carriedItem);
 				GD.Print("on finishedCounter counter");
 				}
+			else{ // normal counter
+				if(this.GetNode("itemDispenser") == null){
+					allowed = true;
+					GD.Print("on normal counter");
+				}
+			}
 		return allowed;
 	}
 	
 	public Node3D PickUpFromCounter(Node3D player){
-		if(this.GetParent().GetNode("itemDispenser") != null){
+		GD.Print("hello:",this.Name);
+		if(this.GetNode("StaticBody3D").GetNode("itemDispenser") != null){
 			PackedScene itemcopies = GD.Load<PackedScene>(itemFilePath);
 			Node3D item = itemcopies.Instantiate<Node3D>();
 			item.GlobalPosition = player.GlobalPosition - player.GlobalTransform.Basis.Z;;

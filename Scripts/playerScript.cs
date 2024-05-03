@@ -226,7 +226,11 @@ public partial class playerScript : CharacterBody3D
 		GD.Print("Target node: ", targetNode);
 		GD.Print("caried node: ", carriedItem);
 		if(carriedItem == null){ //pick up
-			if (targetNode.GetParent().Name == "Counter"){
+			GD.Print(targetNode.GetParent().GetNode("counter"));
+			if (targetNode.GetParent().GetNode("counter") != null){
+			//if (targetNode.GetParent().Name == "Counter"){
+				GD.Print(targetNode.Name);
+				GD.Print(targetNode.GetParent().Name);
 				Node3D item = (Node3D) targetNode.GetParent().Call("PickUpFromCounter",this);
 				if(item != null){
 					carriedItem = item;
@@ -244,7 +248,8 @@ public partial class playerScript : CharacterBody3D
 		else{
 			carriedItem.Call("Drop");
 			if (targetNode != null){
-				if (targetNode.GetParent().Name == "Counter"){
+				if (targetNode.GetParent().GetNode("counter") != null){
+				//if (targetNode.GetParent().Name == "Counter"){
 					targetNode.GetParent().Call("DropItem",carriedItem,this);
 					carriedItem.GetNode("Interactable").Call("ChangeColour",true,this);
 				}

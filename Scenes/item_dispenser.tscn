@@ -27,4 +27,6 @@ surface_material_override/0 = ExtResource("1_h1j55")
 [node name="Interactable" type="Node3D" parent="Counter/StaticBody3D"]
 script = ExtResource("2_85ubo")
 
-[node name="itemDispenser" type="Node3D" parent="."]
+[node name="itemDispenser" type="Node3D" parent="Counter/StaticBody3D"]
+
+[node name="counter" type="Node3D" parent="Counter"]

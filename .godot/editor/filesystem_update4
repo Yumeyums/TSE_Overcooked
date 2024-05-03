@@ -1,11 +1,13 @@
-res://Scenes/MainScene.tscn
+res://Scenes/pot.tscn
 res://Scripts/itemScript.cs
 res://Scripts/InteractableScript.cs
 res://Scripts/AllCounterScript.cs
 res://Textures/plate.tres
-res://Textures/wood.tres
+res://Textures/hobs.tres
 res://Textures/counter.tres
-res://Scripts/UIScript.cs
+res://Textures/wood.tres
+res://Scenes/ContainerScript.cs
+res://Scenes/MainScene.tscn
 res://Scenes/tomato.tscn
 res://Scenes/counter.tscn
 res://Scenes/chopping_board.tscn
@@ -15,7 +17,6 @@ res://Scenes/item_dispenser.tscn
 res://Scenes/plate.tscn
 res://Scenes/player.tscn
 res://Scenes/rice.tscn
-res://Scenes/pot.tscn
 res://Scenes/pasta.tscn
 res://Scenes/finished_counter.tscn
 res://Scripts/CanBoil.cs
@@ -23,8 +24,10 @@ res://Scripts/CanChop.cs
 res://Scripts/plateScript.cs
 res://Scripts/playerScript.cs
 res://Scripts/PotScript.cs
+res://Scripts/UIScript.cs
 res://Scripts/Unused Old Scripts/ChoppingBoardScript.cs
 res://Scripts/Unused Old Scripts/CounterScript.cs
 res://Scripts/Unused Old Scripts/HobScript.cs
 res://Scripts/Unused Old Scripts/item_dispenser.cs
 res://Scripts/Unused Old Scripts/TimerScript.cs
+res://Scripts/ContainerScript.cs
