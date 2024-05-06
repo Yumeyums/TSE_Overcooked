@@ -64,4 +64,10 @@ public partial class ContainerScript : Node3D
 			items.Add(carriedItem);
 		//}
 	}
+	public string getDish()
+	{
+		return recipes[1];
+	}
 }
+
+

@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Github Desktop\\Repos\\TSE_Overcooked\\TSE_Overcooked.csproj": {}
+    "C:\\Users\\elrin\\OneDrive\\Documents\\GitHub\\TSE_Overcooked1\\TSE_Overcooked.csproj": {}
   },
   "projects": {
-    "D:\\Github Desktop\\Repos\\TSE_Overcooked\\TSE_Overcooked.csproj": {
+    "C:\\Users\\elrin\\OneDrive\\Documents\\GitHub\\TSE_Overcooked1\\TSE_Overcooked.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Github Desktop\\Repos\\TSE_Overcooked\\TSE_Overcooked.csproj",
+        "projectUniqueName": "C:\\Users\\elrin\\OneDrive\\Documents\\GitHub\\TSE_Overcooked1\\TSE_Overcooked.csproj",
         "projectName": "TSE_Overcooked",
-        "projectPath": "D:\\Github Desktop\\Repos\\TSE_Overcooked\\TSE_Overcooked.csproj",
-        "packagesPath": "C:\\Users\\darkn\\.nuget\\packages\\",
-        "outputPath": "D:\\Github Desktop\\Repos\\TSE_Overcooked\\.godot\\mono\\temp\\obj\\",
+        "projectPath": "C:\\Users\\elrin\\OneDrive\\Documents\\GitHub\\TSE_Overcooked1\\TSE_Overcooked.csproj",
+        "packagesPath": "C:\\Users\\elrin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\elrin\\OneDrive\\Documents\\GitHub\\TSE_Overcooked1\\.godot\\mono\\temp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\darkn\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\elrin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -64,26 +64,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[6.0.13, 6.0.13]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[6.0.13, 6.0.13]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[6.0.13, 6.0.13]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100-preview.1.23115.2\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }
