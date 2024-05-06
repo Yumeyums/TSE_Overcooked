@@ -1,15 +1,9 @@
-ID,NAME,INGREDIENT_1,INGREDIENT_2,INGREDIENT_3,INGREDIENT_4 
+ID,NAME,INGREDIENT_1,INGREDIENT_2,INGREDIENT_3,INGREDIENT_4
 0,Spreadsheet,https://docs.google.com/spreadsheets/d/1Dc7u-pxkTkCj4SlXx1eaGLVD4JpbHT2XgA1x_VFpKY8/edit?usp=sharing,,,
-1,Tomato Salad,ChoppedLettuce,ChoppedTomato,,
-2,Cucumber Salad,ChoppedLettuce,ChoppedCucumber,,
-3,T&C Salad,ChoppedLettuce,ChoppedTomato,ChoppedCucumber,
-4,Rice Salad,ChoppedLettuce,BoiledRice,ChoppedTomato,ChoppedCucumber
-5,Tomato Risotto,BoiledRice,ChoppedTomato,,
-6,Tomato Pasta,BoiledPasta,ChoppedTomato,,
-7,Shrimp Pasta,BoiledPasta,ChoppedShrimp,,
-8,Shrimp Fried Rice,FriedRice,FriedShrimp,,
-9,Cucumber Sushi,BoiledRice,Nori,ChoppedCucumber,
-10,Normal Sushi,BoiledRice,Nori,ChoppedCucumber,ChoppedFish
-11,Shrimp Sushi,BoiledRice,Nori,ChoppedCucumber,ChoppedShrimp
-12,Fried Sushi,BoiledRice,Nori,ChoppedCucumber,FriedFish
-13,Fried Fish,FriedFish,,,
+1,Salad,Lettuce,,,
+2,Tomato Salad,Tomato,,,
+3,Pasta in Bianco,Pasta,Tomato,,
+4,Plain Rice,Rice,,,
+5,Tomato Risotto,Rice,Tomato,,
+6,Tomato Pasta,Pasta,Tomato,,
+7,Rich Salad,Lettuce,Tomato,,

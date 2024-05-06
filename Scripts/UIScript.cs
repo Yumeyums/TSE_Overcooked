@@ -243,16 +243,15 @@ public partial class UIScript : Node{
 		
 		
 	}
-	public Variant getOrders(string itemOnCounter)
+	public void getOrders(string itemOnCounter, Node3D iOC, Node counter)
 	{
-		GD.Print("Item on finished counter: ", itemOnCounter);
+		string dishName = "";// = iOC.GetParent().Call("getDish");
 		foreach (var v in OrderList)
 		{
-			if (itemOnCounter == v[1])
+			if (dishName == v[1])
 			{
-				return v[1];
+				counter.Call("takeFood", iOC);
 			}
 		}
-		return "null";
 	}
 }

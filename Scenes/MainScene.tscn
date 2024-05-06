@@ -1,8 +1,9 @@
-[gd_scene load_steps=19 format=3 uid="uid://b13oxrfjwlg6x"]
+[gd_scene load_steps=20 format=3 uid="uid://b13oxrfjwlg6x"]
 
 [ext_resource type="Material" uid="uid://b4g5xtb37kd0b" path="res://Textures/flooring.tres" id="1_2otum"]
 [ext_resource type="PackedScene" uid="uid://c4hh1yw3l66ve" path="res://Scenes/player.tscn" id="1_ecct4"]
 [ext_resource type="PackedScene" uid="uid://de6qbptjxbgk" path="res://Scenes/rice.tscn" id="5_roetk"]
+[ext_resource type="AudioStream" uid="uid://bulgy6m1ryl7w" path="res://Undercooked Music.wav" id="6_e1k63"]
 [ext_resource type="Texture2D" uid="uid://cwloalwvahshb" path="res://Textures/riceTexture.jpg" id="6_e8q7p"]
 [ext_resource type="PackedScene" uid="uid://q3qnab3kenk4" path="res://Scenes/counter.tscn" id="7_vmktg"]
 [ext_resource type="Script" path="res://Scripts/UIScript.cs" id="9_7n7an"]
@@ -147,6 +148,11 @@ Test - 60s
 Test - 60s
 Test - 60s
 Test - 60s"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Control"]
+stream = ExtResource("6_e1k63")
+volume_db = -11.143
+autoplay = true
 
 [node name="Pot" parent="." instance=ExtResource("13_jxth2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2289, 1.10208, 3.60131)

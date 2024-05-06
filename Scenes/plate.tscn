@@ -86,6 +86,8 @@ collision_mask = 7
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0)
 shape = SubResource("CylinderShape3D_a8v6y")
 
+[node name="plate" type="Node3D" parent="."]
+
 [connection signal="body_entered" from="Container/Area3D" to="Container" method="_on_area_3d_body_entered"]
 
 [editable path="Container/RigidBody3D"]
