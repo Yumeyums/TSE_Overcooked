@@ -16,5 +16,6 @@ public partial class item_dispenser : StaticBody3D
 		
 		GD.Print("PickUp called");
 		player.Call("giveItem", item);
+		
 	}
 }

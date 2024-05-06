@@ -1,0 +1,61 @@
+[gd_scene load_steps=4 format=3 uid="uid://b6lgdggwjchej"]
+
+[ext_resource type="Script" path="res://Scripts/menuscript.cs" id="1_gaqf2"]
+[ext_resource type="Texture2D" uid="uid://fg075ka3l05o" path="res://Textures/UndercookedLogo.png" id="2_synv2"]
+[ext_resource type="Texture2D" uid="uid://b0tc2hac0f0uk" path="res://Textures/Chef.png" id="3_nqxjl"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gaqf2")
+
+[node name="MenuOptions" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 168.0
+offset_top = 420.0
+offset_right = 614.0
+offset_bottom = 607.0
+
+[node name="Play" type="Button" parent="MenuOptions"]
+self_modulate = Color(1, 0.454902, 0, 1)
+layout_mode = 2
+size_flags_vertical = 3
+text = "Play"
+
+[node name="Quit" type="Button" parent="MenuOptions"]
+modulate = Color(0, 1, 1, 1)
+layout_mode = 2
+size_flags_vertical = 3
+text = "Quit Game"
+
+[node name="GameLogo" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 791.0
+offset_bottom = 401.0
+
+[node name="TextureRect" type="TextureRect" parent="GameLogo"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("2_synv2")
+expand_mode = 1
+
+[node name="GameArt" type="VBoxContainer" parent="."]
+show_behind_parent = true
+layout_mode = 0
+offset_left = 628.0
+offset_right = 1152.0
+offset_bottom = 645.0
+
+[node name="TextureRect" type="TextureRect" parent="GameArt"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 3
+texture = ExtResource("3_nqxjl")
+expand_mode = 3
+
+[connection signal="pressed" from="MenuOptions/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MenuOptions/Quit" to="." method="_on_quit_pressed"]
