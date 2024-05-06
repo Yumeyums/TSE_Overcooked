@@ -35,7 +35,15 @@ public partial class playerScript : CharacterBody3D
 	public void _on_area_3d_body_entered(Node3D body)
 	{
 		if ((body.GetNode("Interactable") != null)&&(body != carriedItem)){
-			BodiesInRange.Add(body);
+			//BodiesInRange.Add(body);
+			if (carriedItem != null){
+				if ((Node3D)body.Call("getContainer") != carriedItem){
+					BodiesInRange.Add(body);
+				}
+			}
+			else{
+					BodiesInRange.Add(body);
+			}
 		}
 	}
 
@@ -226,14 +234,10 @@ public partial class playerScript : CharacterBody3D
 		GD.Print("Target node: ", targetNode);
 		GD.Print("caried node: ", carriedItem);
 		if(carriedItem == null){ //pick up
-			GD.Print(targetNode.GetParent().GetNode("counter"));
 			if (targetNode.GetParent().GetNode("counter") != null){
-			//if (targetNode.GetParent().Name == "Counter"){
-				GD.Print(targetNode.Name);
-				GD.Print(targetNode.GetParent().Name);
 				Node3D item = (Node3D) targetNode.GetParent().Call("PickUpFromCounter",this);
 				if(item != null){
-					carriedItem = item;
+					//carriedItem = item;
 					removeTargettedItem(carriedItem);
 					carriedItem.GetNode("Interactable").Call("ChangeColour",false,this);
 				}
@@ -252,15 +256,16 @@ public partial class playerScript : CharacterBody3D
 				//if (targetNode.GetParent().Name == "Counter"){
 					targetNode.GetParent().Call("DropItem",carriedItem,this);
 					carriedItem.GetNode("Interactable").Call("ChangeColour",true,this);
+					BodiesInRange.Add(carriedItem);
 				}
 				else if(targetNode.GetParent().Name == "Container"){
-					GD.Print("ahh");
-					GD.Print(targetNode.GetParent().Name);
 					targetNode.GetParent().Call("AddToContainer",carriedItem);
-					GD.Print("cee");
 					}
 			}
-			BodiesInRange.Add(carriedItem);
+			else{
+				BodiesInRange.Add(carriedItem);
+			}
+			//BodiesInRange.Add(carriedItem);
 			carriedItem = null;
 		}
 	}

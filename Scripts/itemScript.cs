@@ -35,19 +35,23 @@ public partial class itemScript : RigidBody3D
 	
 	public void PickUp(Node3D carrier){
 		if (heldBy != null){
-			if (heldBy.GetParent().GetNode("counter") != null){
+			if (heldBy.GetNode("counter") != null){
+			//if (heldBy.GetParent().GetNode("counter") != null){
 			//if (heldBy.Name == "Counter"){
 				heldBy.Call("RemoveFromCounter");
 				heldBy = carrier;
 				this.Sleeping = true;
+				carrier.Call("setCarryItem",this);
 			} 
 			else if(heldBy.Name == "Container") {
+				carrier.Call("setCarryItem",heldBy);
 				heldBy.GetNode("RigidBody3D").Call("PickUp", carrier);
 				//heldBy.Call("PickUp", carrier);
 			} 
 		}
 		else {
 			heldBy = carrier;
+			carrier.Call("setCarryItem",this);
 			this.Sleeping = true;
 		}
 		//GD.Print(this.GetParent().Name, " is held by ", carrier.Name);
