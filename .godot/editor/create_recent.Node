@@ -1,3 +1,7 @@
+TextureRect
+CenterContainer
+VBoxContainer
+Button
 Node3D
 Node
 Label

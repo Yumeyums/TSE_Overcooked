@@ -1,12 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "By+QQtz8g0snm2WSy5S8D9vyGLA3tF4xJhvQdOYPFSU6EQwMJWBhycqHA+Z7hs7tF8wks7v+IYDloDmrRT8Pcg==",
+  "dgSpecHash": "IMsOfw46iYOw1rnzIdE652QiukBR8MLoiok+73N3tCb3roX9SFuAtdUiafmv/uk9LG7e+fZ46Ci6RAIMPkVAkQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\elrin\\OneDrive\\Documents\\GitHub\\TSE_Overcooked\\TSE_Overcooked.csproj",
+  "projectFilePath": "D:\\Github Desktop\\Repos\\TSE_Overcooked\\TSE_Overcooked.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\elrin\\.nuget\\packages\\godot.sourcegenerators\\4.2.1\\godot.sourcegenerators.4.2.1.nupkg.sha512",
-    "C:\\Users\\elrin\\.nuget\\packages\\godotsharp\\4.2.1\\godotsharp.4.2.1.nupkg.sha512",
-    "C:\\Users\\elrin\\.nuget\\packages\\godotsharpeditor\\4.2.1\\godotsharpeditor.4.2.1.nupkg.sha512"
+    "C:\\Users\\darkn\\.nuget\\packages\\godot.sourcegenerators\\4.2.1\\godot.sourcegenerators.4.2.1.nupkg.sha512",
+    "C:\\Users\\darkn\\.nuget\\packages\\godotsharp\\4.2.1\\godotsharp.4.2.1.nupkg.sha512",
+    "C:\\Users\\darkn\\.nuget\\packages\\godotsharpeditor\\4.2.1\\godotsharpeditor.4.2.1.nupkg.sha512",
+    "C:\\Users\\darkn\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.13\\microsoft.netcore.app.ref.6.0.13.nupkg.sha512",
+    "C:\\Users\\darkn\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.13\\microsoft.windowsdesktop.app.ref.6.0.13.nupkg.sha512",
+    "C:\\Users\\darkn\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.13\\microsoft.aspnetcore.app.ref.6.0.13.nupkg.sha512"
   ],
   "logs": []
 }
