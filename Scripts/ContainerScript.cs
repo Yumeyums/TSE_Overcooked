@@ -62,6 +62,7 @@ public partial class ContainerScript : Node3D
 			carriedItem.GlobalPosition = this.GlobalPosition + new Vector3(0f, 0.5f, 0f);
 			carriedItem.GetNode("Interactable").QueueFree();
 			items.Add(carriedItem);
+			
 		//}
 	}
 }

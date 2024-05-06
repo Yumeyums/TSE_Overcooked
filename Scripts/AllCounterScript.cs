@@ -70,7 +70,6 @@ public partial class AllCounterScript : Node3D
 	}
 	
 	public Node3D PickUpFromCounter(Node3D player){
-		GD.Print("hello:",this.Name);
 		if(this.GetNode("StaticBody3D").GetNode("itemDispenser") != null){
 			PackedScene itemcopies = GD.Load<PackedScene>(itemFilePath);
 			Node3D item = itemcopies.Instantiate<Node3D>();
@@ -81,7 +80,7 @@ public partial class AllCounterScript : Node3D
 		}
 		else{
 			if (itemOnCounter != null){
-				GD.Print(itemOnCounter.Name);
+				GD.Print("Pick up from counter",itemOnCounter.GetParent().Name);
 				Node3D temp = itemOnCounter;
 				itemOnCounter.Call("PickUp", player);
 				return temp;
