@@ -1,9 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://rbywxs3f4ayy"]
+[gd_scene load_steps=10 format=3 uid="uid://rbywxs3f4ayy"]
 
 [ext_resource type="PackedScene" uid="uid://cr3jngv5l3jcm" path="res://Scenes/item.tscn" id="1_nldo4"]
 [ext_resource type="Script" path="res://Scripts/ContainerScript.cs" id="1_wblcw"]
 [ext_resource type="Material" uid="uid://c5dnsmb30x0xe" path="res://Textures/plate.tres" id="2_r0bdl"]
-[ext_resource type="Script" path="res://Scripts/PotScript.cs" id="3_v52gb"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hfifw"]
 
@@ -66,6 +65,7 @@ axis_lock_angular_y = true
 axis_lock_angular_z = true
 
 [node name="CollisionShape3D" parent="Container/RigidBody3D" index="0"]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
 shape = SubResource("BoxShape3D_hfifw")
 
 [node name="MeshInstance3D" parent="Container/RigidBody3D" index="1"]
@@ -81,15 +81,14 @@ skeleton = NodePath("")
 [node name="CanOnHob" type="Node3D" parent="Container/RigidBody3D"]
 
 [node name="Area3D" type="Area3D" parent="Container"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.148227, 0)
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0.25, 0)
 collision_layer = 2
 collision_mask = 7
-script = ExtResource("3_v52gb")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Container/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.445178, 0)
 shape = SubResource("CylinderShape3D_h4oxy")
 
-[connection signal="body_entered" from="Container/Area3D" to="Container/Area3D" method="_on_body_entered"]
+[connection signal="body_entered" from="Container/Area3D" to="Container" method="_on_area_3d_body_entered"]
 
 [editable path="Container/RigidBody3D"]

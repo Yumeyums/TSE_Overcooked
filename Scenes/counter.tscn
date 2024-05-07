@@ -168,7 +168,7 @@ mesh = SubResource("ArrayMesh_07fal")
 skeleton = NodePath("")
 
 [node name="Area3D" type="Area3D" parent="."]
-transform = Transform3D(0.5, 0, 0, 0, 0.97, 0, 0, 0, 0.5, 0, 0.284617, 0)
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.245931, 0)
 collision_mask = 7
 script = ExtResource("4_fvx4w")
 
@@ -178,4 +178,5 @@ shape = SubResource("BoxShape3D_ccgru")
 
 [node name="counter" type="Node3D" parent="."]
 
-[connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

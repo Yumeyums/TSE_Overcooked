@@ -7,16 +7,20 @@ public partial class AllCounterScript : Node3D
 	public Node3D itemOnCounter = null;
 	[Export]
 	public string itemFilePath = "res://Scenes/pasta.tscn";
-	
-	
-	public void _on_body_entered(RigidBody3D body)
-	{
-		if (body.GetNode("Interactable") != null && itemOnCounter != null)
+
+private void _on_area_3d_body_entered(RigidBody3D body)
+{
+		if (body.GetNode("Interactable") != null && itemOnCounter == null)
 		{
 			if(GetAllowed(body) == true){
-				body.Sleeping = true;
-				body.GlobalPosition = this.GlobalPosition;
-				itemOnCounter = body;
+				Node3D C = (Node3D) body.Call("getContainer");
+				if((C.Name == "Player1")||(C.Name == "Player2")){
+					C.Call("setCarryItemNull");
+				}
+				DropItem(body,C);
+				//body.Sleeping = true;
+				//body.GlobalPosition = this.GlobalPosition;
+				//itemOnCounter = body;
 			}
 		}
 	}
@@ -70,7 +74,6 @@ public partial class AllCounterScript : Node3D
 	}
 	
 	public Node3D PickUpFromCounter(Node3D player){
-		GD.Print("hello:",this.Name);
 		if(this.GetNode("StaticBody3D").GetNode("itemDispenser") != null){
 			PackedScene itemcopies = GD.Load<PackedScene>(itemFilePath);
 			Node3D item = itemcopies.Instantiate<Node3D>();
@@ -81,7 +84,6 @@ public partial class AllCounterScript : Node3D
 		}
 		else{
 			if (itemOnCounter != null){
-				GD.Print(itemOnCounter.Name);
 				Node3D temp = itemOnCounter;
 				itemOnCounter.Call("PickUp", player);
 				return temp;
@@ -92,9 +94,9 @@ public partial class AllCounterScript : Node3D
 	
 	public void _on_body_exited(RigidBody3D body)
 	{
-		if (body.GetNode("Interactable") != null && itemOnCounter != null)
+		if (body == itemOnCounter)
 		{
-			 itemOnCounter = null;
+			itemOnCounter = null;
 		}
 	}
 	
@@ -112,4 +114,3 @@ public partial class AllCounterScript : Node3D
 		iOC.QueueFree();
 	}
 }
-

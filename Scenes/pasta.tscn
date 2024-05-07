@@ -14,6 +14,8 @@ albedo_texture = ExtResource("2_vlwl2")
 [node name="MeshInstance3D" parent="RigidBody3D" index="1"]
 material_override = SubResource("StandardMaterial3D_uys6u")
 
+[node name="Ingredient" type="Node3D" parent="RigidBody3D"]
+
 [node name="CanBoil" type="Node3D" parent="."]
 script = ExtResource("3_7u6ye")
 

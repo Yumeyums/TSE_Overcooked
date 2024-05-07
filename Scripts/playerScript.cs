@@ -228,6 +228,11 @@ public partial class playerScript : CharacterBody3D
 
 	public void setCarryItem (Node3D item){
 		carriedItem = item;
+		GD.Print(carriedItem.GetParent().Name);
+	}
+	
+	public void setCarryItemNull (){
+		carriedItem = null;
 	}
 	
 	public void InteractWith(){

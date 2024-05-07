@@ -15,4 +15,6 @@ material_override = SubResource("StandardMaterial3D_uq0os")
 
 [node name="CanChop" type="Node3D" parent="RigidBody3D"]
 
+[node name="Ingredient" type="Node3D" parent="RigidBody3D"]
+
 [editable path="RigidBody3D"]

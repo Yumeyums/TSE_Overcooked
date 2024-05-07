@@ -1,12 +1,12 @@
+Node3D
+CollisionShape3D
 AudioStreamPlayer
 TextureRect
 CenterContainer
 VBoxContainer
 Button
-Node3D
 Node
 Label
-CollisionShape3D
 Area3D
 Control
 Timer

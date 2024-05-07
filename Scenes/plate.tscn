@@ -5,6 +5,7 @@
 [ext_resource type="Material" uid="uid://c5dnsmb30x0xe" path="res://Textures/plate.tres" id="2_slky2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8aa1n"]
+size = Vector3(0.7, 0.2, 0.7)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_kcr7u"]
 height = 0.2
@@ -64,7 +65,7 @@ axis_lock_angular_y = true
 axis_lock_angular_z = true
 
 [node name="CollisionShape3D" parent="Container/RigidBody3D" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.275, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
 shape = SubResource("BoxShape3D_8aa1n")
 
 [node name="MeshInstance3D" parent="Container/RigidBody3D" index="1"]
@@ -83,7 +84,7 @@ collision_layer = 2
 collision_mask = 7
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Container/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.0346178, 0.549005, -0.299357)
 shape = SubResource("CylinderShape3D_a8v6y")
 
 [connection signal="body_entered" from="Container/Area3D" to="Container" method="_on_area_3d_body_entered"]

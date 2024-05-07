@@ -42,27 +42,29 @@ public partial class ContainerScript : Node3D
 		return items;
 	}
 	
-	private void _on_area_3d_body_entered(Node3D body)
+	private void _on_area_3d_body_entered(RigidBody3D body)
 	{
+		if ((body.GetNode("Interactable") != null))
+		{
+			Node3D C = (Node3D) body.Call("getContainer");
+			if((C.Name == "Player1")||(C.Name == "Player2")){
+					C.Call("setCarryItemNull");
+				}
+			AddToContainer(body);
+		}
 	}
 	
 	public void AddToContainer(RigidBody3D carriedItem){
-		int recipe = -1;
-		for (int i = 0; i < ingredients.Count; i++){
-			//GD.Print(recipes[i]);
-			for (int e = 0; e < ingredients[i].Count; e++){
-				if(carriedItem.Name == ingredients[i][e]){
-					GD.Print("in container: ", recipes[i]);
-					recipe = i;
-				}
-			}	
-		}
-		//if (recipe > -1){
+		if (carriedItem.GetNode("Ingredient")!= null){
 			carriedItem.Call("DropInto",this);
 			carriedItem.GlobalPosition = this.GlobalPosition + new Vector3(0f, 0.5f, 0f);
 			carriedItem.GetNode("Interactable").QueueFree();
 			items.Add(carriedItem);
-		//}
+			Node3D c = (Node3D)carriedItem.Call("getContainer");
+			if ((c.Name == "Player1")||(c.Name == "Player2")){
+				c.Call("setCarryItem",null);
+			}
+		}
 	}
 	
 	public void getDish(string dish, Node3D iOC, Node counter)
