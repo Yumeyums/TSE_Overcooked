@@ -1,12 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "xB0xNsYJaL5kFTzeslq67prqC8q3zmQPnYgAbwHqlsMvMt6nZM+G34UwFEeUdeMAdY4En6JuE9VfwBfqSbb/Ag==",
+  "dgSpecHash": "XO0HCHeHR86HVnZX9w2Sq8PwULDCP48yhtFHF3fv0ClDItGrNTU8TAI71CjGn7EzQXbVQt6npNEVqT2uE2xfoA==",
   "success": true,
   "projectFilePath": "C:\\Users\\elrin\\OneDrive\\Documents\\GitHub\\TSE_Overcooked1\\TSE_Overcooked.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\elrin\\.nuget\\packages\\godot.sourcegenerators\\4.2.1\\godot.sourcegenerators.4.2.1.nupkg.sha512",
     "C:\\Users\\elrin\\.nuget\\packages\\godotsharp\\4.2.1\\godotsharp.4.2.1.nupkg.sha512",
-    "C:\\Users\\elrin\\.nuget\\packages\\godotsharpeditor\\4.2.1\\godotsharpeditor.4.2.1.nupkg.sha512"
+    "C:\\Users\\elrin\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\6.0.21\\microsoft.netcore.app.runtime.win-x64.6.0.21.nupkg.sha512",
+    "C:\\Users\\elrin\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\6.0.21\\microsoft.windowsdesktop.app.runtime.win-x64.6.0.21.nupkg.sha512",
+    "C:\\Users\\elrin\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\6.0.21\\microsoft.aspnetcore.app.runtime.win-x64.6.0.21.nupkg.sha512"
   ],
   "logs": []
 }

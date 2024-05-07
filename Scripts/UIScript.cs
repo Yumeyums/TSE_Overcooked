@@ -45,7 +45,7 @@ public partial class UIScript : Node{
 		
 		//Used only for Debugging
 		//foreach (var u in Recipes){
-		//	GD.Print(u);
+			//GD.Print(u);
 		//}
 		
 		int maxRecipes = 8;
@@ -53,9 +53,8 @@ public partial class UIScript : Node{
 		var RandomRecipes = new System.Collections.Generic.List<string[]>();
 		
 		var randValue = 0;
-		
 		for(int i=0; i<maxRecipes; i++){
-			randValue = (int)(GD.Randi() % nRecipes - 1);
+			randValue = (int)(GD.Randi() % (nRecipes - 1));
 			//GD.Print(randValue);		//used for debugging
 			RandomRecipes.Add(Recipes[randValue]);
 		}
@@ -90,7 +89,6 @@ public partial class UIScript : Node{
 	}
 	///*
 	public void SetupOrder() {
-		
 		int interval = StartingTime / (OrderList.Count-1); 	//Minus one to avoid one recipe 
 															//appearing as soon as the timer ends.
 		
@@ -222,11 +220,7 @@ public partial class UIScript : Node{
 		
 		StartingTime = 90;
 		RemainingTime = StartingTime;
-		
 		OrderList = randomRecipe();
-		
-		
-		
 		SetupOrder();
 		
 	}
