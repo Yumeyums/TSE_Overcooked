@@ -55,8 +55,7 @@ public partial class AllCounterScript : Node3D
 					GD.Print("on chop");
 				}
 			}
-			else if(this.GetParent().GetNode("finish") != null){ // finish counter
-			//else if(this.GetNode("finish") != null){ // finish counter
+			else if(this.GetParent().GetNode("finish") != null){ // normal counter
 				allowed = true;
 				getOrder(carriedItem);
 				GD.Print("on finishedCounter counter");
@@ -101,17 +100,10 @@ public partial class AllCounterScript : Node3D
 	
 	private void getOrder(Node3D iOC)
 	{
-		//Variant order;
-		//order = GetParent().GetParent().GetParent().GetNode("Control").GetNode("Orders").Call("getOrders", iOC.Name);
-		//GD.Print("iOC: ", iOC.GetParent().Name, "\n order: ", order);
-		//if (iOC.GetParent().GetNode("pasta") != null)
-		//{
-		//	iOC.QueueFree();
-		//}
 		GD.Print("object name: ", iOC.Name);
 		if (iOC.GetParent().GetParent().GetNode("plate") != null)
 		{
-			GetParent().GetParent().GetParent().GetNode("Control").GetNode("Orders").Call("getOrders", iOC, this);
+			GetParent().GetParent().GetParent().GetNode("Control").Call("getOrders", iOC, this);
 		}
 	}
 	
@@ -120,3 +112,4 @@ public partial class AllCounterScript : Node3D
 		iOC.QueueFree();
 	}
 }
+
