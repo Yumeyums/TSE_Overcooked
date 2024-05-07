@@ -52,7 +52,7 @@ public partial class ContainerScript : Node3D
 			//GD.Print(recipes[i]);
 			for (int e = 0; e < ingredients[i].Count; e++){
 				if(carriedItem.Name == ingredients[i][e]){
-					GD.Print(recipes[i]);
+					GD.Print("in container: ", recipes[i]);
 					recipe = i;
 				}
 			}	
@@ -64,9 +64,35 @@ public partial class ContainerScript : Node3D
 			items.Add(carriedItem);
 		//}
 	}
-	public string getDish()
+	
+	public void getDish(string dish, Node3D iOC, Node counter)
 	{
-		return recipes[1];
+		if (checkRecipe(dish))
+		{
+			counter.Call("takeDish", iOC);
+		}
+	}
+	
+	private bool checkRecipe(string dish)
+	{
+		int itemsChecked = 0;
+		foreach (var v in ingredients)
+		{
+			for (int i = 0; i < v.Count; i++)
+			{
+				if(v[i] == items[i].Name)
+				{
+					itemsChecked++;
+				}
+			}
+			
+			if(itemsChecked == v.Count)
+			{
+				return true;
+			}
+		}
+		return false;
+		
 	}
 }
 

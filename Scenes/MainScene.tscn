@@ -151,7 +151,8 @@ Test - 60s"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Control"]
 stream = ExtResource("6_630cm")
-volume_db = -0.11
+volume_db = -1.0
+pitch_scale = 0.99
 autoplay = true
 
 [node name="Pot" parent="." instance=ExtResource("13_jxth2")]
@@ -217,9 +218,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.4, -7)
 
 [node name="Counter16" parent="LevelCounters" instance=ExtResource("7_vmktg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0.4, -7)
-
-[node name="Counter17" parent="LevelCounters" instance=ExtResource("7_vmktg")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7, 0.4, -6)
 
 [node name="Counter18" parent="LevelCounters" instance=ExtResource("7_vmktg")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7, 0.4, -5)
@@ -293,9 +291,6 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6, 0.4
 [node name="Counter41" parent="LevelCounters" instance=ExtResource("7_vmktg")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6, 0.4, -5)
 
-[node name="Counter42" parent="LevelCounters" instance=ExtResource("7_vmktg")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6, 0.4, -6)
-
 [node name="Hob" parent="LevelCounters" instance=ExtResource("12_f28fq")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -7, 0.4, -1)
 
@@ -332,6 +327,18 @@ itemFilePath = "res://Scenes/tomato.tscn"
 [node name="itemDispenser4" parent="LevelCounters" instance=ExtResource("15_xv5qq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.4, 1)
 
+[node name="itemDispenser5" parent="LevelCounters" instance=ExtResource("15_xv5qq")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7, 0.4, -6)
+
+[node name="Counter" parent="LevelCounters/itemDispenser5" index="0"]
+itemFilePath = "res://Scenes/plate.tscn"
+
+[node name="itemDispenser6" parent="LevelCounters" instance=ExtResource("15_xv5qq")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6, 0.4, -6)
+
+[node name="Counter" parent="LevelCounters/itemDispenser6" index="0"]
+itemFilePath = "res://Scenes/plate.tscn"
+
 [node name="finishedCounter" parent="LevelCounters" instance=ExtResource("14_15w7n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, -9)
 
@@ -364,7 +371,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.4, -9)
 [editable path="LevelCounters/Counter14"]
 [editable path="LevelCounters/Counter15"]
 [editable path="LevelCounters/Counter16"]
-[editable path="LevelCounters/Counter17"]
 [editable path="LevelCounters/Counter18"]
 [editable path="LevelCounters/Counter19"]
 [editable path="LevelCounters/Counter20"]
@@ -389,7 +395,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.4, -9)
 [editable path="LevelCounters/Counter39"]
 [editable path="LevelCounters/Counter40"]
 [editable path="LevelCounters/Counter41"]
-[editable path="LevelCounters/Counter42"]
 [editable path="LevelCounters/Hob"]
 [editable path="LevelCounters/Hob/Counter"]
 [editable path="LevelCounters/Hob2"]
@@ -402,3 +407,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.4, -9)
 [editable path="LevelCounters/itemDispenser2"]
 [editable path="LevelCounters/itemDispenser3"]
 [editable path="LevelCounters/itemDispenser4"]
+[editable path="LevelCounters/itemDispenser5"]
+[editable path="LevelCounters/itemDispenser6"]

@@ -1,4 +1,4 @@
-res://Scenes/MainMenu.tscn
+res://Scenes/MainScene.tscn
 res://Scripts/itemScript.cs
 res://Scripts/InteractableScript.cs
 res://Scripts/AllCounterScript.cs
@@ -6,15 +6,15 @@ res://Textures/plate.tres
 res://Textures/hobs.tres
 res://Textures/counter.tres
 res://Textures/wood.tres
-res://Scenes/MainScene.tscn
+res://Scenes/MainMenu.tscn
+res://Scripts/UIScript.cs
+res://Scripts/ContainerScript.cs
 res://Scripts/CanBoil.cs
 res://Scripts/CanChop.cs
-res://Scripts/ContainerScript.cs
 res://Scripts/menuscript.cs
 res://Scripts/plateScript.cs
 res://Scripts/playerScript.cs
 res://Scripts/PotScript.cs
-res://Scripts/UIScript.cs
 res://Scripts/Unused Old Scripts/ChoppingBoardScript.cs
 res://Scripts/Unused Old Scripts/CounterScript.cs
 res://Scripts/Unused Old Scripts/HobScript.cs
