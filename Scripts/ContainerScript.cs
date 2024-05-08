@@ -71,7 +71,7 @@ public partial class ContainerScript : Node3D
 	{
 		if (checkRecipe(dish))
 		{
-			counter.Call("takeDish", iOC);
+			counter.Call("takeFood", iOC);
 		}
 	}
 	
@@ -82,12 +82,11 @@ public partial class ContainerScript : Node3D
 		{
 			for (int i = 0; i < v.Count; i++)
 			{
-				if(v[i] == items[i].Name)
+				if(v[i] == items[i].GetParent().Name)
 				{
 					itemsChecked++;
 				}
 			}
-			
 			if(itemsChecked == v.Count)
 			{
 				return true;
@@ -95,6 +94,14 @@ public partial class ContainerScript : Node3D
 		}
 		return false;
 		
+	}
+	
+	private void Delete(){
+		foreach(Node item in items){
+			item.QueueFree();
+		}
+		GD.Print("Delete");
+		this.QueueFree();
 	}
 }
 

@@ -26,6 +26,7 @@ public partial class itemScript : RigidBody3D
 	
 	public Node3D getContainer(){
 		if(heldBy != null){
+			GD.Print("held by: ", heldBy);
 			return heldBy;
 		}
 		else{

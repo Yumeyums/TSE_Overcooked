@@ -80,15 +80,15 @@ skeleton = NodePath("")
 
 [node name="CanOnHob" type="Node3D" parent="Container/RigidBody3D"]
 
-[node name="Area3D" type="Area3D" parent="Container"]
+[node name="Area3D" type="Area3D" parent="Container/RigidBody3D"]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0.25, 0)
 collision_layer = 2
 collision_mask = 7
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Container/Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Container/RigidBody3D/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.445178, 0)
 shape = SubResource("CylinderShape3D_h4oxy")
 
-[connection signal="body_entered" from="Container/Area3D" to="Container" method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="Container/RigidBody3D/Area3D" to="Container" method="_on_area_3d_body_entered"]
 
 [editable path="Container/RigidBody3D"]

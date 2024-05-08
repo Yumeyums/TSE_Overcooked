@@ -233,6 +233,7 @@ public partial class playerScript : CharacterBody3D
 	
 	public void setCarryItemNull (){
 		carriedItem = null;
+		
 	}
 	
 	public void InteractWith(){

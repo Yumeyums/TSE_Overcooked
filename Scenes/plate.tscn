@@ -79,14 +79,16 @@ transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
 mesh = SubResource("ArrayMesh_ww8b0")
 skeleton = NodePath("")
 
-[node name="Area3D" type="Area3D" parent="Container"]
+[node name="Area3D" type="Area3D" parent="Container/RigidBody3D"]
 collision_layer = 2
 collision_mask = 7
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Container/Area3D"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.0346178, 0.549005, -0.299357)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Container/RigidBody3D/Area3D"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.5, 0)
 shape = SubResource("CylinderShape3D_a8v6y")
 
-[connection signal="body_entered" from="Container/Area3D" to="Container" method="_on_area_3d_body_entered"]
+[node name="plate" type="Node3D" parent="Container"]
+
+[connection signal="body_entered" from="Container/RigidBody3D/Area3D" to="Container" method="_on_area_3d_body_entered"]
 
 [editable path="Container/RigidBody3D"]

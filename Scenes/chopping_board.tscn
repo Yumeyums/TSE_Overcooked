@@ -20,6 +20,7 @@ surface_material_override/0 = ExtResource("3_014nt")
 [node name="Area3D" parent="Counter" index="1"]
 script = ExtResource("4_qw70c")
 
-[node name="chop" type="Node3D" parent="."]
+[node name="chop" type="Node3D" parent="Counter"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
 
 [editable path="Counter"]

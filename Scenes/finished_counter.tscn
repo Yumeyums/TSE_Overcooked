@@ -1,11 +1,23 @@
-[gd_scene load_steps=2 format=3 uid="uid://blasal4pyirge"]
+[gd_scene load_steps=4 format=3 uid="uid://blasal4pyirge"]
 
 [ext_resource type="PackedScene" uid="uid://q3qnab3kenk4" path="res://Scenes/counter.tscn" id="1_gtip6"]
+[ext_resource type="Material" uid="uid://cipmj8y6dm2to" path="res://Textures/blue.tres" id="2_wx5vv"]
+
+[sub_resource type="TextMesh" id="TextMesh_2w0w2"]
+material = ExtResource("2_wx5vv")
+text = "Finish"
+font_size = 30
+uppercase = true
 
 [node name="finishedCounter" type="Node3D"]
 
 [node name="Counter" parent="." instance=ExtResource("1_gtip6")]
 
-[node name="finish" type="Node3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Counter/StaticBody3D" index="3"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 1, 0)
+mesh = SubResource("TextMesh_2w0w2")
+
+[node name="finish" type="Node3D" parent="Counter"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
 
 [editable path="Counter"]

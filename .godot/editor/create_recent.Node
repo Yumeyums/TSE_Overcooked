@@ -1,3 +1,4 @@
+MeshInstance3D
 Node3D
 CollisionShape3D
 AudioStreamPlayer
@@ -10,5 +11,4 @@ Label
 Area3D
 Control
 Timer
-MeshInstance3D
 StaticBody3D

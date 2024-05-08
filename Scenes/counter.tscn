@@ -145,7 +145,7 @@ shadow_mesh = SubResource("ArrayMesh_tx2a5")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ccgru"]
 margin = 0.4
-size = Vector3(2, 1, 2)
+size = Vector3(2, 2, 2)
 
 [node name="Counter" type="Node3D"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
@@ -168,12 +168,12 @@ mesh = SubResource("ArrayMesh_07fal")
 skeleton = NodePath("")
 
 [node name="Area3D" type="Area3D" parent="."]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.245931, 0)
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0.245931, 0)
 collision_mask = 7
 script = ExtResource("4_fvx4w")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000319004, -0.00462353, 0.00237536)
+transform = Transform3D(1, 0, -2.13163e-14, 0, 1, 0, 2.13163e-14, 0, 1, 0.000319004, 0.585219, 0.00237536)
 shape = SubResource("BoxShape3D_ccgru")
 
 [node name="counter" type="Node3D" parent="."]

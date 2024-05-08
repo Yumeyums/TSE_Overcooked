@@ -14,13 +14,13 @@ private void _on_area_3d_body_entered(RigidBody3D body)
 		{
 			if(GetAllowed(body) == true){
 				Node3D C = (Node3D) body.Call("getContainer");
-				if((C.Name == "Player1")||(C.Name == "Player2")){
-					C.Call("setCarryItemNull");
+				if (C != null){
+					if((C.Name == "Player1")||(C.Name == "Player2")){
+						C.Call("setCarryItemNull");
+					}
 				}
+				body.Sleeping = true;
 				DropItem(body,C);
-				//body.Sleeping = true;
-				//body.GlobalPosition = this.GlobalPosition;
-				//itemOnCounter = body;
 			}
 		}
 	}
@@ -53,13 +53,12 @@ private void _on_area_3d_body_entered(RigidBody3D body)
 				}
 			}
 			else if (this.GetNode("chop") != null){ // chopping counter
-				GD.Print("ahhg");
 				if (carriedItem.GetNode("CanChop") != null){
 					allowed = true;
 					GD.Print("on chop");
 				}
 			}
-			else if(this.GetParent().GetNode("finish") != null){ // normal counter
+			else if(this.GetNode("finish") != null){ // normal counter
 				allowed = true;
 				getOrder(carriedItem);
 				GD.Print("on finishedCounter counter");
@@ -103,7 +102,7 @@ private void _on_area_3d_body_entered(RigidBody3D body)
 	private void getOrder(Node3D iOC)
 	{
 		GD.Print("object name: ", iOC.Name);
-		if (iOC.GetParent().GetParent().GetNode("plate") != null)
+		if (iOC.GetParent().GetNode("plate") != null)
 		{
 			GetParent().GetParent().GetParent().GetNode("Control").Call("getOrders", iOC, this);
 		}
@@ -111,6 +110,6 @@ private void _on_area_3d_body_entered(RigidBody3D body)
 	
 	public void takeFood(Node3D iOC)
 	{
-		iOC.QueueFree();
+		iOC.GetParent().Call("Delete");
 	}
 }
