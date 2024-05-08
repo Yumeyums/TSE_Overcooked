@@ -58,11 +58,6 @@ public partial class playerScript : CharacterBody3D
 			if (BodiesInRange.Count == 0){
 				changeTarget(null, targetNode);
 			}
-			else{
-				if(targetNode != BodiesInRange[0]){
-					changeTarget(BodiesInRange[0], targetNode);
-				}
-			}
 		}
 	}
 

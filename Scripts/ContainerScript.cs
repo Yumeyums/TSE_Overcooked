@@ -4,11 +4,10 @@ using System;
 public partial class ContainerScript : Node3D
 {
 	[Export]
-	public Godot.Collections.Array<Node3D> items = new Godot.Collections.Array<Node3D>();
-	string[] recipeData;
+	private Godot.Collections.Array<Node3D> items = new Godot.Collections.Array<Node3D>();
+	private string[] recipeData;
 	private Godot.Collections.Array<String> recipes = new Godot.Collections.Array<String>();
-	//public Godot.Collections.Array<String> ingredients = new Godot.Collections.Array<String>();
-	public Godot.Collections.Array<Godot.Collections.Array<String>> ingredients = new Godot.Collections.Array<Godot.Collections.Array<String>>();
+	private Godot.Collections.Array<Godot.Collections.Array<String>> ingredients = new Godot.Collections.Array<Godot.Collections.Array<String>>();
 	
 	public override void _Ready(){
 		string fileName = "res://Scripts/recipes.txt";		//Filename Label
@@ -25,9 +24,9 @@ public partial class ContainerScript : Node3D
 						ingredientList.Add(recipeData[e]);
 					}
 				}
-				ingredients.Add(ingredientList);
 			}
 		}
+		GD.Print(ingredients);
 	}
 	
 	public int GetPositionInItems(Node node){

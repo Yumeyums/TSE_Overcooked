@@ -19,6 +19,4 @@ material_override = SubResource("StandardMaterial3D_uys6u")
 [node name="CanBoil" type="Node3D" parent="."]
 script = ExtResource("3_7u6ye")
 
-[node name="pasta" type="Node3D" parent="."]
-
 [editable path="RigidBody3D"]
