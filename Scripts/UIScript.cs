@@ -84,6 +84,7 @@ public partial class UIScript : Node{
 			
 		} else {
 			GD.Print("Insert Timeout");
+			GetTree().Quit();
 		}
 		
 	}

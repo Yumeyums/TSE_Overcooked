@@ -24,9 +24,9 @@ public partial class ContainerScript : Node3D
 						ingredientList.Add(recipeData[e]);
 					}
 				}
+				ingredients.Add(ingredientList);
 			}
 		}
-		GD.Print(ingredients);
 	}
 	
 	public int GetPositionInItems(Node node){
@@ -68,6 +68,7 @@ public partial class ContainerScript : Node3D
 	
 	public void getDish(string dish, Node3D iOC, Node counter)
 	{
+		GD.Print("1");
 		if (checkRecipe(dish))
 		{
 			counter.Call("takeFood", iOC);
@@ -76,13 +77,17 @@ public partial class ContainerScript : Node3D
 	
 	private bool checkRecipe(string dish)
 	{
+		GD.Print("2");
 		int itemsChecked = 0;
+		GD.Print("len: ",ingredients.Count);
 		foreach (var v in ingredients)
 		{
+			GD.Print(v);
 			for (int i = 0; i < v.Count; i++)
 			{
 				if(v[i] == items[i].GetParent().Name)
 				{
+					GD.Print(v[i]);
 					itemsChecked++;
 				}
 			}
